@@ -13,5 +13,6 @@
   "temperature": {
     "indoor": 25.0,
     "outdoor": 35.0
-  }
+  },
+  "units": "standard"
 }

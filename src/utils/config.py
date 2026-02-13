@@ -8,6 +8,7 @@ DEFAULTS = {
     "grid": {"x": 32, "y": 32, "z": 16},
     "room": {"width": 3.0, "length": 3.0, "height": 3.0},
     "temperature": {"indoor": 25.0, "outdoor": 35.0},
+    "units": "standard",
 }
 
 

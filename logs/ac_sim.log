@@ -6,3 +6,334 @@ INFO: Main: AC Sim starting
 INFO: Main: Config loaded: FPS=60, Grid=32x32x16
 DEBUG: Main: Room=3.0x3.0x3.0m, Temp=25.0/35.0C
 INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 4.0x5.0x2.8m
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(0.5, 0.8) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: vent created: pos=(1.5, 2.5) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to south wall
+DEBUG: Models: Settings init: in=24.0C out=32.0C AC=ON
+INFO: Models: Scene saved: /var/folders/l7/91bpbvrx1zz5kgcrwyc2zpg40000gn/T/test_scene.json
+DEBUG: Models: Room init: 4.0x5.0x2.8m
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: vent created: pos=(1.5, 2.5) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to south wall
+DEBUG: Models: window created: pos=(0.5, 0.8) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to east wall
+INFO: Models: Room loaded: 4.0x5.0x2.8m
+DEBUG: Models: Settings init: in=24.0C out=32.0C AC=ON
+INFO: Models: Scene loaded: /var/folders/l7/91bpbvrx1zz5kgcrwyc2zpg40000gn/T/test_scene.json
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Main: Room=3.0x3.0x3.0m, Temp=25.0/35.0C
+DEBUG: Models: Room init: 5.0x4.0x3.0m
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(0.5, 0.8) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: vent created: pos=(2.0, 2.5) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to south wall
+DEBUG: Models: Settings init: in=24.0C out=32.0C AC=ON
+INFO: Main: Test scene JSON:
+{
+  "temp_indoor": 24.0,
+  "temp_outdoor": 32.0,
+  "ac_on": true,
+  "ac_temp": 22.0,
+  "ac_speed": 2.0,
+  "fan_on": false,
+  "fan_speed": 1.0,
+  "room": {
+    "width": 5.0,
+    "length": 4.0,
+    "height": 3.0,
+    "walls": {
+      "north": [
+        {
+          "type": "door",
+          "pos": [
+            1.0,
+            0.0
+          ],
+          "size": [
+            0.9,
+            2.1
+          ],
+          "open_frac": 0.5
+        }
+      ],
+      "south": [
+        {
+          "type": "vent",
+          "pos": [
+            2.0,
+            2.5
+          ],
+          "size": [
+            0.3,
+            0.3
+          ],
+          "open_frac": 1.0
+        }
+      ],
+      "east": [
+        {
+          "type": "window",
+          "pos": [
+            0.5,
+            0.8
+          ],
+          "size": [
+            1.2,
+            1.0
+          ],
+          "open_frac": 0.3
+        }
+      ],
+      "west": [],
+      "floor": [],
+      "ceiling": []
+    }
+  }
+}
+DEBUG: Models: Room init: 5.0x4.0x3.0m
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: vent created: pos=(2.0, 2.5) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to south wall
+DEBUG: Models: window created: pos=(0.5, 0.8) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to east wall
+INFO: Models: Room loaded: 5.0x4.0x3.0m
+DEBUG: Models: Settings init: in=24.0C out=32.0C AC=ON
+INFO: Main: Models round-trip OK
+INFO: Main: AC Sim ready
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Main: Room=3.0x3.0x3.0m, Temp=25.0/35.0C
+DEBUG: Models: Room init: 5.0x4.0x3.0m
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(0.5, 0.8) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: vent created: pos=(2.0, 2.5) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to south wall
+DEBUG: Models: Settings init: in=24.0C out=32.0C AC=ON
+INFO: Main: Test scene JSON:
+{
+  "temp_indoor": 24.0,
+  "temp_outdoor": 32.0,
+  "ac_on": true,
+  "ac_temp": 22.0,
+  "ac_speed": 2.0,
+  "fan_on": false,
+  "fan_speed": 1.0,
+  "room": {
+    "width": 5.0,
+    "length": 4.0,
+    "height": 3.0,
+    "walls": {
+      "north": [
+        {
+          "type": "door",
+          "pos": [
+            1.0,
+            0.0
+          ],
+          "size": [
+            0.9,
+            2.1
+          ],
+          "open_frac": 0.5
+        }
+      ],
+      "south": [
+        {
+          "type": "vent",
+          "pos": [
+            2.0,
+            2.5
+          ],
+          "size": [
+            0.3,
+            0.3
+          ],
+          "open_frac": 1.0
+        }
+      ],
+      "east": [
+        {
+          "type": "window",
+          "pos": [
+            0.5,
+            0.8
+          ],
+          "size": [
+            1.2,
+            1.0
+          ],
+          "open_frac": 0.3
+        }
+      ],
+      "west": [],
+      "floor": [],
+      "ceiling": []
+    }
+  }
+}
+DEBUG: Models: Room init: 5.0x4.0x3.0m
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: vent created: pos=(2.0, 2.5) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to south wall
+DEBUG: Models: window created: pos=(0.5, 0.8) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to east wall
+INFO: Models: Room loaded: 5.0x4.0x3.0m
+DEBUG: Models: Settings init: in=24.0C out=32.0C AC=ON
+INFO: Main: Models round-trip OK
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created
+INFO: UI: RoomEditor UI built
+INFO: Main: AC Sim ready
+INFO: UI: Room dims updated: 10.3x3.0x3.0m
+INFO: UI: Room dims updated: 10.3x9.5x3.0m
+INFO: UI: Room dims updated: 10.3x12.5x3.0m
+INFO: UI: Room dims updated: 10.3x7.3x3.0m
+INFO: UI: Room dims updated: 10.3x7.3x5.7m
+INFO: UI: Room dims updated: 10.3x7.3x7.1m
+DEBUG: Models: door created: pos=(1.0, 1.5) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Placed door on north at (1.00, 1.50)
+DEBUG: Models: door created: pos=(1.5, 2.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Placed door on north at (1.50, 2.00)
+DEBUG: Models: door created: pos=(1.75, 2.5) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Placed door on north at (1.75, 2.50)
+INFO: UI: Cleared north wall
+INFO: UI: Room dims updated: 10.3x10.1x7.1m
+INFO: UI: Room dims updated: 10.3x8.3x7.1m
+INFO: UI: Room dims updated: 10.3x8.3x7.0m
+INFO: UI: Room dims updated: 10.3x8.3x7.0m
+INFO: UI: Room dims updated: 10.3x8.3x6.9m
+INFO: UI: Room dims updated: 10.3x8.3x6.8m
+INFO: UI: Room dims updated: 10.3x8.3x6.7m
+INFO: UI: Room dims updated: 10.3x8.3x6.8m
+INFO: UI: Room dims updated: 10.3x8.3x6.9m
+INFO: UI: Room dims updated: 10.3x8.3x7.0m
+INFO: UI: Room dims updated: 10.3x8.3x7.0m
+INFO: UI: Room dims updated: 10.3x8.3x7.1m
+INFO: UI: Room dims updated: 10.3x8.3x7.2m
+INFO: UI: Room dims updated: 10.3x8.3x7.2m
+INFO: UI: Room dims updated: 10.3x8.3x7.3m
+INFO: UI: Room dims updated: 10.3x8.3x7.4m
+INFO: UI: Room dims updated: 10.3x8.3x7.4m
+INFO: UI: Room dims updated: 10.3x8.3x7.5m
+INFO: UI: Room dims updated: 10.3x8.3x7.6m
+INFO: UI: Room dims updated: 10.3x8.3x7.7m
+INFO: UI: Room dims updated: 10.3x8.3x7.7m
+DEBUG: Models: door created: pos=(1.5, 5.5) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Placed door on north at (1.50, 5.50)
+INFO: UI: Room dims updated: 10.3x8.3x4.7m
+INFO: UI: Room dims updated: 10.3x8.3x4.8m
+INFO: UI: Room dims updated: 10.3x8.3x4.8m
+INFO: UI: Room dims updated: 10.3x8.3x4.9m
+INFO: UI: Room dims updated: 10.3x8.3x5.0m
+INFO: UI: Room dims updated: 10.3x8.3x5.0m
+INFO: UI: Room dims updated: 10.3x8.3x5.1m
+INFO: UI: Room dims updated: 10.3x8.3x5.2m
+INFO: UI: Room dims updated: 10.3x8.3x5.3m
+INFO: UI: Room dims updated: 10.3x8.3x5.3m
+INFO: UI: Room dims updated: 10.3x8.3x5.4m
+INFO: UI: Room dims updated: 10.3x8.3x5.5m
+INFO: UI: Room dims updated: 10.3x8.3x5.5m
+INFO: UI: Room dims updated: 10.3x8.3x5.6m
+INFO: UI: Room dims updated: 10.3x8.3x5.7m
+INFO: UI: Room dims updated: 10.3x8.3x5.7m
+INFO: UI: Room dims updated: 10.3x8.3x5.9m
+INFO: UI: Room dims updated: 10.3x8.3x6.0m
+INFO: UI: Room dims updated: 10.3x8.3x6.0m
+INFO: UI: Room dims updated: 10.3x8.3x6.1m
+INFO: UI: Room dims updated: 10.3x8.3x6.2m
+INFO: UI: Room dims updated: 10.3x8.3x6.2m
+INFO: UI: Room dims updated: 10.3x8.3x6.3m
+INFO: UI: Room dims updated: 10.3x8.3x6.4m
+INFO: UI: Room dims updated: 10.3x8.3x6.5m
+INFO: UI: Room dims updated: 10.3x8.3x6.5m
+INFO: UI: Room dims updated: 10.3x8.3x6.6m
+INFO: UI: Room dims updated: 10.3x8.3x6.7m
+INFO: UI: Room dims updated: 10.3x8.3x6.7m
+INFO: UI: Room dims updated: 10.3x8.3x6.8m
+INFO: UI: Room dims updated: 10.3x8.3x6.9m
+INFO: UI: Room dims updated: 10.3x8.3x7.0m
+INFO: UI: Room dims updated: 10.3x8.3x7.0m
+INFO: UI: Room dims updated: 10.3x8.3x7.1m
+INFO: UI: Room dims updated: 10.3x8.3x7.2m
+INFO: UI: Room dims updated: 10.3x8.3x7.2m
+INFO: UI: Room dims updated: 10.3x8.3x7.3m
+INFO: UI: Room dims updated: 10.3x8.3x7.4m
+INFO: UI: Room dims updated: 10.3x8.3x7.4m
+INFO: UI: Room dims updated: 10.3x8.3x7.5m
+INFO: UI: Room dims updated: 10.3x8.3x7.6m
+INFO: UI: Room dims updated: 10.3x8.3x7.7m
+INFO: UI: Room dims updated: 10.3x8.3x7.7m
+INFO: UI: Room dims updated: 10.3x8.3x7.8m
+INFO: UI: Room dims updated: 10.3x8.3x7.9m
+INFO: UI: Room dims updated: 10.3x8.3x7.9m
+INFO: UI: Room dims updated: 10.3x8.3x8.0m
+INFO: UI: Room dims updated: 10.3x8.3x7.9m
+INFO: UI: Room dims updated: 10.3x8.3x7.9m
+INFO: UI: Room dims updated: 10.3x8.3x7.8m
+INFO: UI: Room dims updated: 10.3x8.3x7.7m
+DEBUG: UI: Active wall: east
+INFO: UI: Switched to 3D preview
+INFO: UI: Switched to 2D editor
+INFO: UI: Switched to 3D preview
+INFO: UI: Switched to 2D editor
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created
+DEBUG: Models: Room init: 5.0x4.0x3.0m
+DEBUG: Models: door created: pos=(4.0, 0.5) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(0, 0) size=(1.2, 1.0) open=30%
+DEBUG: Models: Added window to north wall
+INFO: UI: Removed door from north (no longer fits)
+INFO: UI: Removed window from north (no longer fits)
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created
+INFO: UI: RoomEditor UI built
+INFO: Main: AC Sim ready
+DEBUG: UI: Edge popup: length = 3.0
+INFO: UI: Edge updated: length = 3.10
+DEBUG: UI: Edge popup: length = 3.1
+INFO: UI: Edge updated: length = 3.10
+DEBUG: UI: Element type: door
+DEBUG: Models: door created: pos=(2.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to west wall
+INFO: UI: Placed door on west at (2.00, 1.00)
+INFO: UI: Switched to 3D preview
+INFO: UI: Switched to 2D editor
+DEBUG: UI: Element type: window
+DEBUG: Models: window created: pos=(1.0, 1.25) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to east wall
+INFO: UI: Placed window on east at (1.00, 1.25)
+DEBUG: UI: Element type: door
+DEBUG: Models: door created: pos=(0.75, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to south wall
+INFO: UI: Placed door on south at (0.75, 1.00)
+DEBUG: Models: door created: pos=(2.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Placed door on north at (2.00, 1.00)
+INFO: UI: Ceiling shown
+INFO: UI: Ceiling hidden
+INFO: UI: Switched to 3D preview
+INFO: UI: Switched to 2D editor
