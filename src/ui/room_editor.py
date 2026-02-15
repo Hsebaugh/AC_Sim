@@ -101,6 +101,10 @@ class RoomEditor:
         self._rects: dict[str, tuple[float, float, float, float]] = {}
         self._sc: float = 1.0
 
+        # Cross-panel sync callbacks (set by main.py)
+        self.on_units_changed: Any = None
+        self.on_room_changed: Any = None
+
         logger.info("RoomEditor created (units=%s)", self._units)
 
     # ── unit helpers ───────────────────────────────────────────────────────
@@ -666,6 +670,8 @@ class RoomEditor:
     def _on_units_changed(self, sender: Any, app_data: str) -> None:
         self._units = "standard" if "Standard" in app_data else "metric"
         logger.info("Units changed: %s", self._units)
+        if callable(self.on_units_changed):
+            self.on_units_changed(self._units)
         self._refresh()
 
     def _refresh(self) -> None:
@@ -809,6 +815,8 @@ class RoomEditor:
             total = sum(len(v) for v in self.room.walls.values())
             logger.info("Room loaded: %s (%d elements)", path, total)
             dpg.set_value(self._txt_info, f"Loaded: {path}")
+            if callable(self.on_room_changed):
+                self.on_room_changed()
             self._refresh()
         except Exception:
             logger.exception("Room load failed")

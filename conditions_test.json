@@ -1,0 +1,10 @@
+{
+  "temp_indoor": 22.22222222222222,
+  "temp_outdoor": 25.555555555555557,
+  "ac_on": true,
+  "ac_temp": 18.66666581895616,
+  "ac_speed": 2.0,
+  "fan_on": false,
+  "fan_speed": 1.0,
+  "units": "standard"
+}

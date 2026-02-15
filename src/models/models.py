@@ -18,9 +18,19 @@ WALL_NAMES = ("north", "south", "east", "west", "floor", "ceiling")
 # Unit systems (display-only; internal values always in metres)
 # ---------------------------------------------------------------------------
 UNIT_SYSTEMS: dict[str, dict[str, Any]] = {
-    "metric":   {"label": "m",  "factor": 1.0},
-    "standard": {"label": "ft", "factor": 3.28084},
+    "metric":   {"label": "m",  "factor": 1.0,     "temp": "\u00b0C"},
+    "standard": {"label": "ft", "factor": 3.28084, "temp": "\u00b0F"},
 }
+
+
+def c_to_f(c: float) -> float:
+    """Celsius to Fahrenheit."""
+    return c * 9.0 / 5.0 + 32.0
+
+
+def f_to_c(f: float) -> float:
+    """Fahrenheit to Celsius."""
+    return (f - 32.0) * 5.0 / 9.0
 
 # ---------------------------------------------------------------------------
 # Abstract element base
@@ -68,11 +78,14 @@ class RoomElement(ABC):
         if cls is None:
             logger.error("Unknown element type: %s", d["type"])
             raise ValueError(f"Unknown element type: {d['type']}")
-        return cls(
-            pos=tuple(d["pos"]),
-            size=tuple(d["size"]),
-            open_frac=d.get("open_frac", 0.0),
-        )
+        kwargs: dict[str, Any] = {
+            "pos": tuple(d["pos"]),
+            "size": tuple(d["size"]),
+            "open_frac": d.get("open_frac", 0.0),
+        }
+        if d["type"] == "window":
+            kwargs["open_from"] = d.get("open_from", "bottom")
+        return cls(**kwargs)
 
 
 # ---------------------------------------------------------------------------
@@ -87,9 +100,24 @@ class Door(RoomElement):
 
 
 class Window(RoomElement):
+    def __init__(
+        self,
+        pos: tuple[float, float],
+        size: tuple[float, float],
+        open_frac: float = 0.0,
+        open_from: str = "bottom",
+    ) -> None:
+        super().__init__(pos, size, open_frac)
+        self.open_from = open_from
+
     @property
     def element_type(self) -> str:
         return "window"
+
+    def to_dict(self) -> dict[str, Any]:
+        d = super().to_dict()
+        d["open_from"] = self.open_from
+        return d
 
 
 class Vent(RoomElement):
