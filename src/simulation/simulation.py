@@ -434,6 +434,10 @@ class Solver(BaseSolver):
         # 7. Enforce boundary conditions
         self._enforce_boundaries()
 
+    def expose_vel_temp(self) -> tuple[torch.Tensor, torch.Tensor]:
+        """Return (velocity, temperature) tensors for visualisation."""
+        return self._vel, self._temp
+
     # -- utilities -----------------------------------------------------------
 
     def stats(self) -> dict[str, float]:

@@ -34,6 +34,8 @@ _COLD = (30, 100, 255)
 _WARM = (255, 230, 50)
 _HOT = (255, 40, 30)
 
+_VEL_THRESHOLD = 1e-6   # draw arrows for any non-zero velocity
+
 ELEM_COLORS = {
     "door": (230, 160, 50, 100),
     "window": (80, 180, 255, 100),
@@ -117,7 +119,7 @@ class AirflowRenderer(BaseRenderer):
         # Sub-sampling step (LOD) and hard cap
         self._skip = max(1, min(nx, ny) // 8)
         self._max_arrows = 512
-        self._render_every = 3   # render every N calls
+        self._render_every = 1   # render every frame
         self._frame = 0
 
         # Camera state
@@ -319,6 +321,22 @@ class AirflowRenderer(BaseRenderer):
                     parent=self._room_layer,
                 )
 
+    # -- sampling helpers ----------------------------------------------------
+
+    def _sample_indices(
+        self, nz: int, ny: int, nx: int,
+    ) -> tuple[list[int], list[int], list[int]]:
+        """Sample indices that include boundary cells (grid edges).
+
+        Without this, ``::skip`` misses the far-edge walls (north, east,
+        ceiling) and the AC vent at ``z = nz-1``.
+        """
+        skip = self._skip
+        z = sorted(set(range(0, nz, skip)) | {nz - 1})
+        y = sorted(set(range(0, ny, skip)) | {ny - 1})
+        x = sorted(set(range(0, nx, skip)) | {nx - 1})
+        return z, y, x
+
     # -- arrow rendering -----------------------------------------------------
 
     def render(self, solver: Any) -> None:
@@ -338,28 +356,42 @@ class AirflowRenderer(BaseRenderer):
             self._draw_hud(0)
             return
 
-        vel = solver.velocity       # (3, Nz, Ny, Nx) torch tensor
-        temp = solver.temperature   # (Nz, Ny, Nx) torch tensor
+        vel, temp = solver.expose_vel_temp()
         nz, ny, nx = temp.shape
         W, L, H = room.width, room.length, room.height
         dx_cell, dy_cell, dz_cell = W / nx, L / ny, H / nz
-        skip = self._skip
 
-        # Subsample → CPU numpy
-        vel_sub = vel[:, ::skip, ::skip, ::skip].cpu().numpy()
-        temp_sub = temp[::skip, ::skip, ::skip].cpu().numpy()
+        # Subsample with boundary-inclusive indices so we never miss
+        # wall-face / AC-vent cells (the old ::skip missed z=nz-1 etc.)
+        z_idx, y_idx, x_idx = self._sample_indices(nz, ny, nx)
+        vel_sub = vel[:, z_idx][:, :, y_idx][:, :, :, x_idx].cpu().numpy()
+        temp_sub = temp[z_idx][:, y_idx][:, :, x_idx].cpu().numpy()
         snz, sny, snx = temp_sub.shape
+        z_arr = np.array(z_idx)
+        y_arr = np.array(y_idx)
+        x_arr = np.array(x_idx)
 
         # Speed magnitude (flat)
         speed = np.sqrt(
             vel_sub[0] ** 2 + vel_sub[1] ** 2 + vel_sub[2] ** 2,
         ).ravel()
 
-        # Filter out near-zero velocities
-        mask = speed > 1e-4
+        logger.debug(
+            "Render: samples=%d vel min=%.6f avg=%.6f max=%.6f",
+            speed.size, float(speed.min()), float(speed.mean()),
+            float(speed.max()),
+        )
+
+        # Filter by velocity threshold
+        mask = speed > _VEL_THRESHOLD
         indices = np.where(mask)[0]
 
         if len(indices) == 0:
+            logger.warning(
+                "Render: No arrows — vel max=%.6f. "
+                "Open elements or enable AC/fan?",
+                float(speed.max()),
+            )
             self._draw_hud(0)
             return
 
@@ -370,13 +402,13 @@ class AirflowRenderer(BaseRenderer):
             )[-self._max_arrows:]
             indices = indices[top]
 
-        # Unravel to 3D sub-grid indices
-        iz, iy, ix = np.unravel_index(indices, (snz, sny, snx))
-
-        # World positions (cell centres)
-        wx = (ix * skip + skip * 0.5) * dx_cell
-        wy = (iy * skip + skip * 0.5) * dy_cell
-        wz = (iz * skip + skip * 0.5) * dz_cell
+        # Unravel to 3D sub-grid indices, then map to actual grid indices
+        iz_sub, iy_sub, ix_sub = np.unravel_index(
+            indices, (snz, sny, snx),
+        )
+        wx = (x_arr[ix_sub] + 0.5) * dx_cell
+        wy = (y_arr[iy_sub] + 0.5) * dy_cell
+        wz = (z_arr[iz_sub] + 0.5) * dz_cell
 
         # Velocities at sample points
         vx = vel_sub[0].ravel()[indices]
@@ -415,8 +447,8 @@ class AirflowRenderer(BaseRenderer):
                 (float(tip_x[i]), float(tip_y[i])),
                 (float(sx[i]), float(sy[i])),
                 color=(r, g, b, a),
-                thickness=1,
-                size=4,
+                thickness=2,
+                size=5,
                 parent=self._arrow_layer,
             )
 
@@ -424,8 +456,8 @@ class AirflowRenderer(BaseRenderer):
         self._draw_hud(n)
         self._draw_colorbar(t_lo, t_hi)
 
-        # Periodic log
-        if self._frame % (self._render_every * 60) == 0:
+        logger.debug("Render: drew %d arrows", n)
+        if self._frame % 60 == 0:
             logger.info(
                 "Render: arrows=%d, skip=%d, scale=%.0f",
                 n, self._skip, self._arrow_scale,

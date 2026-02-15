@@ -1,0 +1,131 @@
+{
+  "width": 3.0,
+  "length": 4.572,
+  "height": 3.0,
+  "walls": {
+    "north": [],
+    "south": [
+      {
+        "type": "window",
+        "pos": [
+          1.75,
+          1.5
+        ],
+        "size": [
+          1.2,
+          1.0
+        ],
+        "open_frac": 0.0,
+        "open_from": "bottom"
+      },
+      {
+        "type": "window",
+        "pos": [
+          1.75,
+          0.5
+        ],
+        "size": [
+          1.2,
+          1.0
+        ],
+        "open_frac": 1.0,
+        "open_from": "bottom"
+      }
+    ],
+    "east": [
+      {
+        "type": "window",
+        "pos": [
+          1.5,
+          3.25
+        ],
+        "size": [
+          1.0,
+          1.2
+        ],
+        "open_frac": 0.5,
+        "open_from": "bottom"
+      },
+      {
+        "type": "window",
+        "pos": [
+          0.5,
+          3.25
+        ],
+        "size": [
+          1.0,
+          1.2
+        ],
+        "open_frac": 1.0,
+        "open_from": "bottom"
+      },
+      {
+        "type": "window",
+        "pos": [
+          0.5,
+          0.25
+        ],
+        "size": [
+          1.0,
+          1.2
+        ],
+        "open_frac": 1.0,
+        "open_from": "bottom"
+      },
+      {
+        "type": "window",
+        "pos": [
+          1.5,
+          0.25
+        ],
+        "size": [
+          1.0,
+          1.2
+        ],
+        "open_frac": 0.0,
+        "open_from": "bottom"
+      }
+    ],
+    "west": [
+      {
+        "type": "door",
+        "pos": [
+          1.0,
+          3.0
+        ],
+        "size": [
+          2.1,
+          0.9
+        ],
+        "open_frac": 1.0
+      },
+      {
+        "type": "door",
+        "pos": [
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.1,
+          0.9
+        ],
+        "open_frac": 0.0
+      }
+    ],
+    "floor": [],
+    "ceiling": [
+      {
+        "type": "vent",
+        "pos": [
+          2.0,
+          3.0
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "open_frac": 1.0
+      }
+    ]
+  }
+}
