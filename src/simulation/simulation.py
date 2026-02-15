@@ -140,6 +140,11 @@ class Solver(BaseSolver):
     def shape(self) -> tuple[int, int, int]:
         return (self._nz, self._ny, self._nx)
 
+    @property
+    def cell_size(self) -> tuple[float, float, float]:
+        """Cell dimensions (dx, dy, dz) in metres."""
+        return (self._dx, self._dy, self._dz)
+
     # -- boundary construction -----------------------------------------------
 
     def _build_wall_mask(self) -> torch.Tensor:

@@ -12,6 +12,7 @@ from models.models import Settings
 from ui.room_editor import RoomEditor
 from ui.conditions import ConditionsPanel
 from simulation.simulation import Solver
+from simulation.rendering import AirflowRenderer
 
 logger = setup_logger("Main")
 
@@ -39,8 +40,8 @@ def main():
     dpg.create_context()
     dpg.create_viewport(
         title="AC Sim",
-        width=1300,
-        height=600,
+        width=1400,
+        height=1000,
         resizable=True,
     )
 
@@ -63,9 +64,13 @@ def main():
     log_interval = target_fps * 5  # log stats every 5 seconds
     frame_count = 0
 
+    # -- renderer ------------------------------------------------------------
+    renderer = AirflowRenderer(settings=settings, config=config)
+
     def _init_solver() -> Solver:
         nonlocal solver
         solver = Solver(settings=settings, config=config)
+        renderer.invalidate_room()
         logger.info(
             "Solver created: res=%dx%dx%d, FPS target=%d",
             *solver.shape, target_fps,
@@ -113,6 +118,10 @@ def main():
         dpg.add_text("Avg Temp: --", tag="sim_avg_temp")
         dpg.add_text("Max Vel: --", tag="sim_max_vel")
 
+    # -- render viewport (below main row) ------------------------------------
+    dpg.add_separator(parent="primary")
+    renderer.build(parent="primary")
+
     # -- cross-panel sync ----------------------------------------------------
     def sync_units(new_units: str) -> None:
         settings.units = new_units
@@ -121,6 +130,7 @@ def main():
     def sync_room() -> None:
         settings.room = editor.room
         conditions.refresh()
+        renderer.invalidate_room()
 
     editor.on_units_changed = sync_units
     editor.on_room_changed = sync_room
@@ -142,6 +152,9 @@ def main():
         if sim_running and solver is not None:
             solver.step(frame_dt)
             frame_count += 1
+
+            # Render airflow visualisation
+            renderer.render(solver)
 
             # Update HUD
             fps = 1.0 / max(dt, 1e-6)

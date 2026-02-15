@@ -337,3 +337,1228 @@ INFO: UI: Ceiling shown
 INFO: UI: Ceiling hidden
 INFO: UI: Switched to 3D preview
 INFO: UI: Switched to 2D editor
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: Main: AC Sim ready
+DEBUG: Models: door created: pos=(1.0, 1.25) size=(2.1, 0.9) open=50%
+DEBUG: Models: Added door to west wall
+INFO: UI: Placed door on west at (1.00, 1.25) orient=swapped
+DEBUG: UI: Element type: window
+DEBUG: Models: window created: pos=(1.5, 1.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+INFO: UI: Placed window on east at (1.50, 1.25) orient=swapped
+DEBUG: UI: Element type: vent
+INFO: UI: Ceiling shown
+DEBUG: Models: vent created: pos=(1.25, 1.0) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to ceiling wall
+INFO: UI: Placed vent on ceiling at (1.25, 1.00) orient=upright
+INFO: UI: Switched to 3D preview
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: Main: AC Sim ready
+DEBUG: UI: Edge popup: height = 9.84 ft
+DEBUG: Models: door created: pos=(1.0, 1.25) size=(2.1, 0.9) open=50%
+DEBUG: Models: Added door to west wall
+INFO: UI: Element door oriented on west at (1.00, 1.25) orient=swapped
+DEBUG: Models: door created: pos=(1.0, 1.25) size=(2.1, 0.9) open=50%
+DEBUG: Models: Added door to west wall
+INFO: UI: Element door oriented on west at (1.00, 1.25) orient=swapped
+INFO: UI: Removed door from west
+INFO: UI: Removed door from west
+DEBUG: Models: door created: pos=(1.0, 2.0) size=(2.1, 0.9) open=50%
+DEBUG: Models: Added door to west wall
+INFO: UI: Element door oriented on west at (1.00, 2.00) orient=swapped
+DEBUG: Models: door created: pos=(1.0, 1.5) size=(2.1, 0.9) open=50%
+DEBUG: Models: Added door to east wall
+INFO: UI: Element door oriented on east at (1.00, 1.50) orient=swapped
+INFO: UI: Removed door from east
+DEBUG: UI: Element type: window
+DEBUG: UI: Element type: door
+INFO: UI: Cleared east
+DEBUG: Models: door created: pos=(0.75, 1.5) size=(2.1, 0.9) open=50%
+DEBUG: Models: Added door to west wall
+INFO: UI: Element door oriented on west at (0.75, 1.50) orient=swapped
+INFO: UI: Cleared west
+DEBUG: UI: Edge popup: width = 9.84 ft
+INFO: UI: Edge updated: width = 3.152 m (10.34 ft)
+DEBUG: UI: Edge popup: width = 10.34 ft
+INFO: UI: Edge updated: width = 4.877 m (16.00 ft)
+DEBUG: UI: Edge popup: length = 9.84 ft
+DEBUG: UI: Edge popup: width = 16.00 ft
+DEBUG: Models: door created: pos=(3.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Element door oriented on north at (3.00, 1.00) orient=upright
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+INFO: UI: Element door oriented on north at (1.00, 1.00) orient=upright
+INFO: UI: Ceiling shown
+DEBUG: UI: Element type: window
+DEBUG: Models: window created: pos=(3.75, 0.5) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (3.75, 0.50) orient=upright
+INFO: UI: Removed window from south
+DEBUG: Models: window created: pos=(3.75, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (3.75, 1.00) orient=upright
+INFO: UI: Removed window from south
+DEBUG: Models: window created: pos=(3.5, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (3.50, 1.00) orient=upright
+DEBUG: UI: Edge popup: height = 9.84 ft
+DEBUG: Models: window created: pos=(0.5, 1.25) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (0.50, 1.25) orient=upright
+INFO: UI: Removed window from south
+DEBUG: Models: window created: pos=(0.5, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (0.50, 1.00) orient=upright
+INFO: UI: Removed window from south
+DEBUG: Models: window created: pos=(0.25, 1.25) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (0.25, 1.25) orient=upright
+INFO: UI: Removed window from south
+DEBUG: UI: Edge popup: height = 9.84 ft
+DEBUG: Models: window created: pos=(0.25, 1.25) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (0.25, 1.25) orient=upright
+DEBUG: Models: window created: pos=(0.25, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (0.25, 1.00) orient=upright
+INFO: UI: Removed window from south
+INFO: UI: Removed window from south
+DEBUG: Models: window created: pos=(0.25, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+INFO: UI: Element window oriented on south at (0.25, 1.00) orient=upright
+DEBUG: Models: window created: pos=(1.5, 1.75) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to west wall
+INFO: UI: Element window oriented on west at (1.50, 1.75) orient=swapped
+DEBUG: UI: Element type: vent
+DEBUG: Models: vent created: pos=(2.0, 0.75) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to ceiling wall
+INFO: UI: Element vent oriented on ceiling at (2.00, 0.75) orient=upright
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: UI: Switched to 3D preview
+INFO: UI: Room saved: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom.json
+DEBUG: Models: window created: pos=(0, 0) size=(1, 1) open=50%
+DEBUG: Models: window created: pos=(0, 0) size=(1, 1) open=50%
+DEBUG: Models: door created: pos=(0, 0) size=(0.9, 2.1) open=30%
+DEBUG: Models: door created: pos=(0, 0) size=(0.9, 2.1) open=30%
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 4.9x3.0x3.0m
+DEBUG: Models: door created: pos=(3.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(3.5, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(0.25, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 1.75) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to west wall
+DEBUG: Models: vent created: pos=(2.0, 0.75) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 4.9x3.0x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom.json (6 elements)
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: AC updated: outside temp=94.0°F (34.4°C)
+INFO: UI: AC updated: outside temp=93.0°F (33.9°C)
+INFO: UI: AC updated: outside temp=92.0°F (33.3°C)
+INFO: UI: AC updated: outside temp=91.0°F (32.8°C)
+INFO: UI: AC updated: outside temp=90.0°F (32.2°C)
+INFO: UI: AC updated: outside temp=89.0°F (31.7°C)
+INFO: UI: AC updated: outside temp=88.0°F (31.1°C)
+INFO: UI: AC updated: outside temp=87.0°F (30.6°C)
+INFO: UI: AC updated: outside temp=86.0°F (30.0°C)
+INFO: UI: AC updated: outside temp=85.0°F (29.4°C)
+INFO: UI: AC updated: outside temp=84.0°F (28.9°C)
+INFO: UI: AC updated: outside temp=83.0°F (28.3°C)
+INFO: UI: AC updated: outside temp=82.0°F (27.8°C)
+INFO: UI: AC updated: outside temp=81.0°F (27.2°C)
+INFO: UI: AC updated: outside temp=80.0°F (26.7°C)
+INFO: UI: AC updated: outside temp=79.0°F (26.1°C)
+INFO: UI: AC updated: outside temp=78.0°F (25.6°C)
+INFO: UI: AC updated: outside temp=77.0°F (25.0°C)
+INFO: UI: AC updated: outside temp=78.0°F (25.6°C)
+INFO: UI: AC updated: inside temp=76.0°F (24.4°C)
+INFO: UI: AC updated: inside temp=75.0°F (23.9°C)
+INFO: UI: AC updated: inside temp=74.0°F (23.3°C)
+INFO: UI: AC updated: inside temp=73.0°F (22.8°C)
+INFO: UI: AC updated: inside temp=72.0°F (22.2°C)
+INFO: UI: AC updated: ON
+INFO: UI: AC updated: target=70.6°F
+INFO: UI: AC updated: target=69.6°F
+INFO: UI: AC updated: target=68.6°F
+INFO: UI: AC updated: target=67.6°F
+INFO: UI: AC updated: target=66.6°F
+INFO: UI: AC updated: target=65.6°F
+INFO: UI: AC updated: speed=2
+INFO: UI: AC updated: speed=3
+INFO: UI: AC updated: speed=4
+INFO: UI: AC updated: speed=3
+INFO: UI: AC updated: speed=2
+INFO: UI: Fan updated: ON
+INFO: UI: Fan updated: OFF
+INFO: UI: Ceiling shown
+INFO: UI: Element door north #1 open: 58%
+INFO: UI: Element door north #1 open: 50%
+INFO: UI: Element door north #1 open: 51%
+INFO: UI: Element door north #1 open: 52%
+INFO: UI: Element door north #1 open: 54%
+INFO: UI: Element door north #1 open: 57%
+INFO: UI: Element door north #1 open: 60%
+INFO: UI: Element door north #1 open: 66%
+INFO: UI: Element door north #1 open: 77%
+INFO: UI: Element door north #1 open: 83%
+INFO: UI: Element door north #1 open: 87%
+INFO: UI: Element door north #1 open: 92%
+INFO: UI: Element door north #1 open: 96%
+INFO: UI: Element door north #1 open: 98%
+INFO: UI: Element door north #1 open: 100%
+INFO: UI: Element door north #1 open: 96%
+INFO: UI: Element door north #1 open: 90%
+INFO: UI: Element door north #1 open: 81%
+INFO: UI: Element door north #1 open: 73%
+INFO: UI: Element door north #1 open: 64%
+INFO: UI: Element door north #1 open: 56%
+INFO: UI: Element door north #1 open: 49%
+INFO: UI: Element door north #1 open: 42%
+INFO: UI: Element door north #1 open: 36%
+INFO: UI: Element door north #1 open: 32%
+INFO: UI: Element door north #1 open: 28%
+INFO: UI: Element door north #1 open: 25%
+INFO: UI: Element door north #1 open: 23%
+INFO: UI: Element door north #1 open: 21%
+INFO: UI: Element door north #1 open: 19%
+INFO: UI: Element door north #1 open: 15%
+INFO: UI: Element door north #1 open: 10%
+INFO: UI: Element door north #1 open: 4%
+INFO: UI: Element door north #1 open: 0%
+INFO: UI: Element door north #2 open: 57%
+INFO: UI: Element door north #2 open: 58%
+INFO: UI: Element door north #2 open: 57%
+INFO: UI: Element door north #2 open: 55%
+INFO: UI: Element door north #2 open: 52%
+INFO: UI: Element door north #2 open: 48%
+INFO: UI: Element door north #2 open: 44%
+INFO: UI: Element door north #2 open: 39%
+INFO: UI: Element door north #2 open: 33%
+INFO: UI: Element door north #2 open: 26%
+INFO: UI: Element door north #2 open: 18%
+INFO: UI: Element door north #2 open: 8%
+INFO: UI: Element door north #2 open: 0%
+INFO: UI: Element window south #1 open: 39%
+INFO: UI: Element window south #1 open: 38%
+INFO: UI: Element window south #1 open: 37%
+INFO: UI: Element window south #1 open: 36%
+INFO: UI: Element window south #1 open: 35%
+INFO: UI: Element window south #1 open: 34%
+INFO: UI: Element window south #1 open: 33%
+INFO: UI: Element window south #1 open: 32%
+INFO: UI: Element window south #1 open: 31%
+INFO: UI: Element window south #1 open: 29%
+INFO: UI: Element window south #1 open: 27%
+INFO: UI: Element window south #1 open: 24%
+INFO: UI: Element window south #1 open: 22%
+INFO: UI: Element window south #1 open: 18%
+INFO: UI: Element window south #1 open: 15%
+INFO: UI: Element window south #1 open: 12%
+INFO: UI: Element window south #1 open: 10%
+INFO: UI: Element window south #1 open: 8%
+INFO: UI: Element window south #1 open: 6%
+INFO: UI: Element window south #1 open: 5%
+INFO: UI: Element window south #1 open: 4%
+INFO: UI: Element window south #1 open: 3%
+INFO: UI: Element window south #1 open: 2%
+INFO: UI: Element window south #1 open: 1%
+INFO: UI: Element window south #1 open: 0%
+INFO: UI: Element window south #1 open: 1%
+INFO: UI: Element window south #1 open: 3%
+INFO: UI: Element window south #1 open: 6%
+INFO: UI: Element window south #1 open: 8%
+INFO: UI: Element window south #1 open: 11%
+INFO: UI: Element window south #1 open: 14%
+INFO: UI: Element window south #1 open: 17%
+INFO: UI: Element window south #1 open: 20%
+INFO: UI: Element window south #1 open: 22%
+INFO: UI: Element window south #1 open: 23%
+INFO: UI: Element window south #1 open: 24%
+INFO: UI: Element window south #1 open: 25%
+INFO: UI: Element window south #1 open: 26%
+INFO: UI: Element window south #1 open: 27%
+INFO: UI: Element window south #1 open: 28%
+INFO: UI: Element window south #1 open: 29%
+INFO: UI: Element window south #1 open: 30%
+INFO: UI: Element window south #1 open: 31%
+INFO: UI: Element window south #1 open: 32%
+INFO: UI: Element window south #1 open: 33%
+INFO: UI: Element window south #1 open: 35%
+INFO: UI: Element window south #1 open: 36%
+INFO: UI: Element window south #1 open: 37%
+INFO: UI: Element window south #1 open: 38%
+INFO: UI: Element window south #1 open: 39%
+INFO: UI: Element window south #1 open: 40%
+INFO: UI: Element window south #1 open: 41%
+INFO: UI: Element window south #1 open: 40%
+INFO: UI: Element window south #1 open: 39%
+INFO: UI: Element window south #1 open: 38%
+INFO: UI: Element window south #1 open: 37%
+INFO: UI: Element window south #1 open: 36%
+INFO: UI: Element window south #1 open: 35%
+INFO: UI: Element window south #1 open: 34%
+INFO: UI: Element window south #1 open: 33%
+INFO: UI: Element window south #1 open: 32%
+INFO: UI: Element window south #1 open: 31%
+INFO: UI: Element window south #1 open: 30%
+INFO: UI: Element window south #1 open: 29%
+INFO: UI: Element window south #1 open: 28%
+INFO: UI: Element window south #1 open: 27%
+INFO: UI: Window south #2 open from: top
+INFO: UI: Conditions saved: /Users/hsebaugh/Documents/GitHub/AC_Sim/conditions_test.json
+INFO: Main: AC Sim shutdown
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.0, 1.0) open=50%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.8, 2.0) open=100%
+DEBUG: Models: Added door to south wall
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.0, 1.0) open=50%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.8, 2.0) open=100%
+DEBUG: Models: Added door to south wall
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=ON units=standard
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.0, 1.0) open=50%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=ON units=standard
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=50% speed=0.50m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.0, 1.0) open=50%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.8, 2.0) open=100%
+DEBUG: Models: Added door to south wall
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=ON units=standard
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.0, 1.0) open=75%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.8, 2.0) open=100%
+DEBUG: Models: Added door to south wall
+DEBUG: Models: vent created: pos=(0.5, 2.0) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to east wall
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=ON units=standard
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=75% speed=0.75m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: vent east open=50% speed=0.50m/s
+INFO: Sim: Grid init: res=16x16x8, cell=0.188m, device=mps
+DEBUG: Models: door created: pos=(0.5, 0.0) size=(0.8, 2.0) open=30%
+DEBUG: Models: Added door to west wall
+DEBUG: Sim: Boundary: window north open=75% speed=0.75m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: vent east open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: door west open=30% speed=0.30m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 4.9x3.0x3.0m
+DEBUG: Models: door created: pos=(3.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(3.5, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(0.25, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 1.75) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to west wall
+DEBUG: Models: vent created: pos=(2.0, 0.75) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 4.9x3.0x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom.json (6 elements)
+DEBUG: UI: Element states rebuilt: 6 elements
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: Conditions loaded, temp=72°F
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: UI: Switched to 3D preview
+INFO: Main: Sim: step=300 AvgTemp=22.1C MaxVel=1.18m/s FPS=64
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Main: Sim: step=300 AvgTemp=22.1C MaxVel=1.18m/s FPS=63
+INFO: Main: Sim: step=600 AvgTemp=22.1C MaxVel=1.18m/s FPS=65
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Main: AC Sim shutdown
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 4.9x3.0x3.0m
+DEBUG: Models: door created: pos=(3.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(3.5, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(0.25, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 1.75) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to west wall
+DEBUG: Models: vent created: pos=(2.0, 0.75) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 4.9x3.0x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom.json (6 elements)
+DEBUG: UI: Element states rebuilt: 6 elements
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: Conditions loaded, temp=72°F
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: UI: Switched to 3D preview
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+INFO: Main: Sim: step=300 AvgTemp=22.1C MaxVel=1.18m/s FPS=59
+INFO: Main: Sim: step=600 AvgTemp=22.1C MaxVel=1.18m/s FPS=53
+INFO: Main: Sim: step=900 AvgTemp=22.1C MaxVel=1.19m/s FPS=61
+INFO: Main: Sim: step=1200 AvgTemp=22.1C MaxVel=1.19m/s FPS=65
+INFO: Main: Sim: step=1500 AvgTemp=22.1C MaxVel=1.19m/s FPS=58
+INFO: Main: Sim: step=1800 AvgTemp=22.1C MaxVel=1.19m/s FPS=62
+INFO: Main: Sim: step=2100 AvgTemp=22.1C MaxVel=1.19m/s FPS=60
+INFO: Main: Sim: step=2400 AvgTemp=22.1C MaxVel=1.19m/s FPS=60
+INFO: Main: Sim: step=2700 AvgTemp=22.1C MaxVel=1.19m/s FPS=57
+INFO: Main: AC Sim shutdown
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=100%
+DEBUG: Models: Added door to south wall
+INFO: Render: Renderer: skip=4 max_arrows=512
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+DEBUG: Models: window created: pos=(0.5, 0.5) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to north wall
+DEBUG: Models: door created: pos=(1.0, 0.0) size=(0.9, 2.1) open=100%
+DEBUG: Models: Added door to south wall
+DEBUG: Models: vent created: pos=(0.5, 0.5) size=(0.3, 0.3) open=80%
+DEBUG: Models: Added vent to east wall
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window north open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: door south open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: vent east open=80% speed=0.80m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Render: Renderer: skip=4 max_arrows=512
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 4.0x5.0x2.5m
+INFO: Sim: GPU: Metal / MPS
+INFO: Sim: Grid init: res=32x32x16, cell=0.125m, device=mps
+INFO: Render: Renderer: skip=4 max_arrows=512
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer: skip=4 max_arrows=512
+INFO: Render: Renderer UI built (700x380)
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 4.9x3.0x3.0m
+DEBUG: Models: door created: pos=(3.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(0.9, 2.1) open=50%
+DEBUG: Models: Added door to north wall
+DEBUG: Models: window created: pos=(3.5, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(0.25, 1.0) size=(1.2, 1.0) open=50%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 1.75) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to west wall
+DEBUG: Models: vent created: pos=(2.0, 0.75) size=(0.3, 0.3) open=50%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 4.9x3.0x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom.json (6 elements)
+DEBUG: UI: Element states rebuilt: 6 elements
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: Conditions loaded, temp=72°F
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+INFO: Main: Sim paused
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: UI: Switched to 3D preview
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: door north open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window south open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: window west open=50% speed=0.25m/s
+DEBUG: Sim: Boundary: vent ceiling open=50% speed=0.25m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim paused
+INFO: UI: AC updated: inside temp=71.0°F (21.7°C)
+INFO: UI: AC updated: inside temp=70.0°F (21.1°C)
+INFO: UI: AC updated: inside temp=69.0°F (20.6°C)
+INFO: UI: AC updated: inside temp=68.0°F (20.0°C)
+INFO: UI: AC updated: inside temp=67.0°F (19.4°C)
+INFO: UI: AC updated: inside temp=66.0°F (18.9°C)
+INFO: UI: AC updated: inside temp=65.0°F (18.3°C)
+INFO: UI: AC updated: inside temp=66.0°F (18.9°C)
+INFO: UI: AC updated: inside temp=67.0°F (19.4°C)
+INFO: UI: AC updated: inside temp=68.0°F (20.0°C)
+INFO: UI: AC updated: inside temp=69.0°F (20.6°C)
+INFO: UI: AC updated: inside temp=70.0°F (21.1°C)
+INFO: UI: AC updated: inside temp=71.0°F (21.7°C)
+INFO: UI: AC updated: inside temp=72.0°F (22.2°C)
+INFO: UI: AC updated: inside temp=73.0°F (22.8°C)
+INFO: UI: AC updated: outside temp=79.0°F (26.1°C)
+INFO: UI: AC updated: outside temp=80.0°F (26.7°C)
+INFO: UI: AC updated: outside temp=81.0°F (27.2°C)
+INFO: UI: AC updated: outside temp=82.0°F (27.8°C)
+INFO: UI: AC updated: outside temp=83.0°F (28.3°C)
+INFO: UI: AC updated: outside temp=84.0°F (28.9°C)
+INFO: UI: AC updated: outside temp=85.0°F (29.4°C)
+INFO: UI: AC updated: outside temp=86.0°F (30.0°C)
+INFO: UI: AC updated: outside temp=87.0°F (30.6°C)
+INFO: UI: AC updated: outside temp=88.0°F (31.1°C)
+INFO: UI: AC updated: outside temp=89.0°F (31.7°C)
+INFO: UI: AC updated: outside temp=90.0°F (32.2°C)
+INFO: UI: AC updated: outside temp=91.0°F (32.8°C)
+INFO: UI: AC updated: outside temp=92.0°F (33.3°C)
+INFO: UI: AC updated: outside temp=93.0°F (33.9°C)
+INFO: UI: AC updated: outside temp=94.0°F (34.4°C)
+INFO: UI: AC updated: outside temp=95.0°F (35.0°C)
+INFO: UI: AC updated: outside temp=96.0°F (35.6°C)
+INFO: UI: AC updated: outside temp=97.0°F (36.1°C)
+INFO: UI: AC updated: outside temp=98.0°F (36.7°C)
+INFO: UI: AC updated: outside temp=99.0°F (37.2°C)
+INFO: UI: AC updated: outside temp=100.0°F (37.8°C)
+INFO: UI: AC updated: outside temp=101.0°F (38.3°C)
+INFO: UI: AC updated: outside temp=102.0°F (38.9°C)
+INFO: UI: AC updated: outside temp=103.0°F (39.4°C)
+INFO: UI: AC updated: speed=3
+INFO: UI: AC updated: speed=4
+INFO: UI: AC updated: speed=5
+INFO: UI: AC updated: speed=6
+INFO: UI: AC updated: target=66.6°F
+INFO: UI: Element door north #1 open: 49%
+INFO: UI: Element door north #1 open: 47%
+INFO: UI: Element door north #1 open: 46%
+INFO: UI: Element door north #1 open: 42%
+INFO: UI: Element door north #1 open: 36%
+INFO: UI: Element door north #1 open: 29%
+INFO: UI: Element door north #1 open: 20%
+INFO: UI: Element door north #1 open: 12%
+INFO: UI: Element door north #1 open: 4%
+INFO: UI: Element door north #1 open: 0%
+INFO: UI: Element door north #2 open: 48%
+INFO: UI: Element door north #2 open: 43%
+INFO: UI: Element door north #2 open: 36%
+INFO: UI: Element door north #2 open: 23%
+INFO: UI: Element door north #2 open: 17%
+INFO: UI: Element door north #2 open: 2%
+INFO: UI: Element door north #2 open: 0%
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: Element window south #2 open: 52%
+INFO: UI: Element window south #2 open: 53%
+INFO: UI: Element window south #2 open: 55%
+INFO: UI: Element window south #2 open: 57%
+INFO: UI: Element window south #2 open: 59%
+INFO: UI: Element window south #2 open: 60%
+INFO: UI: Element window south #2 open: 61%
+INFO: UI: Element window south #2 open: 62%
+INFO: UI: Element window south #2 open: 63%
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: Element window west #1 open: 49%
+INFO: UI: Element window west #1 open: 47%
+INFO: UI: Element window west #1 open: 44%
+INFO: UI: Element window west #1 open: 41%
+INFO: UI: Element window west #1 open: 37%
+INFO: UI: Element window west #1 open: 34%
+INFO: UI: Element window west #1 open: 33%
+INFO: UI: Element window west #1 open: 32%
+INFO: UI: Element window west #1 open: 31%
+INFO: UI: Element window west #1 open: 30%
+INFO: UI: Element window west #1 open: 29%
+INFO: UI: Element window west #1 open: 28%
+INFO: UI: Element window west #1 open: 27%
+INFO: UI: Element window west #1 open: 26%
+INFO: UI: Element window west #1 open: 25%
+INFO: UI: Element window west #1 open: 23%
+INFO: UI: Element window west #1 open: 22%
+INFO: UI: Element window south #1 open: 45%
+INFO: UI: Element window south #1 open: 46%
+INFO: UI: Element window south #1 open: 47%
+INFO: UI: Element window south #1 open: 48%
+INFO: UI: Element window south #1 open: 49%
+INFO: UI: Element window south #1 open: 50%
+INFO: UI: Element window south #1 open: 54%
+INFO: UI: Element window south #1 open: 59%
+INFO: UI: Element window south #1 open: 65%
+INFO: UI: Element window south #1 open: 71%
+INFO: UI: Element window south #1 open: 75%
+INFO: UI: Element window south #1 open: 77%
+INFO: UI: Element window south #1 open: 78%
+INFO: UI: Element window south #1 open: 77%
+INFO: UI: Element window south #1 open: 76%
+INFO: UI: Element window west #1 open: 42%
+INFO: UI: Element window west #1 open: 43%
+INFO: UI: Element window west #1 open: 44%
+INFO: UI: Element window west #1 open: 46%
+INFO: UI: Element window west #1 open: 51%
+INFO: UI: Element window west #1 open: 58%
+INFO: UI: Element window west #1 open: 69%
+INFO: UI: Element window west #1 open: 76%
+INFO: UI: Element window west #1 open: 81%
+INFO: UI: Element window west #1 open: 84%
+INFO: UI: Element window west #1 open: 83%
+INFO: UI: Element window west #1 open: 82%
+DEBUG: UI: Element states rebuilt: 6 elements
+INFO: UI: Element vent ceiling #1 open: 77%
+INFO: UI: Element vent ceiling #1 open: 78%
+INFO: UI: Element vent ceiling #1 open: 80%
+INFO: UI: Element vent ceiling #1 open: 82%
+INFO: UI: Element vent ceiling #1 open: 85%
+INFO: UI: Element vent ceiling #1 open: 86%
+INFO: UI: Element vent ceiling #1 open: 89%
+DEBUG: UI: Element states rebuilt: 6 elements
+DEBUG: Sim: Boundary: window south open=76% speed=1.27m/s
+DEBUG: Sim: Boundary: window south open=63% speed=1.05m/s
+DEBUG: Sim: Boundary: window west open=82% speed=1.37m/s
+DEBUG: Sim: Boundary: vent ceiling open=89% speed=1.48m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=300 AvgTemp=25.1C MaxVel=3.09m/s FPS=61
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=76% speed=1.27m/s
+DEBUG: Sim: Boundary: window south open=63% speed=1.05m/s
+DEBUG: Sim: Boundary: window west open=82% speed=1.37m/s
+DEBUG: Sim: Boundary: vent ceiling open=89% speed=1.48m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim reset
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=76% speed=1.27m/s
+DEBUG: Sim: Boundary: window south open=63% speed=1.05m/s
+DEBUG: Sim: Boundary: window west open=82% speed=1.37m/s
+DEBUG: Sim: Boundary: vent ceiling open=89% speed=1.48m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: window south open=76% speed=1.27m/s
+DEBUG: Sim: Boundary: window south open=63% speed=1.05m/s
+DEBUG: Sim: Boundary: window west open=82% speed=1.37m/s
+DEBUG: Sim: Boundary: vent ceiling open=89% speed=1.48m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=300 AvgTemp=25.4C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=600 AvgTemp=25.8C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: UI: Switched to 2D editor
+INFO: Render: Render: arrows=154, skip=4, scale=15
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: UI: Switched to 3D preview
+INFO: Main: Sim: step=900 AvgTemp=25.9C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: UI: Ceiling shown
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: UI: Ceiling hidden
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: door oriented on north via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on south via rotation matrix
+DEBUG: UI: 3D: window oriented on west via rotation matrix
+DEBUG: UI: 3D: vent oriented on ceiling via rotation matrix
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=1200 AvgTemp=26.0C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=76% speed=1.27m/s
+DEBUG: Sim: Boundary: window south open=63% speed=1.05m/s
+DEBUG: Sim: Boundary: window west open=82% speed=1.37m/s
+DEBUG: Sim: Boundary: vent ceiling open=89% speed=1.48m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.152m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: window south open=76% speed=1.27m/s
+DEBUG: Sim: Boundary: window south open=63% speed=1.05m/s
+DEBUG: Sim: Boundary: window west open=82% speed=1.37m/s
+DEBUG: Sim: Boundary: vent ceiling open=89% speed=1.48m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=300 AvgTemp=25.4C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=600 AvgTemp=25.8C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=900 AvgTemp=25.9C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=1200 AvgTemp=26.0C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=1500 AvgTemp=26.0C MaxVel=3.09m/s FPS=53
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=1800 AvgTemp=26.1C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=2100 AvgTemp=26.1C MaxVel=3.09m/s FPS=56
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=2400 AvgTemp=26.1C MaxVel=3.09m/s FPS=49
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=2700 AvgTemp=26.1C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=3000 AvgTemp=26.1C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=3300 AvgTemp=26.1C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=3600 AvgTemp=26.1C MaxVel=3.09m/s FPS=50
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=3900 AvgTemp=26.2C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=4200 AvgTemp=26.2C MaxVel=3.09m/s FPS=55
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=4500 AvgTemp=26.2C MaxVel=3.09m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=4800 AvgTemp=26.2C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=5100 AvgTemp=26.2C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=5400 AvgTemp=26.2C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=5700 AvgTemp=26.2C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=6000 AvgTemp=26.2C MaxVel=3.09m/s FPS=55
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=6300 AvgTemp=26.2C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=6600 AvgTemp=26.2C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=6900 AvgTemp=26.2C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=7200 AvgTemp=26.2C MaxVel=3.09m/s FPS=51
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=7500 AvgTemp=26.3C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=7800 AvgTemp=26.3C MaxVel=3.09m/s FPS=67
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=8100 AvgTemp=26.3C MaxVel=3.09m/s FPS=68
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=8400 AvgTemp=26.3C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=8700 AvgTemp=26.3C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=9000 AvgTemp=26.3C MaxVel=3.09m/s FPS=65
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=9300 AvgTemp=26.3C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=9600 AvgTemp=26.3C MaxVel=3.09m/s FPS=67
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=9900 AvgTemp=26.3C MaxVel=3.09m/s FPS=52
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=10200 AvgTemp=26.3C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=10500 AvgTemp=26.3C MaxVel=3.09m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=10800 AvgTemp=26.3C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=11100 AvgTemp=26.3C MaxVel=3.09m/s FPS=65
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=11400 AvgTemp=26.3C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=11700 AvgTemp=26.3C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=12000 AvgTemp=26.4C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=12300 AvgTemp=26.4C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=12600 AvgTemp=26.4C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=12900 AvgTemp=26.4C MaxVel=3.09m/s FPS=68
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=13200 AvgTemp=26.4C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=13500 AvgTemp=26.4C MaxVel=3.09m/s FPS=69
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=13800 AvgTemp=26.4C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=14100 AvgTemp=26.4C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=14400 AvgTemp=26.4C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=14700 AvgTemp=26.4C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=15000 AvgTemp=26.4C MaxVel=3.09m/s FPS=52
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=15300 AvgTemp=26.4C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=15600 AvgTemp=26.4C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=15900 AvgTemp=26.4C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=16200 AvgTemp=26.4C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=16500 AvgTemp=26.4C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=16800 AvgTemp=26.5C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=17100 AvgTemp=26.5C MaxVel=3.09m/s FPS=55
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=17400 AvgTemp=26.5C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=17700 AvgTemp=26.5C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=18000 AvgTemp=26.5C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=18300 AvgTemp=26.5C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=18600 AvgTemp=26.4C MaxVel=3.10m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=18900 AvgTemp=26.4C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=19200 AvgTemp=26.4C MaxVel=3.09m/s FPS=49
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=19500 AvgTemp=26.4C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=19800 AvgTemp=26.4C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=20100 AvgTemp=26.4C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=20400 AvgTemp=26.4C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=20700 AvgTemp=26.4C MaxVel=3.09m/s FPS=65
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=21000 AvgTemp=26.5C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=21300 AvgTemp=26.5C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=21600 AvgTemp=26.5C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=21900 AvgTemp=26.5C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=22200 AvgTemp=26.5C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=22500 AvgTemp=26.5C MaxVel=3.09m/s FPS=53
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=22800 AvgTemp=26.5C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=23100 AvgTemp=26.5C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=23400 AvgTemp=26.5C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=23700 AvgTemp=26.5C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=24000 AvgTemp=26.5C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=24300 AvgTemp=26.5C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=24600 AvgTemp=26.5C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=24900 AvgTemp=26.5C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=25200 AvgTemp=26.5C MaxVel=3.09m/s FPS=55
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=25500 AvgTemp=26.5C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=25800 AvgTemp=26.5C MaxVel=3.09m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=26100 AvgTemp=26.5C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=26400 AvgTemp=26.6C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=26700 AvgTemp=26.6C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=27000 AvgTemp=26.6C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=27300 AvgTemp=26.6C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=27600 AvgTemp=26.6C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=27900 AvgTemp=26.6C MaxVel=3.09m/s FPS=70
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=28200 AvgTemp=26.6C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=28500 AvgTemp=26.6C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=28800 AvgTemp=26.6C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=29100 AvgTemp=26.6C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=29400 AvgTemp=26.6C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=29700 AvgTemp=26.6C MaxVel=3.09m/s FPS=65
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=30000 AvgTemp=26.6C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=30300 AvgTemp=26.6C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=30600 AvgTemp=26.6C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=30900 AvgTemp=26.6C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=31200 AvgTemp=26.6C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=31500 AvgTemp=26.6C MaxVel=3.09m/s FPS=67
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=31800 AvgTemp=26.6C MaxVel=3.09m/s FPS=69
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=32100 AvgTemp=26.7C MaxVel=3.09m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=32400 AvgTemp=26.7C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=32700 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=33000 AvgTemp=26.7C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=33300 AvgTemp=26.7C MaxVel=3.09m/s FPS=56
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=33600 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=33900 AvgTemp=26.7C MaxVel=3.09m/s FPS=53
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=34200 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=34500 AvgTemp=26.7C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=34800 AvgTemp=26.7C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=35100 AvgTemp=26.7C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=35400 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=35700 AvgTemp=26.7C MaxVel=3.09m/s FPS=52
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=36000 AvgTemp=26.7C MaxVel=3.09m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=36300 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=36600 AvgTemp=26.7C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=36900 AvgTemp=26.7C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=37200 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=37500 AvgTemp=26.7C MaxVel=3.09m/s FPS=54
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=37800 AvgTemp=26.7C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=38100 AvgTemp=26.7C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=38400 AvgTemp=26.8C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=38700 AvgTemp=26.8C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=39000 AvgTemp=26.8C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=39300 AvgTemp=26.8C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=39600 AvgTemp=26.8C MaxVel=3.09m/s FPS=63
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=39900 AvgTemp=26.8C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=40200 AvgTemp=26.8C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=40500 AvgTemp=26.8C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=40800 AvgTemp=26.8C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=41100 AvgTemp=26.8C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=41400 AvgTemp=26.8C MaxVel=3.09m/s FPS=52
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=41700 AvgTemp=26.8C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=42000 AvgTemp=26.8C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=42300 AvgTemp=26.8C MaxVel=3.09m/s FPS=67
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=42600 AvgTemp=26.8C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=42900 AvgTemp=26.8C MaxVel=3.09m/s FPS=65
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=43200 AvgTemp=26.8C MaxVel=3.09m/s FPS=58
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=43500 AvgTemp=26.8C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=43800 AvgTemp=26.8C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=44100 AvgTemp=26.9C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=44400 AvgTemp=26.9C MaxVel=3.09m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=44700 AvgTemp=26.9C MaxVel=3.10m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=45000 AvgTemp=26.9C MaxVel=3.09m/s FPS=62
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=45300 AvgTemp=26.9C MaxVel=3.09m/s FPS=52
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=45600 AvgTemp=26.9C MaxVel=3.09m/s FPS=59
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=45900 AvgTemp=26.9C MaxVel=3.09m/s FPS=57
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=46200 AvgTemp=26.9C MaxVel=3.09m/s FPS=64
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=46500 AvgTemp=26.9C MaxVel=3.09m/s FPS=56
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=46800 AvgTemp=26.9C MaxVel=3.09m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=47100 AvgTemp=26.9C MaxVel=3.10m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=47400 AvgTemp=26.9C MaxVel=3.10m/s FPS=61
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=47700 AvgTemp=26.9C MaxVel=3.10m/s FPS=60
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Main: Sim: step=48000 AvgTemp=26.9C MaxVel=3.10m/s FPS=55
+INFO: Render: Render: arrows=154, skip=4, scale=15
+INFO: Render: Render: arrows=154, skip=4, scale=15
