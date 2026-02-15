@@ -36,7 +36,7 @@ ELEM_COLORS = {
     "window": ( 80, 180, 255, 255),
     "vent":   (100, 220, 120, 255),
 }
-HOVER_ALPHA = 50
+HOVER_ALPHA = 128
 ELEM_ALPHA  = 70
 
 FACE_BG         = ( 40,  42,  54, 255)
@@ -573,7 +573,7 @@ class RoomEditor:
         self.room.add_element(face, elem)
 
         logger.info(
-            "Placed %s on %s at (%.2f, %.2f) orient=%s",
+            "Element %s oriented on %s at (%.2f, %.2f) orient=%s",
             self._elem_type, face, ru, rv, orient,
         )
         ul = self._ul
@@ -712,31 +712,33 @@ class RoomEditor:
                 color=EDGE_COLOR, thickness=1, parent=self._prev_layer,
             )
 
-        # Corrected per-face element transforms.
-        # Each maps face-local (u, v) → 3D (x, y, z).
-        #
-        # north (y=0 plane): u→X, v→Z (top-down: H-v)
-        # south (y=L plane): u→X, v→Z (folded below: v)
-        # west  (x=0 plane): u→Z (H-u), v→Y  [u is height on net]
-        # east  (x=W plane): u→Z (u),    v→Y  [u is height on net]
-        # floor (z=0 plane): u→X, v→Y
-        # ceiling (z=H):     u→X, v→Y
-        face_xf = {
-            "north":   lambda u, v: iso(u,     0, H - v),
-            "south":   lambda u, v: iso(u,     L, v),
-            "west":    lambda u, v: iso(0,     v, H - u),
-            "east":    lambda u, v: iso(W,     v, u),
-            "floor":   lambda u, v: iso(u,     v, 0),
-            "ceiling": lambda u, v: iso(u,     v, H),
+        # Per-face rotation matrices: (origin, u_axis, v_axis)
+        # Maps face-local (u, v) → 3D via: P = origin + u*u_axis + v*v_axis
+        xforms = {
+            "north":   ((0, 0, H), ( 1, 0,  0), (0, 0, -1)),
+            "south":   ((0, L, 0), ( 1, 0,  0), (0, 0,  1)),
+            "west":    ((0, 0, H), ( 0, 0, -1), (0, 1,  0)),
+            "east":    ((W, 0, 0), ( 0, 0,  1), (0, 1,  0)),
+            "floor":   ((0, 0, 0), ( 1, 0,  0), (0, 1,  0)),
+            "ceiling": ((0, 0, H), ( 1, 0,  0), (0, 1,  0)),
         }
-        for face, fn in face_xf.items():
+
+        def _xf(orig, ua, va, u, v):
+            return iso(
+                orig[0] + u * ua[0] + v * va[0],
+                orig[1] + u * ua[1] + v * va[1],
+                orig[2] + u * ua[2] + v * va[2],
+            )
+
+        for face, (orig, ua, va) in xforms.items():
             for elem in self.room.walls.get(face, []):
                 col = ELEM_COLORS.get(elem.element_type, (200, 200, 200, 255))
                 u, v = elem.pos
                 su, sv = elem.size
-                quad = [fn(u, v), fn(u+su, v), fn(u+su, v+sv), fn(u, v+sv)]
+                corners = [(u, v), (u+su, v), (u+su, v+sv), (u, v+sv)]
+                quad = [_xf(orig, ua, va, cu, cv) for cu, cv in corners]
 
-                # Validate: check projected quad has non-degenerate area
+                # Shoelace area check for degenerate projections
                 area = 0.0
                 for i in range(4):
                     j = (i + 1) % 4
@@ -744,12 +746,15 @@ class RoomEditor:
                 area = abs(area) / 2
                 if area < 1.0:
                     logger.error(
-                        "Orientation mismatch in 3D: %s on %s has degenerate "
-                        "projection (area=%.1fpx)",
+                        "Degenerate projection: %s on %s (area=%.1fpx)",
                         elem.element_type, face, area,
                     )
                     continue
 
+                logger.debug(
+                    "3D: %s oriented on %s via rotation matrix",
+                    elem.element_type, face,
+                )
                 dpg.draw_quad(
                     *quad,
                     color=col, fill=(*col[:3], 60),

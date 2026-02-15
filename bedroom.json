@@ -1,0 +1,89 @@
+{
+  "width": 4.877,
+  "length": 3.0,
+  "height": 3.0,
+  "walls": {
+    "north": [
+      {
+        "type": "door",
+        "pos": [
+          3.0,
+          1.0
+        ],
+        "size": [
+          0.9,
+          2.1
+        ],
+        "open_frac": 0.5
+      },
+      {
+        "type": "door",
+        "pos": [
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.9,
+          2.1
+        ],
+        "open_frac": 0.5
+      }
+    ],
+    "south": [
+      {
+        "type": "window",
+        "pos": [
+          3.5,
+          1.0
+        ],
+        "size": [
+          1.2,
+          1.0
+        ],
+        "open_frac": 0.5
+      },
+      {
+        "type": "window",
+        "pos": [
+          0.25,
+          1.0
+        ],
+        "size": [
+          1.2,
+          1.0
+        ],
+        "open_frac": 0.5
+      }
+    ],
+    "east": [],
+    "west": [
+      {
+        "type": "window",
+        "pos": [
+          1.5,
+          1.75
+        ],
+        "size": [
+          1.0,
+          1.2
+        ],
+        "open_frac": 0.5
+      }
+    ],
+    "floor": [],
+    "ceiling": [
+      {
+        "type": "vent",
+        "pos": [
+          2.0,
+          0.75
+        ],
+        "size": [
+          0.3,
+          0.3
+        ],
+        "open_frac": 0.5
+      }
+    ]
+  }
+}

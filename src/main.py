@@ -34,7 +34,7 @@ def main():
     )
 
     with dpg.window(tag="primary"):
-        editor = RoomEditor()
+        editor = RoomEditor(units=config.get("units", "standard"))
         editor.build(parent="primary")
 
     dpg.setup_dearpygui()
