@@ -34,7 +34,7 @@ _COLD = (30, 100, 255)
 _WARM = (255, 230, 50)
 _HOT = (255, 40, 30)
 
-_VEL_THRESHOLD = 1e-6   # draw arrows for any non-zero velocity
+_VEL_THRESHOLD = 1e-8   # draw arrows for any non-zero velocity
 
 ELEM_COLORS = {
     "door": (230, 160, 50, 100),
@@ -341,6 +341,7 @@ class AirflowRenderer(BaseRenderer):
 
     def render(self, solver: Any) -> None:
         """Sample solver fields and draw velocity arrows."""
+        logger.info("Render called with solver")
         self._frame += 1
         if self._frame % self._render_every != 0:
             return
@@ -356,7 +357,7 @@ class AirflowRenderer(BaseRenderer):
             self._draw_hud(0)
             return
 
-        vel, temp = solver.expose_vel_temp()
+        vel, temp = solver.expose_vel_temp  # @property, no parens
         nz, ny, nx = temp.shape
         W, L, H = room.width, room.length, room.height
         dx_cell, dy_cell, dz_cell = W / nx, L / ny, H / nz
@@ -381,6 +382,7 @@ class AirflowRenderer(BaseRenderer):
             speed.size, float(speed.min()), float(speed.mean()),
             float(speed.max()),
         )
+        logger.debug("Render: vel_max=%.6f", float(speed.max()))
 
         # Filter by velocity threshold
         mask = speed > _VEL_THRESHOLD
