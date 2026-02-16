@@ -186,7 +186,7 @@ class AirflowRenderer(BaseRenderer):
         with dpg.child_window(
             parent=parent,
             autosize_x=True,
-            height=RENDER_H + 50,
+            height=-1,
             no_scrollbar=True,
             no_scroll_with_mouse=True,
             border=True,
@@ -240,6 +240,10 @@ class AirflowRenderer(BaseRenderer):
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d)", RENDER_W, RENDER_H)
         logger.info("Render: Camera controls initialized with item handlers")
+        logger.info(
+            "Render: Visualization window set to fill remaining"
+            " space with no_scrollbar=True",
+        )
 
     # -- canvas hit test -----------------------------------------------------
 
@@ -752,12 +756,6 @@ class AirflowRenderer(BaseRenderer):
                 moved = True
         if moved:
             self._room_dirty = True
-        # Prevent primary window from scrolling (content should fit viewport)
-        try:
-            if dpg.get_y_scroll("primary") != 0:
-                dpg.set_y_scroll("primary", 0)
-        except Exception:
-            pass
 
     # -- camera callbacks ----------------------------------------------------
 
@@ -812,11 +810,6 @@ class AirflowRenderer(BaseRenderer):
             return
         factor = 1.08 if app_data > 0 else 1.0 / 1.08
         self._zoom_target = max(0.3, min(5.0, self._zoom_target * factor))
-        # Prevent parent window scroll
-        try:
-            dpg.set_y_scroll("primary", 0)
-        except Exception:
-            pass
         logger.debug("Render: Camera zoomed %.2f", self._zoom_target)
 
     def _on_key_r(self, sender: Any = None, app_data: Any = None) -> None:
