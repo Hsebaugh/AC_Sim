@@ -45,7 +45,7 @@ def main():
         resizable=True,
     )
 
-    with dpg.window(tag="primary"):
+    with dpg.window(tag="primary", no_scrollbar=True):
         main_row = dpg.add_group(horizontal=True)
 
     editor = RoomEditor(units=units)

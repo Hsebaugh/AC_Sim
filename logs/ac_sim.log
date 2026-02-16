@@ -14515,3 +14515,976 @@ INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
 INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
 INFO: Main: Sim: step=2700 AvgTemp=26.1C MaxVel=3.53m/s FPS=63
 INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3000 AvgTemp=26.1C MaxVel=3.53m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3300 AvgTemp=26.1C MaxVel=3.53m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3600 AvgTemp=26.1C MaxVel=3.53m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3900 AvgTemp=26.1C MaxVel=3.53m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=4200 AvgTemp=26.1C MaxVel=3.53m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=4500 AvgTemp=26.2C MaxVel=3.53m/s FPS=72
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=4800 AvgTemp=26.2C MaxVel=3.53m/s FPS=51
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=5100 AvgTemp=26.2C MaxVel=3.53m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=5400 AvgTemp=26.2C MaxVel=3.53m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=5700 AvgTemp=26.2C MaxVel=3.53m/s FPS=68
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Render: Render: Camera reset
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3212, MaxVel=3.6m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=23.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.9-36.1°C
+INFO: Main: Sim: step=300 AvgTemp=25.5C MaxVel=3.55m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.7-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Main: Sim: step=600 AvgTemp=25.8C MaxVel=3.54m/s FPS=63
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=900 AvgTemp=25.9C MaxVel=3.54m/s FPS=62
+INFO: UI: Element window south #1 open: 67%
+INFO: UI: Element window south #1 open: 68%
+INFO: UI: Element window south #1 open: 69%
+INFO: UI: Element window south #1 open: 70%
+INFO: UI: Element window south #1 open: 71%
+INFO: UI: Element window south #1 open: 74%
+INFO: UI: Element window south #1 open: 76%
+INFO: UI: Element window south #1 open: 79%
+INFO: UI: Element window south #1 open: 80%
+INFO: UI: Element window south #1 open: 82%
+INFO: UI: Element window south #1 open: 84%
+INFO: UI: Element window south #1 open: 85%
+INFO: UI: Element window south #1 open: 87%
+INFO: UI: Element window south #1 open: 88%
+INFO: UI: Element window south #1 open: 91%
+INFO: UI: Element window south #1 open: 93%
+INFO: UI: Element window south #1 open: 92%
+INFO: UI: Element window south #1 open: 91%
+INFO: UI: Element window south #1 open: 90%
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=90% speed=1.10m/s
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Render: Render: Camera reset
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: window south open=90% speed=1.10m/s
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3247, MaxVel=3.7m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=90% speed=1.10m/s
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Render: Render: Camera reset
+INFO: Main: Sim reset
+INFO: UI: Element window south #1 open: 89%
+INFO: UI: Element window south #1 open: 84%
+INFO: UI: Element window south #1 open: 80%
+INFO: UI: Element window south #1 open: 76%
+INFO: UI: Element window south #1 open: 66%
+INFO: UI: Element window south #1 open: 58%
+INFO: UI: Element window south #1 open: 51%
+INFO: UI: Element window south #1 open: 44%
+INFO: UI: Element window south #1 open: 36%
+INFO: UI: Element window south #1 open: 29%
+INFO: UI: Element window south #1 open: 23%
+INFO: UI: Element window south #1 open: 18%
+INFO: UI: Element window south #1 open: 14%
+INFO: UI: Element window south #1 open: 12%
+INFO: UI: Element window south #1 open: 10%
+INFO: UI: Element window south #1 open: 9%
+INFO: UI: Element window south #1 open: 8%
+INFO: UI: Element window south #1 open: 6%
+INFO: UI: Element window south #1 open: 5%
+INFO: UI: Element window south #2 open: 98%
+INFO: UI: Element window south #2 open: 95%
+INFO: UI: Element window south #2 open: 92%
+INFO: UI: Element window south #2 open: 88%
+INFO: UI: Element window south #2 open: 84%
+INFO: UI: Element window south #2 open: 81%
+INFO: UI: Element window south #2 open: 78%
+INFO: UI: Element window south #2 open: 74%
+INFO: UI: Element window south #2 open: 71%
+INFO: UI: Element window south #2 open: 67%
+INFO: UI: Element window south #2 open: 64%
+INFO: UI: Element window south #2 open: 61%
+INFO: UI: Element window south #2 open: 59%
+INFO: UI: Element window south #2 open: 58%
+INFO: UI: Element window south #2 open: 56%
+INFO: UI: Element window south #2 open: 55%
+INFO: UI: Element window south #2 open: 54%
+INFO: UI: Element window south #2 open: 52%
+INFO: UI: Element window south #2 open: 50%
+INFO: UI: Element window south #2 open: 49%
+INFO: UI: Element window south #2 open: 48%
+INFO: UI: Element window south #2 open: 47%
+INFO: UI: Element window south #2 open: 46%
+INFO: UI: Element window south #2 open: 45%
+INFO: UI: Element window south #2 open: 44%
+INFO: UI: Element window south #2 open: 43%
+INFO: UI: Element window south #2 open: 42%
+INFO: UI: Element window south #2 open: 41%
+INFO: UI: Element window south #2 open: 39%
+INFO: UI: Element window south #2 open: 37%
+INFO: UI: Element window south #2 open: 36%
+INFO: UI: Element window south #2 open: 34%
+INFO: UI: Element window south #2 open: 33%
+INFO: UI: Element window south #2 open: 32%
+INFO: UI: Element window south #2 open: 31%
+INFO: UI: Element window south #2 open: 30%
+INFO: UI: Element window south #2 open: 29%
+INFO: UI: Element window south #2 open: 27%
+INFO: UI: Element window south #2 open: 25%
+INFO: UI: Element window south #2 open: 22%
+INFO: UI: Element window south #2 open: 20%
+INFO: UI: Element window south #2 open: 19%
+INFO: UI: Element window south #2 open: 18%
+INFO: UI: Element window south #2 open: 17%
+INFO: UI: Element window south #2 open: 16%
+INFO: UI: Element window south #2 open: 15%
+INFO: UI: Element window south #2 open: 14%
+INFO: UI: Element window south #2 open: 13%
+INFO: UI: Element window south #2 open: 12%
+INFO: UI: Element window south #2 open: 11%
+INFO: UI: Element window south #2 open: 10%
+INFO: UI: Element window south #2 open: 9%
+INFO: UI: Element window south #2 open: 8%
+INFO: UI: Element window south #2 open: 7%
+INFO: UI: Element window south #2 open: 6%
+INFO: UI: Element window south #2 open: 5%
+INFO: UI: Element window south #2 open: 4%
+INFO: UI: Element window south #2 open: 3%
+INFO: UI: Element window south #2 open: 4%
+INFO: UI: Element window south #2 open: 5%
+INFO: UI: Element window south #2 open: 6%
+INFO: UI: Element window south #2 open: 7%
+INFO: UI: Element window east #1 open: 43%
+INFO: UI: Element window east #1 open: 42%
+INFO: UI: Element window east #1 open: 41%
+INFO: UI: Element window east #1 open: 40%
+INFO: UI: Element window east #1 open: 39%
+INFO: UI: Element window east #1 open: 38%
+INFO: UI: Element window east #1 open: 37%
+INFO: UI: Element window east #1 open: 35%
+INFO: UI: Element window east #1 open: 33%
+INFO: UI: Element window east #1 open: 32%
+INFO: UI: Element window east #1 open: 31%
+INFO: UI: Element window east #1 open: 29%
+INFO: UI: Element window east #1 open: 27%
+INFO: UI: Element window east #1 open: 24%
+INFO: UI: Element window east #1 open: 22%
+INFO: UI: Element window east #1 open: 20%
+INFO: UI: Element window east #1 open: 18%
+INFO: UI: Element window east #1 open: 16%
+INFO: UI: Element window east #1 open: 14%
+INFO: UI: Element window east #1 open: 13%
+INFO: UI: Element window east #1 open: 11%
+INFO: UI: Element window east #1 open: 10%
+INFO: UI: Element window east #1 open: 9%
+INFO: UI: Element window east #1 open: 8%
+INFO: UI: Element window east #1 open: 7%
+INFO: UI: Element window east #1 open: 6%
+INFO: UI: Element window east #1 open: 5%
+INFO: UI: Element window east #1 open: 4%
+INFO: UI: Element window east #1 open: 3%
+INFO: UI: Element window east #1 open: 4%
+INFO: UI: Element window east #1 open: 6%
+INFO: UI: Element window east #1 open: 7%
+DEBUG: Sim: Boundary: window south open=5% speed=0.06m/s
+DEBUG: Sim: Boundary: window south open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3247, MaxVel=3.7m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=23.3-36.1°C
+INFO: Main: Sim: step=300 AvgTemp=24.9C MaxVel=3.55m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.8-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.7-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: UI: Element window east #2 open: 61%
+INFO: UI: Element window east #2 open: 57%
+INFO: UI: Element window east #2 open: 41%
+INFO: UI: Element window east #2 open: 27%
+INFO: UI: Element window east #2 open: 17%
+INFO: Main: Sim: step=600 AvgTemp=25.0C MaxVel=3.53m/s FPS=37
+INFO: UI: Element window east #2 open: 15%
+INFO: UI: Element window east #2 open: 10%
+INFO: UI: Element window east #2 open: 7%
+INFO: UI: Element window east #2 open: 3%
+INFO: UI: Element window east #2 open: 2%
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=5% speed=0.06m/s
+DEBUG: Sim: Boundary: window south open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=2% speed=0.02m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Render: Render: Camera reset
+INFO: Main: Sim reset
+INFO: UI: Element window east #3 open: 29%
+INFO: UI: Element window east #3 open: 27%
+INFO: UI: Element window east #3 open: 25%
+INFO: UI: Element window east #3 open: 24%
+INFO: UI: Element window east #3 open: 23%
+INFO: UI: Element window east #3 open: 21%
+INFO: UI: Element window east #3 open: 19%
+INFO: UI: Element window east #3 open: 18%
+INFO: UI: Element window east #3 open: 17%
+INFO: UI: Element window east #3 open: 16%
+INFO: UI: Element window east #3 open: 15%
+INFO: UI: Element window east #3 open: 14%
+INFO: UI: Element window east #3 open: 13%
+INFO: UI: Element window east #3 open: 12%
+INFO: UI: Element window east #3 open: 10%
+INFO: UI: Element window east #3 open: 9%
+INFO: UI: Element window east #3 open: 8%
+INFO: UI: Element window east #3 open: 7%
+INFO: UI: Element window east #3 open: 6%
+DEBUG: Sim: Boundary: window south open=5% speed=0.06m/s
+DEBUG: Sim: Boundary: window south open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=2% speed=0.02m/s
+DEBUG: Sim: Boundary: window east open=6% speed=0.07m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3247, MaxVel=3.8m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=23.1-36.1°C
+INFO: Main: Sim: step=300 AvgTemp=24.0C MaxVel=3.53m/s FPS=68
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.8-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Main: Sim: step=600 AvgTemp=24.0C MaxVel=3.53m/s FPS=64
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=900 AvgTemp=24.0C MaxVel=3.53m/s FPS=57
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=1200 AvgTemp=24.0C MaxVel=3.53m/s FPS=64
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=1500 AvgTemp=24.0C MaxVel=3.53m/s FPS=72
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=1800 AvgTemp=24.0C MaxVel=3.53m/s FPS=57
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=2100 AvgTemp=24.0C MaxVel=3.53m/s FPS=55
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=2400 AvgTemp=24.0C MaxVel=3.53m/s FPS=72
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=2700 AvgTemp=24.0C MaxVel=3.53m/s FPS=75
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.4-36.1°C
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3247, MaxVel=3.5m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=5% speed=0.06m/s
+DEBUG: Sim: Boundary: window south open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=2% speed=0.02m/s
+DEBUG: Sim: Boundary: window east open=6% speed=0.07m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Render: Render: Camera reset
+INFO: Main: Sim reset
+INFO: UI: Element window south #2 open: 58%
+INFO: UI: AC updated: speed=8
+INFO: UI: AC updated: speed=9
+INFO: UI: AC updated: speed=10
+INFO: UI: AC updated: target=70.6°F
+INFO: UI: AC updated: target=69.6°F
+INFO: UI: AC updated: target=68.6°F
+INFO: UI: AC updated: target=67.6°F
+INFO: UI: AC updated: speed=9
+INFO: UI: AC updated: speed=8
+INFO: UI: AC updated: speed=7
+INFO: UI: AC updated: speed=6
+INFO: UI: AC updated: speed=5
+INFO: UI: AC updated: speed=6
+INFO: UI: Fan updated: speed=5
+INFO: UI: Fan updated: speed=6
+INFO: UI: Fan updated: speed=7
+INFO: UI: Fan updated: speed=8
+INFO: UI: Fan updated: speed=9
+DEBUG: Sim: Boundary: window south open=5% speed=0.06m/s
+DEBUG: Sim: Boundary: window south open=58% speed=0.71m/s
+DEBUG: Sim: Boundary: window east open=7% speed=0.09m/s
+DEBUG: Sim: Boundary: window east open=2% speed=0.02m/s
+DEBUG: Sim: Boundary: window east open=6% speed=0.07m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3247, MaxVel=1.3m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.1m/s, SurfaceTempRange=23.6-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Main: Sim: step=300 AvgTemp=23.8C MaxVel=3.04m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=21.9-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=21.9-36.1°C
+INFO: Main: Sim: step=600 AvgTemp=23.7C MaxVel=3.05m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=21.6-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=21.7-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=21.9-36.1°C
+INFO: Main: Sim: step=900 AvgTemp=23.7C MaxVel=3.05m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=21.9-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Main: Sim: step=1200 AvgTemp=23.8C MaxVel=3.05m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Main: Sim: step=1500 AvgTemp=23.8C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Main: Sim: step=1800 AvgTemp=23.8C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.0-36.1°C
+INFO: Main: Sim: step=2100 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Main: Sim: step=2400 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Main: Sim: step=2700 AvgTemp=23.9C MaxVel=3.05m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Main: Sim: step=3000 AvgTemp=23.9C MaxVel=3.05m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.1-36.1°C
+INFO: Main: Sim: step=3300 AvgTemp=23.9C MaxVel=3.05m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=3600 AvgTemp=23.9C MaxVel=3.05m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=3900 AvgTemp=23.9C MaxVel=3.05m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=4200 AvgTemp=23.9C MaxVel=3.05m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=4500 AvgTemp=23.9C MaxVel=3.05m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=4800 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=5100 AvgTemp=23.9C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Main: Sim: step=5400 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.2-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=5700 AvgTemp=23.9C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=6000 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=6300 AvgTemp=23.9C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=6600 AvgTemp=23.9C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=6900 AvgTemp=23.9C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=7200 AvgTemp=23.9C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=7500 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=7800 AvgTemp=23.9C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=8100 AvgTemp=23.9C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=8400 AvgTemp=23.9C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=8700 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=9000 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=9300 AvgTemp=23.9C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=9600 AvgTemp=23.9C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=9900 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=10200 AvgTemp=23.9C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=10500 AvgTemp=23.9C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=10800 AvgTemp=23.9C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=11100 AvgTemp=23.9C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=11400 AvgTemp=23.9C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=11700 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=12000 AvgTemp=23.9C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=12300 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=12600 AvgTemp=23.9C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=12900 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=13200 AvgTemp=23.9C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=13500 AvgTemp=24.0C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=13800 AvgTemp=24.0C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=14100 AvgTemp=24.0C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=14400 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=14700 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=15000 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=15300 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=15600 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=15900 AvgTemp=24.0C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=16200 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=16500 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=16800 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=17100 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=17400 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=17700 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=18000 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=18300 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=18600 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=18900 AvgTemp=24.0C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=19200 AvgTemp=24.0C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=19500 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=19800 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=20100 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=20400 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=20700 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=21000 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=21300 AvgTemp=24.0C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=21600 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=21900 AvgTemp=24.0C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=22200 AvgTemp=24.0C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=22500 AvgTemp=24.0C MaxVel=3.06m/s FPS=28
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+DEBUG: Models: Settings init: in=22.0C out=35.0C AC=OFF units=metric
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Main: Sim: step=22800 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=23100 AvgTemp=24.0C MaxVel=3.06m/s FPS=30
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=23400 AvgTemp=24.0C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+DEBUG: Models: Settings init: in=22.0C out=35.0C AC=OFF units=metric
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=23700 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=24000 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+DEBUG: Models: Settings init: in=22.0C out=35.0C AC=OFF units=metric
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=24300 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=24600 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=24900 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=25200 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=25500 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=25800 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=26100 AvgTemp=24.0C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=26400 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=26700 AvgTemp=24.0C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=27000 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=27300 AvgTemp=24.0C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=27600 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=27900 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=28200 AvgTemp=24.0C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=28500 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=28800 AvgTemp=24.0C MaxVel=3.06m/s FPS=39
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=29100 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=29400 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=29700 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=30000 AvgTemp=24.0C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=30300 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=30600 AvgTemp=24.0C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=30900 AvgTemp=24.0C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=31200 AvgTemp=24.0C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=31500 AvgTemp=24.1C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=31800 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=32100 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=32400 AvgTemp=24.1C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=32700 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=33000 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=33300 AvgTemp=24.1C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=33600 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=33900 AvgTemp=24.1C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=34200 AvgTemp=24.1C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=34500 AvgTemp=24.1C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.4-36.1°C
+INFO: Main: Sim: step=34800 AvgTemp=24.1C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=35100 AvgTemp=24.1C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=35400 AvgTemp=24.1C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=35700 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=36000 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=36300 AvgTemp=24.1C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=36600 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=36900 AvgTemp=24.1C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=37200 AvgTemp=24.1C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=37500 AvgTemp=24.1C MaxVel=3.06m/s FPS=34
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=37800 AvgTemp=24.1C MaxVel=3.06m/s FPS=36
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=38100 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=38400 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=38700 AvgTemp=24.1C MaxVel=3.06m/s FPS=35
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=39000 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=39300 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=39600 AvgTemp=24.1C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=39900 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=40200 AvgTemp=24.1C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=40500 AvgTemp=24.1C MaxVel=3.06m/s FPS=33
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=40800 AvgTemp=24.1C MaxVel=3.06m/s FPS=32
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=41100 AvgTemp=24.1C MaxVel=3.06m/s FPS=37
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: Sim: step=41400 AvgTemp=24.1C MaxVel=3.06m/s FPS=38
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Render: Render: Arrows=3247, MaxVel=3.0m/s, SurfaceTempRange=22.3-36.1°C
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 3.0x4.6x3.0m
+DEBUG: Models: window created: pos=(1.75, 1.5) size=(1.2, 1.0) open=0%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.75, 0.5) size=(1.2, 1.0) open=100%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 3.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 3.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 0.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(1.5, 0.25) size=(1.0, 1.2) open=0%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: door created: pos=(1.0, 3.0) size=(2.1, 0.9) open=100%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(2.1, 0.9) open=0%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: vent created: pos=(2.0, 3.0) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 3.0x4.6x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom_v2.json (9 elements)
+DEBUG: UI: Element states rebuilt: 9 elements
+DEBUG: UI: Element states rebuilt: 9 elements
+INFO: UI: Conditions loaded, temp=75°F
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3212, MaxVel=3.8m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=23.0-36.1°C
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Render: Render: Camera reset
+INFO: Main: Sim reset
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3212, MaxVel=3.8m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=23.1-36.1°C
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 0.86
+DEBUG: Render: Render: Camera zoomed 0.79
+DEBUG: Render: Render: Camera zoomed 0.74
+DEBUG: Render: Render: Camera zoomed 0.68
+DEBUG: Render: Render: Camera zoomed 0.63
+DEBUG: Render: Render: Camera zoomed 0.58
+DEBUG: Render: Render: Camera zoomed 0.54
+DEBUG: Render: Render: Camera zoomed 0.50
+DEBUG: Render: Render: Camera zoomed 0.46
+DEBUG: Render: Render: Camera zoomed 0.43
+DEBUG: Render: Render: Camera zoomed 0.40
+DEBUG: Render: Render: Camera zoomed 0.37
+DEBUG: Render: Render: Camera zoomed 0.34
+DEBUG: Render: Render: Camera zoomed 0.32
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+INFO: Main: Sim: step=300 AvgTemp=25.5C MaxVel=3.55m/s FPS=36
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+DEBUG: Render: Render: Camera zoomed 0.30
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.8-36.1°C
+INFO: Main: AC Sim shutdown

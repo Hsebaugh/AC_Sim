@@ -16,6 +16,10 @@
 - Optimize: Vectorize ops; batch GPU; profile FPS.
 - UI Do's/Don'ts: Use drawlist for dynamic net/hover; matrix transforms for 3D orientation; event-driven clicks; no blocking loops.
 
+**Camera & Input Do's**: 
+Use **item-specific handlers** attached directly to the drawlist (not global handler_registry). Place the visualization in its **own child_window** with `no_scrollbar=True` and `border=True`. Support both trackpad and wired mouse: LMB=pan, RMB=orbit, Scroll=zoom, "R"=reset view.
+
+
 ## Tasks (Implement Sequentially; Fix Current Issues First)
 
 ### 1. Setup (Complete)

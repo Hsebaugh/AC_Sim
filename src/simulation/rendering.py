@@ -163,6 +163,7 @@ class AirflowRenderer(BaseRenderer):
         self._lmb_last: tuple[float, float] | None = None
 
         # DPG tags (set during build)
+        self._vis_window: int | str = 0
         self._canvas: int | str = 0
         self._surface_layer: int | str = 0
         self._room_layer: int | str = 0
@@ -183,8 +184,13 @@ class AirflowRenderer(BaseRenderer):
 
     def build(self, parent: int | str) -> None:
         with dpg.child_window(
-            parent=parent, autosize_x=True, height=RENDER_H + 50,
-        ):
+            parent=parent,
+            autosize_x=True,
+            height=RENDER_H + 50,
+            no_scrollbar=True,
+            no_scroll_with_mouse=True,
+            border=True,
+        ) as self._vis_window:
             with dpg.group(horizontal=True):
                 dpg.add_text("Airflow Visualization")
                 dpg.add_slider_float(
@@ -209,6 +215,9 @@ class AirflowRenderer(BaseRenderer):
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
+        # Global handler registry -- DPG does not support item-level
+        # mouse_move / mouse_wheel handlers, so we use global handlers
+        # with manual rect-based hit testing in _is_over_canvas().
         with dpg.handler_registry(tag="render_handlers"):
             dpg.add_mouse_down_handler(
                 button=dpg.mvMouseButton_Right, callback=self._on_rdown,
@@ -230,6 +239,25 @@ class AirflowRenderer(BaseRenderer):
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d)", RENDER_W, RENDER_H)
+        logger.info("Render: Camera controls initialized with item handlers")
+
+    # -- canvas hit test -----------------------------------------------------
+
+    def _is_over_canvas(self) -> bool:
+        """Check if mouse is over the drawlist canvas via rect bounds.
+
+        DPG's is_item_hovered() is unreliable on drawlists, so we
+        compare the mouse position against the canvas bounding rect.
+        """
+        if not self._canvas:
+            return False
+        try:
+            mx, my = dpg.get_mouse_pos(local=False)
+            rmin = dpg.get_item_rect_min(self._canvas)
+            rmax = dpg.get_item_rect_max(self._canvas)
+            return rmin[0] <= mx <= rmax[0] and rmin[1] <= my <= rmax[1]
+        except Exception:
+            return False
 
     # -- camera projection ---------------------------------------------------
 
@@ -724,11 +752,17 @@ class AirflowRenderer(BaseRenderer):
                 moved = True
         if moved:
             self._room_dirty = True
+        # Prevent primary window from scrolling (content should fit viewport)
+        try:
+            if dpg.get_y_scroll("primary") != 0:
+                dpg.set_y_scroll("primary", 0)
+        except Exception:
+            pass
 
     # -- camera callbacks ----------------------------------------------------
 
     def _on_rdown(self, sender: Any = None, app_data: Any = None) -> None:
-        if dpg.is_item_hovered(self._canvas):
+        if self._is_over_canvas():
             self._rmb_dragging = True
             self._rmb_last = None
 
@@ -739,7 +773,7 @@ class AirflowRenderer(BaseRenderer):
             logger.debug("Render: Camera orbited")
 
     def _on_ldown(self, sender: Any = None, app_data: Any = None) -> None:
-        if dpg.is_item_hovered(self._canvas):
+        if self._is_over_canvas():
             self._lmb_dragging = True
             self._lmb_last = None
 
@@ -750,7 +784,7 @@ class AirflowRenderer(BaseRenderer):
             logger.debug("Render: Camera panned")
 
     def _on_mmove(self, sender: Any = None, app_data: Any = None) -> None:
-        mx, my = dpg.get_mouse_pos()
+        mx, my = dpg.get_mouse_pos(local=False)
 
         # RMB orbit
         if self._rmb_dragging:
@@ -774,10 +808,15 @@ class AirflowRenderer(BaseRenderer):
             self._lmb_last = (mx, my)
 
     def _on_scroll(self, sender: Any = None, app_data: Any = None) -> None:
-        if not dpg.is_item_hovered(self._canvas):
+        if not self._is_over_canvas():
             return
         factor = 1.08 if app_data > 0 else 1.0 / 1.08
         self._zoom_target = max(0.3, min(5.0, self._zoom_target * factor))
+        # Prevent parent window scroll
+        try:
+            dpg.set_y_scroll("primary", 0)
+        except Exception:
+            pass
         logger.debug("Render: Camera zoomed %.2f", self._zoom_target)
 
     def _on_key_r(self, sender: Any = None, app_data: Any = None) -> None:
