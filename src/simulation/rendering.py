@@ -6,7 +6,7 @@ densely subsampled from the solver grid, coloured by temperature
 floor, and ceiling surfaces are painted with interpolated temperature
 gradients from the boundary cells.
 
-Camera: right-mouse-drag to rotate, scroll-wheel to zoom.
+Camera: LMB drag to pan, RMB drag to orbit, scroll to zoom, R to reset.
 """
 
 from __future__ import annotations
@@ -45,6 +45,14 @@ ELEM_COLORS = {
     "window": (80, 180, 255, 100),
     "vent": (100, 220, 120, 100),
 }
+
+# Default camera state
+_DEFAULT_YAW = math.pi / 6            # ~30 degrees
+_DEFAULT_PITCH = math.radians(35)      # 35 degrees
+_DEFAULT_ZOOM = 1.0
+_SMOOTH_FACTOR = 0.3                   # exponential smoothing per frame
+_ORBIT_SENS = 0.008                    # radians per drag pixel
+_PAN_SENS = 1.0                        # screen pixels per drag pixel
 
 # Face transforms: origin, u_axis, v_axis  (face-local -> 3D)
 _FACE_XFORMS = {
@@ -136,12 +144,23 @@ class AirflowRenderer(BaseRenderer):
         self._render_every = 2   # render every 2nd frame for perf
         self._frame = 0
 
-        # Camera state
-        self._yaw = math.pi / 6
-        self._pitch = math.pi / 5
-        self._zoom = 1.0
-        self._dragging = False
-        self._last_mouse: tuple[float, float] | None = None
+        # Camera state (current + target for smoothing)
+        self._yaw = _DEFAULT_YAW
+        self._pitch = _DEFAULT_PITCH
+        self._zoom = _DEFAULT_ZOOM
+        self._pan_x = 0.0
+        self._pan_y = 0.0
+        self._yaw_target = _DEFAULT_YAW
+        self._pitch_target = _DEFAULT_PITCH
+        self._zoom_target = _DEFAULT_ZOOM
+        self._pan_x_target = 0.0
+        self._pan_y_target = 0.0
+
+        # Drag state
+        self._rmb_dragging = False
+        self._rmb_last: tuple[float, float] | None = None
+        self._lmb_dragging = False
+        self._lmb_last: tuple[float, float] | None = None
 
         # DPG tags (set during build)
         self._canvas: int | str = 0
@@ -178,7 +197,7 @@ class AirflowRenderer(BaseRenderer):
                     callback=self._on_arrow_scale,
                 )
                 dpg.add_text(
-                    "RMB drag: rotate  |  Scroll: zoom",
+                    "LMB: pan | RMB: orbit | Scroll: zoom | R: reset",
                     color=(140, 140, 140),
                 )
 
@@ -197,8 +216,17 @@ class AirflowRenderer(BaseRenderer):
             dpg.add_mouse_release_handler(
                 button=dpg.mvMouseButton_Right, callback=self._on_rup,
             )
+            dpg.add_mouse_down_handler(
+                button=dpg.mvMouseButton_Left, callback=self._on_ldown,
+            )
+            dpg.add_mouse_release_handler(
+                button=dpg.mvMouseButton_Left, callback=self._on_lup,
+            )
             dpg.add_mouse_move_handler(callback=self._on_mmove)
             dpg.add_mouse_wheel_handler(callback=self._on_scroll)
+            dpg.add_key_press_handler(
+                key=dpg.mvKey_R, callback=self._on_key_r,
+            )
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d)", RENDER_W, RENDER_H)
@@ -230,7 +258,10 @@ class AirflowRenderer(BaseRenderer):
         rz2 = ry * sp + dz * cp
 
         sc = self._cam_scale()
-        return (RENDER_W / 2 + rx * sc, RENDER_H / 2 - rz2 * sc)
+        return (
+            RENDER_W / 2 + rx * sc + self._pan_x,
+            RENDER_H / 2 - rz2 * sc + self._pan_y,
+        )
 
     def _project_arrays(
         self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
@@ -249,7 +280,10 @@ class AirflowRenderer(BaseRenderer):
         rz2 = ry * sp + dz * cp
 
         sc = self._cam_scale()
-        return (RENDER_W / 2 + rx * sc, RENDER_H / 2 - rz2 * sc)
+        return (
+            RENDER_W / 2 + rx * sc + self._pan_x,
+            RENDER_H / 2 - rz2 * sc + self._pan_y,
+        )
 
     def _project_vec_arrays(
         self, vx: np.ndarray, vy: np.ndarray, vz: np.ndarray,
@@ -623,6 +657,12 @@ class AirflowRenderer(BaseRenderer):
             color=(200, 200, 200, 200), size=11,
             parent=self._hud_layer,
         )
+        dpg.draw_text(
+            (8, RENDER_H - 18),
+            "LMB: pan | RMB: orbit | Scroll: zoom | R: reset view",
+            color=(120, 120, 130, 160), size=10,
+            parent=self._hud_layer,
+        )
 
     def _draw_colorbar(self, t_lo: float, t_hi: float) -> None:
         x0, y0, bh, bw = RENDER_W - 30, 30, 100, 12
@@ -656,37 +696,92 @@ class AirflowRenderer(BaseRenderer):
         """Mark room wireframe for redraw (call after room/camera change)."""
         self._room_dirty = True
 
+    def reset_camera(self) -> None:
+        """Reset camera to default isometric view."""
+        self._yaw_target = _DEFAULT_YAW
+        self._pitch_target = _DEFAULT_PITCH
+        self._zoom_target = _DEFAULT_ZOOM
+        self._pan_x_target = 0.0
+        self._pan_y_target = 0.0
+        self._room_dirty = True
+        logger.info("Render: Camera reset")
+
+    def tick(self) -> None:
+        """Interpolate camera values toward targets (call every frame).
+
+        Provides light damping / momentum feel on both trackpad and mouse.
+        """
+        moved = False
+        for attr in ("_yaw", "_pitch", "_zoom", "_pan_x", "_pan_y"):
+            cur = getattr(self, attr)
+            tgt = getattr(self, attr + "_target")
+            diff = tgt - cur
+            if abs(diff) > 1e-4:
+                setattr(self, attr, cur + diff * _SMOOTH_FACTOR)
+                moved = True
+            elif diff != 0.0:
+                setattr(self, attr, tgt)
+                moved = True
+        if moved:
+            self._room_dirty = True
+
     # -- camera callbacks ----------------------------------------------------
 
     def _on_rdown(self, sender: Any = None, app_data: Any = None) -> None:
         if dpg.is_item_hovered(self._canvas):
-            self._dragging = True
-            self._last_mouse = None
+            self._rmb_dragging = True
+            self._rmb_last = None
 
     def _on_rup(self, sender: Any = None, app_data: Any = None) -> None:
-        self._dragging = False
-        self._last_mouse = None
+        if self._rmb_dragging:
+            self._rmb_dragging = False
+            self._rmb_last = None
+            logger.debug("Render: Camera orbited")
+
+    def _on_ldown(self, sender: Any = None, app_data: Any = None) -> None:
+        if dpg.is_item_hovered(self._canvas):
+            self._lmb_dragging = True
+            self._lmb_last = None
+
+    def _on_lup(self, sender: Any = None, app_data: Any = None) -> None:
+        if self._lmb_dragging:
+            self._lmb_dragging = False
+            self._lmb_last = None
+            logger.debug("Render: Camera panned")
 
     def _on_mmove(self, sender: Any = None, app_data: Any = None) -> None:
-        if not self._dragging:
-            return
         mx, my = dpg.get_mouse_pos()
-        if self._last_mouse is not None:
-            dx = mx - self._last_mouse[0]
-            dy = my - self._last_mouse[1]
-            self._yaw += dx * 0.005
-            self._pitch = max(
-                0.05, min(math.pi / 2 - 0.05, self._pitch - dy * 0.005),
-            )
-            self._room_dirty = True
-        self._last_mouse = (mx, my)
+
+        # RMB orbit
+        if self._rmb_dragging:
+            if self._rmb_last is not None:
+                dx = mx - self._rmb_last[0]
+                dy = my - self._rmb_last[1]
+                self._yaw_target += dx * _ORBIT_SENS
+                self._pitch_target = max(
+                    0.05,
+                    min(math.pi / 2 - 0.05, self._pitch_target - dy * _ORBIT_SENS),
+                )
+            self._rmb_last = (mx, my)
+
+        # LMB pan
+        if self._lmb_dragging:
+            if self._lmb_last is not None:
+                dx = mx - self._lmb_last[0]
+                dy = my - self._lmb_last[1]
+                self._pan_x_target += dx * _PAN_SENS
+                self._pan_y_target += dy * _PAN_SENS
+            self._lmb_last = (mx, my)
 
     def _on_scroll(self, sender: Any = None, app_data: Any = None) -> None:
         if not dpg.is_item_hovered(self._canvas):
             return
-        self._zoom *= 1.1 if app_data > 0 else 0.9
-        self._zoom = max(0.3, min(5.0, self._zoom))
-        self._room_dirty = True
+        factor = 1.08 if app_data > 0 else 1.0 / 1.08
+        self._zoom_target = max(0.3, min(5.0, self._zoom_target * factor))
+        logger.debug("Render: Camera zoomed %.2f", self._zoom_target)
+
+    def _on_key_r(self, sender: Any = None, app_data: Any = None) -> None:
+        self.reset_camera()
 
     def _on_arrow_scale(
         self, sender: Any = None, app_data: Any = None,

@@ -98,6 +98,7 @@ def main():
         dpg.set_value("sim_toggle", False)
         solver = _init_solver()
         frame_count = 0
+        renderer.reset_camera()
         dpg.set_value("sim_status", "Sim: Reset")
         logger.info("Sim reset")
 
@@ -169,6 +170,7 @@ def main():
                     frame_count, st["avg_temp"], st["max_vel"], fps,
                 )
 
+        renderer.tick()
         dpg.render_dearpygui_frame()
 
     dpg.destroy_context()
