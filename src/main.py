@@ -41,20 +41,26 @@ def main():
     dpg.create_viewport(
         title="AC Sim",
         width=1400,
-        height=1000,
+        height=1100,
         resizable=True,
     )
 
+    # -- Tabbed layout -------------------------------------------------------
     with dpg.window(tag="primary", no_scrollbar=True):
-        main_row = dpg.add_group(horizontal=True)
+        with dpg.tab_bar(tag="main_tabs"):
+            with dpg.tab(label="Room Design & Conditions", tag="tab_design"):
+                design_row = dpg.add_group(horizontal=True)
+            with dpg.tab(label="Simulation", tag="tab_sim"):
+                pass  # content added below after callbacks are defined
 
+    # -- Tab 1: Room Design & Conditions -------------------------------------
     editor = RoomEditor(units=units)
-    editor.build(parent=main_row)
+    editor.build(parent=design_row)
 
     settings.room = editor.room
 
     conditions = ConditionsPanel(settings=settings)
-    conditions.build(parent=main_row)
+    conditions.build(parent=design_row)
 
     # -- simulation state ----------------------------------------------------
     solver: Solver | None = None
@@ -102,10 +108,8 @@ def main():
         dpg.set_value("sim_status", "Sim: Reset")
         logger.info("Sim reset")
 
-    # -- sim controls (appended to conditions column) ------------------------
-    with dpg.child_window(width=260, autosize_y=True, parent=main_row):
-        dpg.add_text("Simulation")
-        dpg.add_separator()
+    # -- Tab 2: Simulation controls + render viewport ------------------------
+    with dpg.group(horizontal=True, parent="tab_sim"):
         dpg.add_checkbox(
             tag="sim_toggle",
             label="Run Simulation",
@@ -113,15 +117,17 @@ def main():
             callback=_on_sim_toggle,
         )
         dpg.add_button(label="Reset Simulation", callback=_on_sim_reset)
-        dpg.add_separator()
+        dpg.add_spacer(width=20)
         dpg.add_text("Sim: Idle", tag="sim_status")
+        dpg.add_spacer(width=10)
         dpg.add_text("FPS: --", tag="sim_fps")
+        dpg.add_spacer(width=10)
         dpg.add_text("Avg Temp: --", tag="sim_avg_temp")
+        dpg.add_spacer(width=10)
         dpg.add_text("Max Vel: --", tag="sim_max_vel")
 
-    # -- render viewport (below main row) ------------------------------------
-    dpg.add_separator(parent="primary")
-    renderer.build(parent="primary")
+    dpg.add_separator(parent="tab_sim")
+    renderer.build(parent="tab_sim")
 
     # -- cross-panel sync ----------------------------------------------------
     def sync_units(new_units: str) -> None:
@@ -140,8 +146,10 @@ def main():
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("primary", True)
+    dpg.set_value("main_tabs", "tab_sim")
 
     logger.info("AC Sim ready")
+    logger.info("UI: Tabbed layout initialized, default tab=Simulation")
 
     last_time = time.perf_counter()
 

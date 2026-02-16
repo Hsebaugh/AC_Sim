@@ -15594,3 +15594,734 @@ DEBUG: Sim: Boundaries rebuilt
 INFO: Main: Sim started
 INFO: Render: Render: Arrows=3212, MaxVel=1.2m/s, SurfaceTempRange=23.9-36.1°C
 INFO: Main: Sim paused
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Render: Render: Visualization window set to fill remaining space with no_scrollbar=True
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 3.0x4.6x3.0m
+DEBUG: Models: window created: pos=(1.75, 1.5) size=(1.2, 1.0) open=0%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.75, 0.5) size=(1.2, 1.0) open=100%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 3.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 3.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 0.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(1.5, 0.25) size=(1.0, 1.2) open=0%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: door created: pos=(1.0, 3.0) size=(2.1, 0.9) open=100%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(2.1, 0.9) open=0%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: vent created: pos=(2.0, 3.0) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 3.0x4.6x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom_v2.json (9 elements)
+DEBUG: UI: Element states rebuilt: 9 elements
+DEBUG: UI: Element states rebuilt: 9 elements
+INFO: UI: Conditions loaded, temp=75°F
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3212, MaxVel=3.8m/s, SurfaceTempRange=23.9-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=23.0-36.1°C
+INFO: Main: Sim: step=300 AvgTemp=25.5C MaxVel=3.55m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.7-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Main: Sim: step=600 AvgTemp=25.8C MaxVel=3.54m/s FPS=71
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Render: Render: Visualization window set to fill remaining space with no_scrollbar=True
+INFO: Main: AC Sim ready
+INFO: Sim: GPU: Metal / MPS
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+INFO: Main: Sim: step=300 AvgTemp=25.0C MaxVel=0.00m/s FPS=61
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+WARNING: Render: Render: No arrows -- vel max=0.000000. Open elements or enable AC/fan?
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel created (units=standard)
+DEBUG: UI: Element states rebuilt: 0 elements
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Render: Render: Visualization window set to fill remaining space with no_scrollbar=True
+INFO: Main: AC Sim ready
+DEBUG: Models: Room init: 3.0x4.6x3.0m
+DEBUG: Models: window created: pos=(1.75, 1.5) size=(1.2, 1.0) open=0%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.75, 0.5) size=(1.2, 1.0) open=100%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 3.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 3.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 0.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(1.5, 0.25) size=(1.0, 1.2) open=0%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: door created: pos=(1.0, 3.0) size=(2.1, 0.9) open=100%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(2.1, 0.9) open=0%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: vent created: pos=(2.0, 3.0) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 3.0x4.6x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom_v2.json (9 elements)
+DEBUG: UI: Element states rebuilt: 9 elements
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.00m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32, FPS target=60
+INFO: Main: Sim started
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=300 AvgTemp=26.3C MaxVel=1.00m/s FPS=56
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=600 AvgTemp=26.6C MaxVel=1.08m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=900 AvgTemp=26.7C MaxVel=1.09m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=1200 AvgTemp=26.7C MaxVel=1.11m/s FPS=71
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=1500 AvgTemp=26.7C MaxVel=1.12m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=1800 AvgTemp=26.8C MaxVel=1.12m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=2100 AvgTemp=26.8C MaxVel=1.12m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=2400 AvgTemp=26.8C MaxVel=1.13m/s FPS=58
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=2700 AvgTemp=26.8C MaxVel=1.13m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=3000 AvgTemp=26.8C MaxVel=1.13m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=3300 AvgTemp=26.8C MaxVel=1.13m/s FPS=60
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=3600 AvgTemp=26.8C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=3900 AvgTemp=26.8C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=4200 AvgTemp=26.8C MaxVel=1.13m/s FPS=63
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=4500 AvgTemp=26.8C MaxVel=1.13m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=4800 AvgTemp=26.8C MaxVel=1.13m/s FPS=63
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=5100 AvgTemp=26.8C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=5400 AvgTemp=26.9C MaxVel=1.13m/s FPS=70
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=5700 AvgTemp=26.9C MaxVel=1.13m/s FPS=71
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=6000 AvgTemp=26.9C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=6300 AvgTemp=26.9C MaxVel=1.13m/s FPS=46
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=6600 AvgTemp=26.9C MaxVel=1.13m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=6900 AvgTemp=26.9C MaxVel=1.13m/s FPS=56
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=7200 AvgTemp=26.9C MaxVel=1.13m/s FPS=58
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=7500 AvgTemp=26.9C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=7800 AvgTemp=26.9C MaxVel=1.13m/s FPS=59
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=8100 AvgTemp=26.9C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=8400 AvgTemp=26.9C MaxVel=1.13m/s FPS=70
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=8700 AvgTemp=26.9C MaxVel=1.13m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=9000 AvgTemp=26.9C MaxVel=1.13m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=9300 AvgTemp=26.9C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=9600 AvgTemp=26.9C MaxVel=1.13m/s FPS=48
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=9900 AvgTemp=26.9C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=10200 AvgTemp=26.9C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=10500 AvgTemp=26.9C MaxVel=1.13m/s FPS=72
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=10800 AvgTemp=26.9C MaxVel=1.13m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=11100 AvgTemp=26.9C MaxVel=1.13m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=11400 AvgTemp=26.9C MaxVel=1.13m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=11700 AvgTemp=27.0C MaxVel=1.13m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=12000 AvgTemp=27.0C MaxVel=1.13m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=12300 AvgTemp=27.0C MaxVel=1.13m/s FPS=55
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=12600 AvgTemp=27.0C MaxVel=1.13m/s FPS=63
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=12900 AvgTemp=27.0C MaxVel=1.13m/s FPS=71
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=13200 AvgTemp=27.0C MaxVel=1.13m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=13500 AvgTemp=27.0C MaxVel=1.13m/s FPS=51
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=13800 AvgTemp=27.0C MaxVel=1.13m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=14100 AvgTemp=27.0C MaxVel=1.13m/s FPS=78
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=14400 AvgTemp=27.0C MaxVel=1.13m/s FPS=72
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=14700 AvgTemp=27.0C MaxVel=1.13m/s FPS=52
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=15000 AvgTemp=27.0C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=15300 AvgTemp=27.0C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=15600 AvgTemp=27.0C MaxVel=1.13m/s FPS=50
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=15900 AvgTemp=27.0C MaxVel=1.13m/s FPS=46
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=16200 AvgTemp=27.0C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=16500 AvgTemp=27.0C MaxVel=1.13m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=16800 AvgTemp=27.0C MaxVel=1.13m/s FPS=59
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=17100 AvgTemp=27.0C MaxVel=1.13m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=17400 AvgTemp=27.0C MaxVel=1.13m/s FPS=52
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=17700 AvgTemp=27.0C MaxVel=1.13m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=18000 AvgTemp=27.0C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=18300 AvgTemp=27.1C MaxVel=1.13m/s FPS=58
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=18600 AvgTemp=27.1C MaxVel=1.13m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=18900 AvgTemp=27.1C MaxVel=1.13m/s FPS=60
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=19200 AvgTemp=27.1C MaxVel=1.13m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=19500 AvgTemp=27.1C MaxVel=1.13m/s FPS=70
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=19800 AvgTemp=27.1C MaxVel=1.13m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=20100 AvgTemp=27.1C MaxVel=1.13m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=20400 AvgTemp=27.1C MaxVel=1.13m/s FPS=61
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=20700 AvgTemp=27.1C MaxVel=1.13m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=21000 AvgTemp=27.1C MaxVel=1.13m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=21300 AvgTemp=27.1C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=21600 AvgTemp=27.1C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=21900 AvgTemp=27.1C MaxVel=1.13m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=22200 AvgTemp=27.1C MaxVel=1.13m/s FPS=70
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=22500 AvgTemp=27.1C MaxVel=1.13m/s FPS=53
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=22800 AvgTemp=27.1C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=23100 AvgTemp=27.1C MaxVel=1.13m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=23400 AvgTemp=27.1C MaxVel=1.13m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=23700 AvgTemp=27.1C MaxVel=1.13m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=24000 AvgTemp=27.2C MaxVel=1.13m/s FPS=55
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=24300 AvgTemp=27.2C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=24600 AvgTemp=27.2C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=24900 AvgTemp=27.2C MaxVel=1.13m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=25200 AvgTemp=27.2C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=25500 AvgTemp=27.2C MaxVel=1.13m/s FPS=59
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=25800 AvgTemp=27.2C MaxVel=1.13m/s FPS=53
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=26100 AvgTemp=27.2C MaxVel=1.13m/s FPS=52
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=26400 AvgTemp=27.2C MaxVel=1.13m/s FPS=55
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=26700 AvgTemp=27.2C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=27000 AvgTemp=27.2C MaxVel=1.13m/s FPS=70
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=27300 AvgTemp=27.2C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=27600 AvgTemp=27.2C MaxVel=1.13m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=27900 AvgTemp=27.2C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=28200 AvgTemp=27.2C MaxVel=1.13m/s FPS=58
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=28500 AvgTemp=27.2C MaxVel=1.13m/s FPS=58
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=28800 AvgTemp=27.2C MaxVel=1.13m/s FPS=55
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=29100 AvgTemp=27.3C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=29400 AvgTemp=27.3C MaxVel=1.13m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=29700 AvgTemp=27.3C MaxVel=1.13m/s FPS=56
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=30000 AvgTemp=27.3C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=30300 AvgTemp=27.3C MaxVel=1.13m/s FPS=60
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=30600 AvgTemp=27.3C MaxVel=1.13m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=30900 AvgTemp=27.3C MaxVel=1.13m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=31200 AvgTemp=27.3C MaxVel=1.13m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=31500 AvgTemp=27.3C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=31800 AvgTemp=27.3C MaxVel=1.13m/s FPS=59
