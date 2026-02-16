@@ -41,11 +41,12 @@
 - GPU: Torch tensors; step per frame.
 - Fallback: CPU.
 
-### 6. Rendering/Vis
-- Embed GL in DPG window (resizable).
-- Draw: Room mesh; sample grid for arrows (len=vel, color=blue-yellow-red).
-- Controls: Pause, camera.
-- FPS: Monitor/log; optimize LOD/batching.
+### 6. Rendering/Vis (Partially Complete — Critical Fix Needed)
+- 6.1: Isometric 3D viewport (current DPG drawlist + projection).
+- 6.2: Dense airflow arrows: Sample heavily from 3D grid (target 2000–5000 arrows), project to screen with proper 3D rotation.
+- 6.3: Temperature zones: Color room walls/floor/ceiling with temp gradient (blue-cold → yellow-ambient → red-hot) like reference image.
+- 6.4: Camera: Yaw/pitch/zoom, smooth controls.
+- 6.5: Performance: Adaptive skip, LOD, batch drawing; log arrow count + FPS.
 
 ### 7. Logging/Debug
 - Concise: e.g., "Sim: AvgTemp=22C, FPS=65; Arrows: Inflow blue vel=2m/s".

@@ -1,8 +1,10 @@
-"""Task 6 -- Airflow Visualization -- velocity arrows + room wireframe.
+"""Task 6 -- Airflow Visualization -- velocity arrows + surface temps.
 
 Isometric 3D view rendered on a DPG drawlist.  Velocity arrows are
-subsampled from the solver grid, coloured by temperature (blue-cold,
-yellow-ambient, red-hot) and scaled by speed.
+densely subsampled from the solver grid, coloured by temperature
+(blue-cold, yellow-ambient, red-hot) and scaled by speed.  Wall,
+floor, and ceiling surfaces are painted with interpolated temperature
+gradients from the boundary cells.
 
 Camera: right-mouse-drag to rotate, scroll-wheel to zoom.
 """
@@ -25,16 +27,18 @@ logger = setup_logger("Render")
 # Constants
 # ---------------------------------------------------------------------------
 
-RENDER_W, RENDER_H = 700, 380
-WIRE_COLOR = (180, 180, 190, 200)
+RENDER_W, RENDER_H = 700, 430
+WIRE_COLOR = (180, 180, 190, 220)
 WIRE_THICK = 1.5
 
-# Colormap anchors: blue (cold) → yellow (ambient) → red (hot)
+# Colormap anchors: blue (cold) -> yellow (ambient) -> red (hot)
 _COLD = (30, 100, 255)
 _WARM = (255, 230, 50)
 _HOT = (255, 40, 30)
 
-_VEL_THRESHOLD = 1e-8   # draw arrows for any non-zero velocity
+_VEL_THRESHOLD = 1e-6   # draw arrows for any non-zero velocity
+_MAX_ARROWS = 5000
+_SURF_PATCHES = 8        # patches per face dimension for surface coloring
 
 ELEM_COLORS = {
     "door": (230, 160, 50, 100),
@@ -42,14 +46,24 @@ ELEM_COLORS = {
     "vent": (100, 220, 120, 100),
 }
 
-# Face transforms: origin, u_axis, v_axis  (face-local → 3D)
+# Face transforms: origin, u_axis, v_axis  (face-local -> 3D)
 _FACE_XFORMS = {
-    "north":   ((0, 0, 1), (1, 0, 0), (0, 0, -1)),   # origin uses H
-    "south":   ((0, 1, 0), (1, 0, 0), (0, 0, 1)),     # origin uses L
-    "west":    ((0, 0, 1), (0, 0, -1), (0, 1, 0)),     # origin uses H
-    "east":    ((1, 0, 0), (0, 0, 1), (0, 1, 0)),      # origin uses W
+    "north":   ((0, 0, 1), (1, 0, 0), (0, 0, -1)),
+    "south":   ((0, 1, 0), (1, 0, 0), (0, 0, 1)),
+    "west":    ((0, 0, 1), (0, 0, -1), (0, 1, 0)),
+    "east":    ((1, 0, 0), (0, 0, 1), (0, 1, 0)),
     "floor":   ((0, 0, 0), (1, 0, 0), (0, 1, 0)),
-    "ceiling": ((0, 0, 1), (1, 0, 0), (0, 1, 0)),      # origin uses H
+    "ceiling": ((0, 0, 1), (1, 0, 0), (0, 1, 0)),
+}
+
+# Inner-facing normals for back-face culling of temperature surfaces
+_INNER_NORMALS = {
+    "floor":   (0, 0, 1),
+    "ceiling": (0, 0, -1),
+    "south":   (0, 1, 0),
+    "north":   (0, -1, 0),
+    "west":    (1, 0, 0),
+    "east":    (-1, 0, 0),
 }
 
 
@@ -73,7 +87,7 @@ def _lerp_rgb(
 def temp_color(
     temp: float, t_lo: float, t_hi: float,
 ) -> tuple[int, int, int]:
-    """Map temperature to RGB via blue → yellow → red colormap."""
+    """Map temperature to RGB via blue -> yellow -> red colormap."""
     t_mid = (t_lo + t_hi) * 0.5
     if temp <= t_lo:
         return _COLD
@@ -107,7 +121,7 @@ class BaseRenderer(ABC):
 # ---------------------------------------------------------------------------
 
 class AirflowRenderer(BaseRenderer):
-    """Isometric airflow visualisation with velocity arrows."""
+    """Isometric airflow visualisation with velocity arrows and surface temps."""
 
     def __init__(self, settings: Settings, config: dict) -> None:
         self._settings = settings
@@ -116,10 +130,10 @@ class AirflowRenderer(BaseRenderer):
         nx = int(grid.get("x", 32))
         ny = int(grid.get("y", 32))
 
-        # Sub-sampling step (LOD) and hard cap
-        self._skip = max(1, min(nx, ny) // 8)
-        self._max_arrows = 512
-        self._render_every = 1   # render every frame
+        # Sub-sampling step: skip=2 in xy for dense arrow coverage
+        self._skip = max(1, min(nx, ny) // 16)
+        self._max_arrows = _MAX_ARROWS
+        self._render_every = 2   # render every 2nd frame for perf
         self._frame = 0
 
         # Camera state
@@ -131,6 +145,7 @@ class AirflowRenderer(BaseRenderer):
 
         # DPG tags (set during build)
         self._canvas: int | str = 0
+        self._surface_layer: int | str = 0
         self._room_layer: int | str = 0
         self._arrow_layer: int | str = 0
         self._hud_layer: int | str = 0
@@ -138,13 +153,19 @@ class AirflowRenderer(BaseRenderer):
 
         self._arrow_scale = 15.0
         self._arrow_count = 0
+        self._surf_t_min = 0.0
+        self._surf_t_max = 0.0
 
-        logger.info("Renderer: skip=%d max_arrows=%d", self._skip, self._max_arrows)
+        logger.info(
+            "Renderer: skip=%d max_arrows=%d", self._skip, self._max_arrows,
+        )
 
     # -- build ---------------------------------------------------------------
 
     def build(self, parent: int | str) -> None:
-        with dpg.child_window(parent=parent, autosize_x=True, height=RENDER_H + 50):
+        with dpg.child_window(
+            parent=parent, autosize_x=True, height=RENDER_H + 50,
+        ):
             with dpg.group(horizontal=True):
                 dpg.add_text("Airflow Visualization")
                 dpg.add_slider_float(
@@ -164,6 +185,7 @@ class AirflowRenderer(BaseRenderer):
             with dpg.drawlist(
                 width=RENDER_W, height=RENDER_H,
             ) as self._canvas:
+                self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
@@ -243,6 +265,29 @@ class AirflowRenderer(BaseRenderer):
         sc = self._cam_scale()
         return (rx * sc, -rz2 * sc)
 
+    def _depth_arrays(
+        self, x: np.ndarray, y: np.ndarray, z: np.ndarray,
+    ) -> np.ndarray:
+        """Compute depth (into screen) for painter's ordering and alpha."""
+        room = self._settings.room
+        dx = x - room.width / 2
+        dy = y - room.length / 2
+        dz = z - room.height / 2
+
+        cy, sy = math.cos(self._yaw), math.sin(self._yaw)
+        ry = dx * sy + dy * cy
+
+        cp, sp = math.cos(self._pitch), math.sin(self._pitch)
+        return ry * cp - dz * sp
+
+    def _view_direction(self) -> tuple[float, float, float]:
+        """Camera view direction in world coords (unit-ish)."""
+        return (
+            math.sin(self._yaw) * math.cos(self._pitch),
+            math.cos(self._yaw) * math.cos(self._pitch),
+            -math.sin(self._pitch),
+        )
+
     # -- room wireframe ------------------------------------------------------
 
     def _draw_room(self) -> None:
@@ -296,7 +341,6 @@ class AirflowRenderer(BaseRenderer):
             return
 
         for face, (o_coeff, ua, va) in _FACE_XFORMS.items():
-            # Compute origin from room dims
             orig = (o_coeff[0] * W, o_coeff[1] * L, o_coeff[2] * H)
 
             for elem in room.walls.get(face, []):
@@ -307,7 +351,9 @@ class AirflowRenderer(BaseRenderer):
                 su, sv = elem.size
 
                 quad = []
-                for cu, cv in [(u, v), (u + su, v), (u + su, v + sv), (u, v + sv)]:
+                for cu, cv in [
+                    (u, v), (u + su, v), (u + su, v + sv), (u, v + sv),
+                ]:
                     p3 = (
                         orig[0] + cu * ua[0] + cv * va[0],
                         orig[1] + cu * ua[1] + cv * va[1],
@@ -321,29 +367,112 @@ class AirflowRenderer(BaseRenderer):
                     parent=self._room_layer,
                 )
 
+    # -- surface temperature coloring ----------------------------------------
+
+    def _draw_surface_temps(
+        self, temp_np: np.ndarray, t_lo: float, t_hi: float,
+    ) -> None:
+        """Draw temperature-colored patches on visible wall/floor/ceiling."""
+        dpg.delete_item(self._surface_layer, children_only=True)
+
+        room = self._settings.room
+        if room is None:
+            return
+
+        nz, ny, nx = temp_np.shape
+        W, L, H = room.width, room.length, room.height
+
+        # View direction for back-face culling
+        vd = self._view_direction()
+
+        surf_temps: list[float] = []
+
+        # Each face: (name, 2D temp slice, corner_fn(u_frac, v_frac) -> 3D)
+        faces = [
+            ("floor",   temp_np[0, :, :],
+             lambda u, v: (u * W, v * L, 0)),
+            ("ceiling", temp_np[-1, :, :],
+             lambda u, v: (u * W, v * L, H)),
+            ("south",   temp_np[:, 0, :],
+             lambda u, v: (u * W, 0, v * H)),
+            ("north",   temp_np[:, -1, :],
+             lambda u, v: (u * W, L, v * H)),
+            ("west",    temp_np[:, :, 0],
+             lambda u, v: (0, u * L, v * H)),
+            ("east",    temp_np[:, :, -1],
+             lambda u, v: (W, u * L, v * H)),
+        ]
+
+        for face_name, face_temp, corner_fn in faces:
+            # Back-face culling: skip faces whose inner normal
+            # points away from camera (dot >= 0)
+            inorm = _INNER_NORMALS[face_name]
+            dot = inorm[0] * vd[0] + inorm[1] * vd[1] + inorm[2] * vd[2]
+            if dot >= 0:
+                continue
+
+            nv, nu = face_temp.shape
+            p_u = min(_SURF_PATCHES, max(1, nu // 2))
+            p_v = min(_SURF_PATCHES, max(1, nv // 2))
+
+            for pi in range(p_u):
+                for pj in range(p_v):
+                    u0 = pi / p_u
+                    u1 = (pi + 1) / p_u
+                    v0 = pj / p_v
+                    v1 = (pj + 1) / p_v
+
+                    # Cell range for averaging
+                    cu0 = int(pi * nu / p_u)
+                    cu1 = max(cu0 + 1, int((pi + 1) * nu / p_u))
+                    cv0 = int(pj * nv / p_v)
+                    cv1 = max(cv0 + 1, int((pj + 1) * nv / p_v))
+
+                    avg_t = float(face_temp[cv0:cv1, cu0:cu1].mean())
+                    surf_temps.append(avg_t)
+                    r, g, b = temp_color(avg_t, t_lo, t_hi)
+
+                    q = [
+                        self._project(*corner_fn(u0, v0)),
+                        self._project(*corner_fn(u1, v0)),
+                        self._project(*corner_fn(u1, v1)),
+                        self._project(*corner_fn(u0, v1)),
+                    ]
+                    dpg.draw_quad(
+                        *q,
+                        color=(0, 0, 0, 0),
+                        fill=(r, g, b, 120),
+                        parent=self._surface_layer,
+                    )
+
+        if surf_temps:
+            self._surf_t_min = min(surf_temps)
+            self._surf_t_max = max(surf_temps)
+
     # -- sampling helpers ----------------------------------------------------
 
     def _sample_indices(
         self, nz: int, ny: int, nx: int,
     ) -> tuple[list[int], list[int], list[int]]:
-        """Sample indices that include boundary cells (grid edges).
+        """Dense sampling: full z resolution, skip-based xy + boundaries.
 
-        Without this, ``::skip`` misses the far-edge walls (north, east,
-        ceiling) and the AC vent at ``z = nz-1``.
+        With skip=2 on 32x32x16 this yields 16 x 17 x 17 = 4624 samples,
+        right in the 2000-5000 arrow target range.
         """
         skip = self._skip
-        z = sorted(set(range(0, nz, skip)) | {nz - 1})
-        y = sorted(set(range(0, ny, skip)) | {ny - 1})
-        x = sorted(set(range(0, nx, skip)) | {nx - 1})
+        z = list(range(nz))                              # every z level
+        y = sorted(set(range(0, ny, skip)) | {ny - 1})   # skip in y + boundary
+        x = sorted(set(range(0, nx, skip)) | {nx - 1})   # skip in x + boundary
         return z, y, x
 
     # -- arrow rendering -----------------------------------------------------
 
     def render(self, solver: Any) -> None:
-        """Sample solver fields and draw velocity arrows."""
-        logger.info("Render called with solver")
+        """Sample solver fields and draw velocity arrows + surface temps."""
         self._frame += 1
-        if self._frame % self._render_every != 0:
+
+        # Throttle rendering but always respond to camera changes
+        if self._frame % self._render_every != 0 and not self._room_dirty:
             return
 
         if self._room_dirty:
@@ -354,19 +483,33 @@ class AirflowRenderer(BaseRenderer):
 
         room = self._settings.room
         if room is None or solver is None:
-            self._draw_hud(0)
+            self._draw_hud(0, 0.0)
             return
 
-        vel, temp = solver.expose_vel_temp  # @property, no parens
-        nz, ny, nx = temp.shape
+        # -- get data from solver (one GPU->CPU transfer for temp) -----------
+        vel, temp = solver.expose_vel_temp()
+        temp_np = temp.cpu().numpy()
+        nz, ny, nx = temp_np.shape
         W, L, H = room.width, room.length, room.height
         dx_cell, dy_cell, dz_cell = W / nx, L / ny, H / nz
 
-        # Subsample with boundary-inclusive indices so we never miss
-        # wall-face / AC-vent cells (the old ::skip missed z=nz-1 etc.)
+        # Temperature range for colormap
+        t_indoor = self._settings.temp_indoor
+        t_outdoor = self._settings.temp_outdoor
+        t_lo = min(t_indoor, t_outdoor) - 2
+        t_hi = max(t_indoor, t_outdoor) + 2
+
+        # -- surface temperature coloring ------------------------------------
+        self._draw_surface_temps(temp_np, t_lo, t_hi)
+
+        # -- dense subsampling for arrows ------------------------------------
         z_idx, y_idx, x_idx = self._sample_indices(nz, ny, nx)
+
+        # Subsample vel on GPU, then transfer (smaller than full field)
         vel_sub = vel[:, z_idx][:, :, y_idx][:, :, :, x_idx].cpu().numpy()
-        temp_sub = temp[z_idx][:, y_idx][:, :, x_idx].cpu().numpy()
+        # Subsample temp from already-transferred numpy array
+        temp_sub = temp_np[np.ix_(z_idx, y_idx, x_idx)]
+
         snz, sny, snx = temp_sub.shape
         z_arr = np.array(z_idx)
         y_arr = np.array(y_idx)
@@ -377,12 +520,7 @@ class AirflowRenderer(BaseRenderer):
             vel_sub[0] ** 2 + vel_sub[1] ** 2 + vel_sub[2] ** 2,
         ).ravel()
 
-        logger.debug(
-            "Render: samples=%d vel min=%.6f avg=%.6f max=%.6f",
-            speed.size, float(speed.min()), float(speed.mean()),
-            float(speed.max()),
-        )
-        logger.debug("Render: vel_max=%.6f", float(speed.max()))
+        max_vel = float(speed.max()) if speed.size > 0 else 0.0
 
         # Filter by velocity threshold
         mask = speed > _VEL_THRESHOLD
@@ -390,11 +528,11 @@ class AirflowRenderer(BaseRenderer):
 
         if len(indices) == 0:
             logger.warning(
-                "Render: No arrows — vel max=%.6f. "
+                "Render: No arrows -- vel max=%.6f. "
                 "Open elements or enable AC/fan?",
-                float(speed.max()),
+                max_vel,
             )
-            self._draw_hud(0)
+            self._draw_hud(0, max_vel)
             return
 
         # Cap to max_arrows (keep fastest)
@@ -419,7 +557,17 @@ class AirflowRenderer(BaseRenderer):
         spd = speed[indices]
         temps = temp_sub.ravel()[indices]
 
-        # Project positions (vectorised)
+        # -- depth for sorting & alpha --------------------------------------
+        depth = self._depth_arrays(wx, wy, wz)
+        depth_min = float(depth.min())
+        depth_max = float(depth.max())
+        depth_range = max(depth_max - depth_min, 1e-6)
+        depth_norm = (depth - depth_min) / depth_range  # 0=near, 1=far
+
+        # Painter's algorithm: draw far objects first
+        sort_order = np.argsort(-depth)
+
+        # -- project positions (vectorised) ----------------------------------
         sx, sy = self._project_arrays(wx, wy, wz)
 
         # Project velocity directions (vectorised)
@@ -434,44 +582,45 @@ class AirflowRenderer(BaseRenderer):
         tip_x = sx + dvx / dlen * arrow_len
         tip_y = sy + dvy / dlen * arrow_len
 
-        # Temperature range for colormap
-        t_indoor = self._settings.temp_indoor
-        t_outdoor = self._settings.temp_outdoor
-        t_lo = min(t_indoor, t_outdoor) - 2
-        t_hi = max(t_indoor, t_outdoor) + 2
-
-        # Draw arrows
+        # -- draw arrows (back-to-front) ------------------------------------
         n = len(indices)
-        for i in range(n):
+        for idx in sort_order:
+            i = int(idx)
             r, g, b = temp_color(float(temps[i]), t_lo, t_hi)
-            a = min(255, int(120 + float(spd[i]) * 300))
+            # Depth-based alpha: near = bright, far = dim
+            d = float(depth_norm[i])
+            alpha = int(80 + 175 * (1.0 - d))
+            thick = 1.0 + 1.5 * (1.0 - d)
             dpg.draw_arrow(
                 (float(tip_x[i]), float(tip_y[i])),
                 (float(sx[i]), float(sy[i])),
-                color=(r, g, b, a),
-                thickness=2,
-                size=5,
+                color=(r, g, b, alpha),
+                thickness=thick,
+                size=4,
                 parent=self._arrow_layer,
             )
 
         self._arrow_count = n
-        self._draw_hud(n)
+        self._draw_hud(n, max_vel)
         self._draw_colorbar(t_lo, t_hi)
 
-        logger.debug("Render: drew %d arrows", n)
-        if self._frame % 60 == 0:
+        if self._frame % 120 == 0:
             logger.info(
-                "Render: arrows=%d, skip=%d, scale=%.0f",
-                n, self._skip, self._arrow_scale,
+                "Render: Arrows=%d, MaxVel=%.1fm/s, "
+                "SurfaceTempRange=%.1f-%.1f\u00b0C",
+                n, max_vel, self._surf_t_min, self._surf_t_max,
             )
 
     # -- HUD / colorbar ------------------------------------------------------
 
-    def _draw_hud(self, arrow_count: int) -> None:
+    def _draw_hud(self, arrow_count: int, max_vel: float) -> None:
+        txt = (
+            f"Arrows: {arrow_count}  |  MaxVel: {max_vel:.2f}m/s  |  "
+            f"SurfTemp: {self._surf_t_min:.1f}-{self._surf_t_max:.1f}\u00b0C"
+        )
         dpg.draw_text(
-            (8, 8),
-            f"Arrows: {arrow_count}  Skip: {self._skip}",
-            color=(200, 200, 200, 200), size=12,
+            (8, 8), txt,
+            color=(200, 200, 200, 200), size=11,
             parent=self._hud_layer,
         )
 
