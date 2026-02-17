@@ -178,8 +178,9 @@ class AirflowRenderer:
         self._update_size()
         self._room_dirty = True
 
-        logger.info("Renderer UI built (dynamic %dx%d - fills view window)", 
-                   self._w, self._h)
+        # === DIAGNOSTIC LOG ===
+        logger.info("Renderer: Canvas created - initial size from DPG: %dx%d", 
+                    dpg.get_item_width(self._canvas), dpg.get_item_height(self._canvas))
         
     # ====================== INPUT HANDLER BINDING ======================
     def bind_input_handlers(self):
@@ -232,18 +233,44 @@ class AirflowRenderer:
     # ====================== CAMERA & DRAWING ======================
 
     def _update_size(self) -> None:
-        """Always update size. Logs when it becomes real (full view)."""
+        """Get real pixel size from DPG.
+        Handles the common case where autosize=-1 returns -1 until drawn."""
+        if not dpg.does_item_exist(self._canvas):
+            return
+
+        w = dpg.get_item_width(self._canvas)
+        h = dpg.get_item_height(self._canvas)
+
+        # DPG returns -1 for width=-1 / height=-1 until the item has been rendered at least once
+        if w <= 0 or h <= 0:
+            # Safe fallback based on current viewport (very reliable in practice)
+            w = max(800, dpg.get_viewport_client_width() - 60)
+            h = max(500, dpg.get_viewport_client_height() - 240)  # subtract tabs + controls
+            logger.debug("Renderer: DPG returned -1 → using viewport fallback %dx%d", w, h)
+
+        # Update only if changed
+        if w != self._w or h != self._h:
+            self._w, self._h = w, h
+            self._room_dirty = True
+            
+            if w > 900 and h > 500:
+                logger.info("Renderer: *** FULL VIEW CANVAS READY *** %dx%d", w, h)
+            else:
+                logger.info("Renderer: Canvas size updated to %dx%d", w, h)
+        """Diagnostic: Track when size becomes real."""
         if dpg.does_item_exist(self._canvas):
             w = dpg.get_item_width(self._canvas)
             h = dpg.get_item_height(self._canvas)
+            logger.debug(f"Renderer: _update_size called → raw DPG size = {w}x{h}")
+            
             if w != self._w or h != self._h:
                 self._w, self._h = w, h
-                if w > 800 and h > 400:
+                if w > 900 and h > 500:
                     self._size_valid = True
                     self._room_dirty = True
-                    logger.info("Renderer: Canvas size resolved to %dx%d → FULL VIEW ACTIVE", w, h)
+                    logger.info("Renderer: *** REAL LARGE CANVAS DETECTED *** %dx%d → FULL VIEW", w, h)
                 else:
-                    logger.debug("Renderer: Canvas size still %dx%d (waiting for layout)", w, h)
+                    logger.debug("Renderer: Still small/fallback size %dx%d", w, h)
 
     def _cam_scale(self) -> float:
         """Dynamic scale based on current canvas dimensions."""
@@ -330,6 +357,7 @@ class AirflowRenderer:
     # -- room wireframe ------------------------------------------------------
 
     def _draw_room(self) -> None:
+        logger.info("Render: _draw_room() executing (should see wires)")
         dpg.delete_item(self._room_layer, children_only=True)
         room = self._settings.room
         if room is None:
@@ -412,6 +440,8 @@ class AirflowRenderer:
         self, temp_np: np.ndarray, t_lo: float, t_hi: float,
     ) -> None:
         """Draw temperature-colored patches on visible wall/floor/ceiling."""
+        logger.info("Render: _draw_surface_temps() executing (%d patches expected)", 
+                   _SURF_PATCHES * _SURF_PATCHES)
         dpg.delete_item(self._surface_layer, children_only=True)
 
         room = self._settings.room
@@ -509,13 +539,24 @@ class AirflowRenderer:
     def render(self, solver: Any) -> None:
         """Sample solver fields and draw velocity arrows + surface temps."""
         # === CRITICAL: Refresh real pixel size every frame ===
-        # Force size resolution every frame until it succeeds (minimal overhead)
         self._update_size()
+        # === DIAGNOSTIC LOGS ===
+        logger.debug("Render: render() called - frame=%d, dirty=%s, size=%dx%d", 
+                    self._frame, self._room_dirty, self._w, self._h)
+        # Force size resolution every frame until it succeeds (minimal overhead)
+
+
+        if self._w < 900 or self._h < 500:
+            logger.warning("Render: Using small fallback size %dx%d - drawing will be off-screen!", 
+                          self._w, self._h)
         
         # === Clear all draw layers (prevents accumulation / blanking) ===
         for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
             if layer and dpg.does_item_exist(layer):
                 dpg.delete_item(layer, children_only=True)
+
+        if self._frame < 15:
+            self._room_dirty = True
 
         if not self._room_dirty:
             return
@@ -637,6 +678,9 @@ class AirflowRenderer:
         n = len(indices)
         for idx in sort_order:
             i = int(idx)
+            if i == 0:  # log first arrow only
+                logger.debug("Render: First arrow projected at (%.1f, %.1f) → (%.1f, %.1f)", 
+                            sx[i], sy[i], tip_x[i], tip_y[i])
             r, g, b = temp_color(float(temps[i]), t_lo, t_hi)
             # Depth-based alpha: near = bright, far = dim
             d = float(depth_norm[i])
