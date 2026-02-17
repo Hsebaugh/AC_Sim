@@ -54,26 +54,28 @@ def main():
     renderer = AirflowRenderer(settings=settings, config=config)
 
     # Now set the real callbacks on the registry
-    dpg.set_item_callback("global_mouse_handlers", renderer._on_drag, slot=0)   # Left drag
+    dpg.set_item_callback("global_mouse_handlers", callback=renderer._on_drag)   # Left drag
     dpg.set_item_callback("global_mouse_handlers", renderer._on_drag, slot=1)   # Right drag
     dpg.set_item_callback("global_mouse_handlers", renderer._on_scroll, slot=2) # Wheel
     dpg.set_item_callback("global_mouse_handlers", renderer._on_key_r, slot=3)  # R key
 
 
-    # === CREATE HANDLER REGISTRY VERY EARLY (critical) ===
-    with dpg.handler_registry(tag="global_mouse_handlers"):
+    # === GLOBAL HANDLER REGISTRY (early, right after dpg.create_context()) ===
+    with dpg.handler_registry(tag="global_render_handlers"):
         dpg.add_mouse_drag_handler(
             button=dpg.mvMouseButton_Left,
             threshold=0.0,
-            callback=renderer._on_drag,      # ← real callback
+            callback=None,
+            tag="mouse_drag_left",          # ← add this
         )
         dpg.add_mouse_drag_handler(
             button=dpg.mvMouseButton_Right,
             threshold=0.0,
-            callback=renderer._on_drag,
+            callback=None,
+            tag="mouse_drag_right",
         )
-        dpg.add_mouse_wheel_handler(callback=renderer._on_scroll)
-        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=renderer._on_key_r)
+        dpg.add_mouse_wheel_handler(callback=None, tag="mouse_wheel")
+        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=None, tag="key_r")
 
     # -- Create tabbed layout ------------------------------------------------
     with dpg.window(tag="primary", no_scrollbar=True, no_title_bar=False):
@@ -153,6 +155,12 @@ def main():
 
     # Large rendering area that fills the rest of the tab
     renderer.build(parent="tab_sim")
+
+    # === Wire mouse handlers (clean, no magic strings) ===
+    dpg.set_item_callback("mouse_drag_left",  renderer._on_drag)      # Left drag → camera orbit/pan
+    dpg.set_item_callback("mouse_drag_right", renderer._on_right_drag if hasattr(renderer, "_on_right_drag") else None)
+    dpg.set_item_callback("mouse_wheel",      renderer._on_wheel)
+    dpg.set_item_callback("key_r",            renderer._on_key_r)     # Reset camera, etc.
 
     # -- Cross-panel synchronization -----------------------------------------
     def sync_units(new_units: str):
