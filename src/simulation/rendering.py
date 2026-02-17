@@ -272,7 +272,29 @@ class AirflowRenderer:
             RENDER_W / 2 + rx * sc + self._cam_x,
             RENDER_H / 2 - rz2 * sc + self._cam_y,
         )
+    
+    def _project_vec_arrays(self, vx, vy, vz):
+        """Project velocity vectors → screen-space deltas (no translation/centering).
+        Used for arrow tips in render(). Mirrors the rotation math from _project_arrays.
+        Keeps arrow direction correct under camera yaw/pitch/zoom."""
+        # Same rotation matrices as _project_arrays (vectorised)
+        cy, sy = math.cos(self._yaw), math.sin(self._yaw)
+        cp, sp = math.cos(self._pitch), math.sin(self._pitch)
+        sc = self._cam_scale()
 
+        # Yaw rotation (XZ plane in room coords)
+        rx = vx * cy - vy * sy
+        ry = vx * sy + vy * cy
+
+        # Pitch rotation
+        rz2 = ry * sp + vz * cp
+
+        # Screen deltas (no room centering or camera offset)
+        dvx = rx * sc
+        dvy = -rz2 * sc          # negative matches _project y-flip
+
+        return dvx, dvy
+    
     def _depth_arrays(self, x, y, z):
         room = self._settings.room
         dx = x - room.width / 2
