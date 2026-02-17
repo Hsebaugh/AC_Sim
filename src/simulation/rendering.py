@@ -137,7 +137,8 @@ class AirflowRenderer:
         logger.info("Renderer initialized (skip=%d, max_arrows=%d)", self._skip, self._max_arrows)
 
     def build(self, parent: int | str) -> None:
-        """Build visualization that fills the remaining viewport space."""
+        """Build visualization that fills the remaining viewport space.
+        Controls on top, drawlist as direct child of child_window (critical)."""
         with dpg.child_window(
             parent=parent,
             autosize_x=True,
@@ -146,7 +147,7 @@ class AirflowRenderer:
             border=True,
         ) as self._vis_window:
 
-            # Top controls (compact)
+            # Top controls row - separate container
             with dpg.group(horizontal=True):
                 dpg.add_text("Airflow Visualization")
                 dpg.add_slider_float(
@@ -163,27 +164,25 @@ class AirflowRenderer:
                     color=(140, 140, 140),
                 )
 
-            # === CANVAS - direct child of child_window (critical fix) ===
+            # === FULL CANVAS - direct child of child_window ===
             with dpg.drawlist(
-                width=-1, 
-                height=-1, 
-                parent=self._vis_window          # ensures full size
+                width=-1,
+                height=-1,
+                parent=self._vis_window          # ← This line is critical
             ) as self._canvas:
-                self._surface_layer = dpg.add_draw_layer()   # ← UNCOMMENTED
+                self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
-                self._update_size()
+                logger.info("Renderer: Drawlist created as direct child - size %dx%d", 
+                           dpg.get_item_width(self._canvas), dpg.get_item_height(self._canvas))
 
-        # Initial size attempt
+        # Initial size capture
         self._update_size()
         self._room_dirty = True
 
-        # === DIAGNOSTIC LOG ===
-        logger.info("Renderer: Canvas created - initial size from DPG: %dx%d", 
-                    dpg.get_item_width(self._canvas), dpg.get_item_height(self._canvas))
-        
+        logger.info("Renderer UI built (dynamic %dx%d - full view)", self._w, self._h)
     # ====================== INPUT HANDLER BINDING ======================
     def bind_input_handlers(self):
         """Centralized, debuggable, modular input wiring.
@@ -235,15 +234,17 @@ class AirflowRenderer:
     # ====================== CAMERA & DRAWING ======================
 
     def _update_size(self) -> None:
-        """Always get real pixel size. DPG often returns -1 until the frame is drawn."""
-        if dpg.does_item_exist(self._canvas):
-            w = dpg.get_item_width(self._canvas)
-            h = dpg.get_item_height(self._canvas)
-            if w > 0 and h > 0:
-                if w != self._w or h != self._h:
-                    self._w, self._h = w, h
-                    self._room_dirty = True
-                    logger.info("Renderer: Canvas size updated to %dx%d", w, h)
+        """Read real pixel size from parent child_window and resize drawlist.
+        DPG drawlists with width=-1 do NOT auto-fill; they need explicit dims."""
+        if not (dpg.does_item_exist(self._canvas) and dpg.does_item_exist(self._vis_window)):
+            return
+        pw, ph = dpg.get_item_rect_size(self._vis_window)
+        w, h = int(pw), int(ph - 32)  # subtract controls row height
+        if w > 0 and h > 0 and (w != self._w or h != self._h):
+            self._w, self._h = w, h
+            dpg.configure_item(self._canvas, width=w, height=h)
+            self._room_dirty = True
+            logger.info("Renderer: Canvas resized to %dx%d", w, h)
 
     def _cam_scale(self) -> float:
         """Dynamic scale based on current canvas dimensions."""
@@ -514,9 +515,17 @@ class AirflowRenderer:
         # === CRITICAL: Refresh real pixel size every frame ===
         self._update_size()
 
+        # === DIAGNOSTIC LOGS ===
+        logger.debug("Render: render() called - frame=%d, dirty=%s, size=%dx%d",
+                    self._frame, self._room_dirty, self._w, self._h)
+        # Clear layers
+        for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
+            if layer and dpg.does_item_exist(layer):
+                dpg.delete_item(layer, children_only=True)
+
         # === NEON GREEN BACKGROUND FOR TESTING ===
         # Remove or set to False once we confirm the canvas is drawing
-        if True:   # ← change to False when done testing
+        if False:   # ← change to False when done testing
             dpg.draw_rectangle(
                 (0, 0),
                 (self._w, self._h),
@@ -525,14 +534,6 @@ class AirflowRenderer:
                 parent=self._surface_layer,   # or self._room_layer
             )
             logger.debug("Render: Neon green background drawn (test)")
-        # === DIAGNOSTIC LOGS ===
-        logger.debug("Render: render() called - frame=%d, dirty=%s, size=%dx%d", 
-                    self._frame, self._room_dirty, self._w, self._h)
-        # Force size resolution every frame until it succeeds (minimal overhead)
-        # Clear layers
-        for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
-            if layer and dpg.does_item_exist(layer):
-                dpg.delete_item(layer, children_only=True)
 
         if self._w < 900 or self._h < 500:
             logger.warning("Render: Using small fallback size %dx%d - drawing will be off-screen!", 
