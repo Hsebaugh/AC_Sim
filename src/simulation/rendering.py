@@ -163,7 +163,7 @@ class AirflowRenderer:
 
                 # ←←← Canvas must be created BEFORE we bind handlers
             with dpg.drawlist(width=-1, height=-1, parent=self._vis_window) as self._canvas:
-                # self._surface_layer = dpg.add_draw_layer()
+                self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
