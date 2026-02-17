@@ -4,7 +4,7 @@ Isometric 3D view rendered on a DPG drawlist. Velocity arrows are
 densely subsampled from the solver grid, coloured by temperature
 (blue-cold, yellow-ambient, red-hot) and scaled by speed. Wall,
 floor, and ceiling surfaces are painted with interpolated temperature
-gradients from the boundary cells.
+gradients.
 
 Camera: LMB drag = pan, RMB drag = orbit, Scroll = zoom, R = reset.
 """
@@ -30,7 +30,6 @@ RENDER_W, RENDER_H = 700, 430
 WIRE_COLOR = (180, 180, 190, 220)
 WIRE_THICK = 1.5
 
-# Colormap: blue (cold) → yellow (ambient) → red (hot)
 _COLD = (30, 100, 255)
 _WARM = (255, 230, 50)
 _HOT = (255, 40, 30)
@@ -48,7 +47,7 @@ ELEM_COLORS = {
 _DEFAULT_YAW = math.pi / 6
 _DEFAULT_PITCH = math.radians(35)
 _DEFAULT_ZOOM = 1.0
-_SMOOTH_FACTOR = 0.3
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -65,10 +64,8 @@ def _lerp_rgb(c0, c1, t):
 
 def temp_color(temp: float, t_lo: float, t_hi: float) -> tuple[int, int, int]:
     t_mid = (t_lo + t_hi) * 0.5
-    if temp <= t_lo:
-        return _COLD
-    if temp >= t_hi:
-        return _HOT
+    if temp <= t_lo: return _COLD
+    if temp >= t_hi: return _HOT
     if temp < t_mid:
         return _lerp_rgb(_COLD, _WARM, (temp - t_lo) / max(t_mid - t_lo, 1e-6))
     return _lerp_rgb(_WARM, _HOT, (temp - t_mid) / max(t_hi - t_mid, 1e-6))
@@ -88,7 +85,7 @@ class AirflowRenderer:
         self._render_every = 2
         self._frame = 0
 
-        # Camera state
+        # Camera
         self._yaw = _DEFAULT_YAW
         self._pitch = _DEFAULT_PITCH
         self._zoom = _DEFAULT_ZOOM
@@ -109,10 +106,27 @@ class AirflowRenderer:
         self._surf_t_min = 0.0
         self._surf_t_max = 0.0
 
+        # Create global handler registry ONCE (this fixes the bind error)
+        self._handler_tag = "global_render_handlers"
+        if not dpg.does_item_exist(self._handler_tag):
+            with dpg.handler_registry(tag=self._handler_tag):
+                dpg.add_mouse_drag_handler(
+                    button=dpg.mvMouseButton_Left,
+                    threshold=0.0,
+                    callback=self._on_drag,
+                )
+                dpg.add_mouse_drag_handler(
+                    button=dpg.mvMouseButton_Right,
+                    threshold=0.0,
+                    callback=self._on_drag,
+                )
+                dpg.add_mouse_wheel_handler(callback=self._on_scroll)
+                dpg.add_key_press_handler(key=dpg.mvKey_R, callback=self._on_key_r)
+
         logger.info("Renderer initialized (skip=%d, max_arrows=%d)", self._skip, self._max_arrows)
 
     def build(self, parent: int | str) -> None:
-        """Build the visualization window inside the Simulation tab."""
+        """Build visualization inside Simulation tab."""
         with dpg.child_window(
             parent=parent,
             autosize_x=True,
@@ -120,6 +134,7 @@ class AirflowRenderer:
             no_scrollbar=True,
             border=True,
         ) as self._vis_window:
+
             with dpg.group(horizontal=True):
                 dpg.add_text("Airflow Visualization")
                 dpg.add_slider_float(
@@ -142,29 +157,16 @@ class AirflowRenderer:
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
-        # === GLOBAL HANDLER REGISTRY (most reliable in current DPG) ===
-        handler_tag = "global_render_handlers"
-        if not dpg.does_item_exist(handler_tag):
-            with dpg.handler_registry(tag=handler_tag):
-                dpg.add_mouse_drag_handler(
-                    button=dpg.mvMouseButton_Left,
-                    threshold=0.0,
-                    callback=self._on_drag,
-                )
-                dpg.add_mouse_drag_handler(
-                    button=dpg.mvMouseButton_Right,
-                    threshold=0.0,
-                    callback=self._on_drag,
-                )
-                dpg.add_mouse_wheel_handler(callback=self._on_scroll)
-                dpg.add_key_press_handler(key=dpg.mvKey_R, callback=self._on_key_r)
-
-        dpg.bind_item_handler_registry(self._canvas, handler_tag)
+        # Bind the global handler registry to our canvas
+        dpg.bind_item_handler_registry(self._canvas, self._handler_tag)
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d) with global handlers", RENDER_W, RENDER_H)
 
+    # ====================== CAMERA CALLBACKS ======================
+
     def _on_drag(self, sender, app_data):
+        """LMB = Pan, RMB = Orbit"""
         if not dpg.is_item_hovered(self._canvas):
             return
 
@@ -172,7 +174,7 @@ class AirflowRenderer:
         dx = app_data[1]
         dy = app_data[2]
 
-        if button == dpg.mvMouseButton_Right:  # RMB = Orbit
+        if button == dpg.mvMouseButton_Right:   # RMB = Orbit
             self._yaw += dx * 0.015
             self._pitch = max(0.1, min(1.45, self._pitch - dy * 0.015))
         elif button == dpg.mvMouseButton_Left:  # LMB = Pan
@@ -182,6 +184,7 @@ class AirflowRenderer:
         self._room_dirty = True
 
     def _on_scroll(self, sender, app_data):
+        """Scroll = Zoom"""
         if not dpg.is_item_hovered(self._canvas):
             return
         self._zoom = max(0.15, self._zoom + app_data * 0.09)
@@ -193,9 +196,8 @@ class AirflowRenderer:
     def _on_arrow_scale(self, sender, app_data):
         self._arrow_scale = app_data
 
-    # ----------------------------------------------------------------------
-    # Projection & Drawing (unchanged - kept clean)
-    # ----------------------------------------------------------------------
+    # ====================== CAMERA & DRAWING ======================
+
     def _cam_scale(self) -> float:
         room = self._settings.room
         if not room:
@@ -242,6 +244,18 @@ class AirflowRenderer:
             RENDER_W / 2 + rx * sc + self._cam_x,
             RENDER_H / 2 - rz2 * sc + self._cam_y,
         )
+
+    def _depth_arrays(self, x, y, z):
+        room = self._settings.room
+        dx = x - room.width / 2
+        dy = y - room.length / 2
+        dz = z - room.height / 2
+
+        cy, sy = math.cos(self._yaw), math.sin(self._yaw)
+        ry = dx * sy + dy * cy
+
+        cp, sp = math.cos(self._pitch), math.sin(self._pitch)
+        return ry * cp - dz * sp
     # -- room wireframe ------------------------------------------------------
 
     def _draw_room(self) -> None:
