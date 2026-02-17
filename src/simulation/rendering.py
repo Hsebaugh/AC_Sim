@@ -116,6 +116,8 @@ class AirflowRenderer:
         self._zoom_target = _DEFAULT_ZOOM
         self._cam_x_target = 0.0
         self._cam_y_target = 0.0
+        self._w = 700
+        self._h = 380
 
         # DPG items
         self._vis_window = None
@@ -159,22 +161,27 @@ class AirflowRenderer:
                     color=(140, 140, 140),
                 )
 
-            # ←←← Canvas must be created BEFORE we bind handlers
-        with dpg.drawlist(width=RENDER_W, height=RENDER_H, parent=self._vis_window) as self._canvas:
-            self._surface_layer = dpg.add_draw_layer()
-            self._room_layer = dpg.add_draw_layer()
-            self._arrow_layer = dpg.add_draw_layer()
-            self._hud_layer = dpg.add_draw_layer()
+                # ←←← Canvas must be created BEFORE we bind handlers
+            with dpg.drawlist(width=-1, height=-1, parent=self._vis_window) as self._canvas:
+                # self._surface_layer = dpg.add_draw_layer()
+                self._room_layer = dpg.add_draw_layer()
+                self._arrow_layer = dpg.add_draw_layer()
+                self._hud_layer = dpg.add_draw_layer()
 
-        # === DIRECT CALLBACK BINDING (most reliable pattern) ===
-        # Replaces the fragile bind_item_handler_registry
-        # dpg.set_item_callback("mouse_left_drag",  self._on_drag)
-        # dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same handler, button checked inside
-        # dpg.set_item_callback("mouse_wheel",      self._on_scroll)
-        # dpg.set_item_callback("key_r",            self._on_key_r)
+            # === DIRECT CALLBACK BINDING (most reliable pattern) ===
+            # Replaces the fragile bind_item_handler_registry
+            # dpg.set_item_callback("mouse_left_drag",  self._on_drag)
+            # dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same handler, button checked inside
+            # dpg.set_item_callback("mouse_wheel",      self._on_scroll)
+            # dpg.set_item_callback("key_r",            self._on_key_r)
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d) + handlers bound directly", RENDER_W, RENDER_H)
+
+        # Cache initial size + log (debug-friendly)
+        self._update_size()
+        logger.info("Renderer UI built (dynamic %dx%d - fills view window)", 
+                    self._w, self._h)
 
     # ====================== INPUT HANDLER BINDING ======================
     def bind_input_handlers(self):
@@ -226,12 +233,21 @@ class AirflowRenderer:
 
     # ====================== CAMERA & DRAWING ======================
 
+    def _update_size(self) -> None:
+        """Cache current canvas size (cheap + handles resize)."""
+        if dpg.does_item_exist(self._canvas):
+            self._w = dpg.get_item_width(self._canvas)
+            self._h = dpg.get_item_height(self._canvas)
+        else:
+            self._w, self._h = 700, 380
+
     def _cam_scale(self) -> float:
+        """Dynamic scale based on current canvas dimensions."""
         room = self._settings.room
-        if not room:
+        if room is None:
             return 1.0
         md = max(room.width, room.length, room.height, 1.0)
-        return (min(RENDER_W, RENDER_H) - 80) / (md * 2.0) * self._zoom
+        return (min(self._w, self._h) - 80) / (md * 2.0) * self._zoom
 
     def _project(self, x: float, y: float, z: float) -> tuple[float, float]:
         room = self._settings.room
@@ -249,10 +265,7 @@ class AirflowRenderer:
         rz2 = ry * sp + dz * cp
 
         sc = self._cam_scale()
-        return (
-            RENDER_W / 2 + rx * sc + self._cam_x,
-            RENDER_H / 2 - rz2 * sc + self._cam_y,
-        )
+        return (self._w / 2 + rx * sc, self._h / 2 - rz2 * sc)
 
     def _project_arrays(self, x, y, z):
         room = self._settings.room
@@ -268,10 +281,7 @@ class AirflowRenderer:
         rz2 = ry * sp + dz * cp
 
         sc = self._cam_scale()
-        return (
-            RENDER_W / 2 + rx * sc + self._cam_x,
-            RENDER_H / 2 - rz2 * sc + self._cam_y,
-        )
+        return (self._w / 2 + rx * sc, self._h / 2 - rz2 * sc)
     
     def _project_vec_arrays(self, vx, vy, vz):
         """Project velocity vectors → screen-space deltas (no translation/centering).
