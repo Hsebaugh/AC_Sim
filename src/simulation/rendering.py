@@ -116,6 +116,9 @@ class AirflowRenderer:
         self._zoom_target = _DEFAULT_ZOOM
         self._cam_x_target = 0.0
         self._cam_y_target = 0.0
+        self._w = 700
+        self._h = 380
+        self._size_valid = False  # New: Ttracks -when -1 autosize is resolved
 
         # DPG items
         self._vis_window = None
@@ -134,7 +137,8 @@ class AirflowRenderer:
         logger.info("Renderer initialized (skip=%d, max_arrows=%d)", self._skip, self._max_arrows)
 
     def build(self, parent: int | str) -> None:
-        """Build visualization inside Simulation tab."""
+        """Build visualization that fills the remaining viewport space.
+        Controls on top, drawlist as direct child of child_window (critical)."""
         with dpg.child_window(
             parent=parent,
             autosize_x=True,
@@ -143,6 +147,7 @@ class AirflowRenderer:
             border=True,
         ) as self._vis_window:
 
+            # Top controls row - separate container
             with dpg.group(horizontal=True):
                 dpg.add_text("Airflow Visualization")
                 dpg.add_slider_float(
@@ -159,23 +164,25 @@ class AirflowRenderer:
                     color=(140, 140, 140),
                 )
 
-            # ←←← Canvas must be created BEFORE we bind handlers
-        with dpg.drawlist(width=RENDER_W, height=RENDER_H, parent=self._vis_window) as self._canvas:
-            self._surface_layer = dpg.add_draw_layer()
-            self._room_layer = dpg.add_draw_layer()
-            self._arrow_layer = dpg.add_draw_layer()
-            self._hud_layer = dpg.add_draw_layer()
+            # === FULL CANVAS - direct child of child_window ===
+            with dpg.drawlist(
+                width=-1,
+                height=-1,
+                parent=self._vis_window          # ← This line is critical
+            ) as self._canvas:
+                self._surface_layer = dpg.add_draw_layer()
+                self._room_layer = dpg.add_draw_layer()
+                self._arrow_layer = dpg.add_draw_layer()
+                self._hud_layer = dpg.add_draw_layer()
 
-        # === DIRECT CALLBACK BINDING (most reliable pattern) ===
-        # Replaces the fragile bind_item_handler_registry
-        # dpg.set_item_callback("mouse_left_drag",  self._on_drag)
-        # dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same handler, button checked inside
-        # dpg.set_item_callback("mouse_wheel",      self._on_scroll)
-        # dpg.set_item_callback("key_r",            self._on_key_r)
+                logger.info("Renderer: Drawlist created as direct child - size %dx%d", 
+                           dpg.get_item_width(self._canvas), dpg.get_item_height(self._canvas))
 
+        # Initial size capture
+        self._update_size()
         self._room_dirty = True
-        logger.info("Renderer UI built (%dx%d) + handlers bound directly", RENDER_W, RENDER_H)
 
+        logger.info("Renderer UI built (dynamic %dx%d - full view)", self._w, self._h)
     # ====================== INPUT HANDLER BINDING ======================
     def bind_input_handlers(self):
         """Centralized, debuggable, modular input wiring.
@@ -226,12 +233,26 @@ class AirflowRenderer:
 
     # ====================== CAMERA & DRAWING ======================
 
+    def _update_size(self) -> None:
+        """Read real pixel size from parent child_window and resize drawlist.
+        DPG drawlists with width=-1 do NOT auto-fill; they need explicit dims."""
+        if not (dpg.does_item_exist(self._canvas) and dpg.does_item_exist(self._vis_window)):
+            return
+        pw, ph = dpg.get_item_rect_size(self._vis_window)
+        w, h = int(pw), int(ph - 32)  # subtract controls row height
+        if w > 0 and h > 0 and (w != self._w or h != self._h):
+            self._w, self._h = w, h
+            dpg.configure_item(self._canvas, width=w, height=h)
+            self._room_dirty = True
+            logger.info("Renderer: Canvas resized to %dx%d", w, h)
+
     def _cam_scale(self) -> float:
+        """Dynamic scale based on current canvas dimensions."""
         room = self._settings.room
-        if not room:
+        if room is None:
             return 1.0
         md = max(room.width, room.length, room.height, 1.0)
-        return (min(RENDER_W, RENDER_H) - 80) / (md * 2.0) * self._zoom
+        return (min(self._w, self._h) - 80) / (md * 2.0) * self._zoom
 
     def _project(self, x: float, y: float, z: float) -> tuple[float, float]:
         room = self._settings.room
@@ -249,10 +270,7 @@ class AirflowRenderer:
         rz2 = ry * sp + dz * cp
 
         sc = self._cam_scale()
-        return (
-            RENDER_W / 2 + rx * sc + self._cam_x,
-            RENDER_H / 2 - rz2 * sc + self._cam_y,
-        )
+        return (self._w / 2 + rx * sc, self._h / 2 - rz2 * sc)
 
     def _project_arrays(self, x, y, z):
         room = self._settings.room
@@ -268,10 +286,7 @@ class AirflowRenderer:
         rz2 = ry * sp + dz * cp
 
         sc = self._cam_scale()
-        return (
-            RENDER_W / 2 + rx * sc + self._cam_x,
-            RENDER_H / 2 - rz2 * sc + self._cam_y,
-        )
+        return (self._w / 2 + rx * sc, self._h / 2 - rz2 * sc)
     
     def _project_vec_arrays(self, vx, vy, vz):
         """Project velocity vectors → screen-space deltas (no translation/centering).
@@ -316,6 +331,7 @@ class AirflowRenderer:
     # -- room wireframe ------------------------------------------------------
 
     def _draw_room(self) -> None:
+        logger.info("Render: _draw_room() executing (should see wires)")
         dpg.delete_item(self._room_layer, children_only=True)
         room = self._settings.room
         if room is None:
@@ -375,6 +391,11 @@ class AirflowRenderer:
                 u, v = elem.pos
                 su, sv = elem.size
 
+                # === FIX: Swap u/v for west & east walls to match RoomEditor orientation ===
+                if face in ("west", "east"):
+                    u, v = v, u          # swap coordinates
+                    su, sv = sv, su      # swap sizes
+
                 quad = []
                 for cu, cv in [
                     (u, v), (u + su, v), (u + su, v + sv), (u, v + sv),
@@ -398,6 +419,8 @@ class AirflowRenderer:
         self, temp_np: np.ndarray, t_lo: float, t_hi: float,
     ) -> None:
         """Draw temperature-colored patches on visible wall/floor/ceiling."""
+        logger.info("Render: _draw_surface_temps() executing (%d patches expected)", 
+                   _SURF_PATCHES * _SURF_PATCHES)
         dpg.delete_item(self._surface_layer, children_only=True)
 
         room = self._settings.room
@@ -494,17 +517,25 @@ class AirflowRenderer:
 
     def render(self, solver: Any) -> None:
         """Sample solver fields and draw velocity arrows + surface temps."""
+        # === CRITICAL: Refresh real pixel size every frame ===
+        self._update_size()
+
         self._frame += 1
 
-        # Throttle rendering but always respond to camera changes
-        if self._frame % self._render_every != 0 and not self._room_dirty:
+        # Force dirty for first 30 frames (DPG layout settling)
+        if self._frame < 30:
+            self._room_dirty = True
+
+        # Nothing changed — keep previous frame on screen (no flicker)
+        if not self._room_dirty:
             return
 
-        if self._room_dirty:
-            self._draw_room()
+        # --- From here we ARE redrawing. Clear layers, then fill them. ---
+        for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
+            if layer and dpg.does_item_exist(layer):
+                dpg.delete_item(layer, children_only=True)
 
-        dpg.delete_item(self._arrow_layer, children_only=True)
-        dpg.delete_item(self._hud_layer, children_only=True)
+        self._draw_room()
 
         room = self._settings.room
         if room is None or solver is None:
@@ -611,6 +642,9 @@ class AirflowRenderer:
         n = len(indices)
         for idx in sort_order:
             i = int(idx)
+            if i == 0:  # log first arrow only
+                logger.debug("Render: First arrow projected at (%.1f, %.1f) → (%.1f, %.1f)", 
+                            sx[i], sy[i], tip_x[i], tip_y[i])
             r, g, b = temp_color(float(temps[i]), t_lo, t_hi)
             # Depth-based alpha: near = bright, far = dim
             d = float(depth_norm[i])
@@ -649,14 +683,14 @@ class AirflowRenderer:
             parent=self._hud_layer,
         )
         dpg.draw_text(
-            (8, RENDER_H - 18),
+            (8, self._h - 18),
             "LMB: pan | RMB: orbit | Scroll: zoom | R: reset view",
             color=(120, 120, 130, 160), size=10,
             parent=self._hud_layer,
         )
 
     def _draw_colorbar(self, t_lo: float, t_hi: float) -> None:
-        x0, y0, bh, bw = RENDER_W - 30, 30, 100, 12
+        x0, y0, bh, bw = self._w - 30, 30, 100, 12
         steps = 16
         step_h = bh / steps + 1
 
@@ -798,6 +832,15 @@ class AirflowRenderer:
 
     def _on_key_r(self, sender: Any = None, app_data: Any = None) -> None:
         self.reset_camera()
+
+    def force_initial_layout(self) -> None:
+        """Force DPG to finalize -1 autosize layout after viewport is shown.
+        Call once from main.py after show_viewport()."""
+        # dpg.split_frame()                     # safe here (UI is visible)
+        self._update_size()
+        self._room_dirty = True
+        logger.info("Renderer: Forced layout pass - canvas size now %dx%d", 
+                   self._w, self._h)
 
     def _on_arrow_scale(
         self, sender: Any = None, app_data: Any = None,
