@@ -34,20 +34,6 @@ def main():
     # -- DPG init ------------------------------------------------------------
     dpg.create_context()
 
-    # === CREATE HANDLER REGISTRY VERY EARLY (critical) ===
-    with dpg.handler_registry(tag="global_mouse_handlers"):
-        dpg.add_mouse_drag_handler(
-            button=dpg.mvMouseButton_Left,
-            threshold=0.0,
-            callback=renderer._on_drag,      # ← real callback
-        )
-        dpg.add_mouse_drag_handler(
-            button=dpg.mvMouseButton_Right,
-            threshold=0.0,
-            callback=renderer._on_drag,
-        )
-        dpg.add_mouse_wheel_handler(callback=renderer._on_scroll)
-        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=renderer._on_key_r)
 
     dpg.create_viewport(
         title="AC Sim",
@@ -72,6 +58,22 @@ def main():
     dpg.set_item_callback("global_mouse_handlers", renderer._on_drag, slot=1)   # Right drag
     dpg.set_item_callback("global_mouse_handlers", renderer._on_scroll, slot=2) # Wheel
     dpg.set_item_callback("global_mouse_handlers", renderer._on_key_r, slot=3)  # R key
+
+
+    # === CREATE HANDLER REGISTRY VERY EARLY (critical) ===
+    with dpg.handler_registry(tag="global_mouse_handlers"):
+        dpg.add_mouse_drag_handler(
+            button=dpg.mvMouseButton_Left,
+            threshold=0.0,
+            callback=renderer._on_drag,      # ← real callback
+        )
+        dpg.add_mouse_drag_handler(
+            button=dpg.mvMouseButton_Right,
+            threshold=0.0,
+            callback=renderer._on_drag,
+        )
+        dpg.add_mouse_wheel_handler(callback=renderer._on_scroll)
+        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=renderer._on_key_r)
 
     # -- Create tabbed layout ------------------------------------------------
     with dpg.window(tag="primary", no_scrollbar=True, no_title_bar=False):
