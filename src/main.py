@@ -30,11 +30,6 @@ def main():
     )
 
     units = config.get("units", "standard")
-    settings = Settings(
-        temp_indoor=config["temperature"]["indoor"],
-        temp_outdoor=config["temperature"]["outdoor"],
-        units=units,
-    )
 
     # -- DPG init ------------------------------------------------------------
     dpg.create_context()
@@ -45,45 +40,53 @@ def main():
         resizable=True,
     )
 
-    # -- Tabbed layout -------------------------------------------------------
-    with dpg.window(tag="primary", no_scrollbar=True):
+    # -- Create tabbed layout ------------------------------------------------
+    with dpg.window(tag="primary", no_scrollbar=True, no_title_bar=False):
         with dpg.tab_bar(tag="main_tabs"):
-            with dpg.tab(label="Room Design & Conditions", tag="tab_design"):
-                design_row = dpg.add_group(horizontal=True)
-            with dpg.tab(label="Simulation", tag="tab_sim"):
-                pass  # content added below after callbacks are defined
 
-    # -- Tab 1: Room Design & Conditions -------------------------------------
+            # ==================== TAB 1: Room Design & Conditions ====================
+            with dpg.tab(label="Room Design & Conditions", tag="tab_design"):
+                with dpg.group(horizontal=True, tag="design_row"):
+                    pass  # will be filled after objects are created
+
+            # ==================== TAB 2: Simulation (Default) ====================
+            with dpg.tab(label="Simulation", tag="tab_sim"):
+                pass  # will be filled after objects are created
+
+    # -- Instantiate UI and Simulation components ----------------------------
+    settings = Settings(
+        temp_indoor=config["temperature"]["indoor"],
+        temp_outdoor=config["temperature"]["outdoor"],
+        units=units,
+    )
+
     editor = RoomEditor(units=units)
-    editor.build(parent=design_row)
+    conditions = ConditionsPanel(settings=settings)
+    renderer = AirflowRenderer(settings=settings, config=config)
+
+    # -- Populate Tab 1 ------------------------------------------------------
+    editor.build(parent="design_row")
+    conditions.build(parent="design_row")
 
     settings.room = editor.room
 
-    conditions = ConditionsPanel(settings=settings)
-    conditions.build(parent=design_row)
-
-    # -- simulation state ----------------------------------------------------
+    # -- Simulation state ----------------------------------------------------
     solver: Solver | None = None
     sim_running = False
     target_fps = config["fps"]
     frame_dt = 1.0 / target_fps
-    log_interval = target_fps * 5  # log stats every 5 seconds
+    log_interval = target_fps * 5
     frame_count = 0
 
-    # -- renderer ------------------------------------------------------------
-    renderer = AirflowRenderer(settings=settings, config=config)
-
+    # -- Callbacks -----------------------------------------------------------
     def _init_solver() -> Solver:
         nonlocal solver
         solver = Solver(settings=settings, config=config)
         renderer.invalidate_room()
-        logger.info(
-            "Solver created: res=%dx%dx%d, FPS target=%d",
-            *solver.shape, target_fps,
-        )
+        logger.info("Solver created: res=%dx%dx%d", *solver.shape)
         return solver
 
-    def _on_sim_toggle(sender, app_data) -> None:
+    def _on_sim_toggle(sender, app_data):
         nonlocal sim_running, solver, frame_count
         sim_running = app_data
         if sim_running:
@@ -93,12 +96,12 @@ def main():
                 solver.rebuild_boundaries()
             frame_count = 0
             dpg.set_value("sim_status", "Sim: Running")
-            logger.info("Sim started")
+            logger.info("Simulation started")
         else:
             dpg.set_value("sim_status", "Sim: Paused")
-            logger.info("Sim paused")
+            logger.info("Simulation paused")
 
-    def _on_sim_reset(sender=None, app_data=None) -> None:
+    def _on_sim_reset(sender=None, app_data=None):
         nonlocal solver, sim_running, frame_count
         sim_running = False
         dpg.set_value("sim_toggle", False)
@@ -106,9 +109,9 @@ def main():
         frame_count = 0
         renderer.reset_camera()
         dpg.set_value("sim_status", "Sim: Reset")
-        logger.info("Sim reset")
+        logger.info("Simulation reset")
 
-    # -- Tab 2: Simulation controls + render viewport ------------------------
+    # -- Populate Tab 2 (Simulation) -----------------------------------------
     with dpg.group(horizontal=True, parent="tab_sim"):
         dpg.add_checkbox(
             tag="sim_toggle",
@@ -117,24 +120,26 @@ def main():
             callback=_on_sim_toggle,
         )
         dpg.add_button(label="Reset Simulation", callback=_on_sim_reset)
-        dpg.add_spacer(width=20)
+        dpg.add_spacer(width=30)
         dpg.add_text("Sim: Idle", tag="sim_status")
-        dpg.add_spacer(width=10)
+        dpg.add_spacer(width=20)
         dpg.add_text("FPS: --", tag="sim_fps")
-        dpg.add_spacer(width=10)
-        dpg.add_text("Avg Temp: --", tag="sim_avg_temp")
-        dpg.add_spacer(width=10)
-        dpg.add_text("Max Vel: --", tag="sim_max_vel")
+        dpg.add_spacer(width=20)
+        dpg.add_text("Avg Temp: -- °C", tag="sim_avg_temp")
+        dpg.add_spacer(width=20)
+        dpg.add_text("Max Vel: -- m/s", tag="sim_max_vel")
 
     dpg.add_separator(parent="tab_sim")
+
+    # Large rendering area that fills the rest of the tab
     renderer.build(parent="tab_sim")
 
-    # -- cross-panel sync ----------------------------------------------------
-    def sync_units(new_units: str) -> None:
+    # -- Cross-panel synchronization -----------------------------------------
+    def sync_units(new_units: str):
         settings.units = new_units
         conditions.on_units_changed(new_units)
 
-    def sync_room() -> None:
+    def sync_room():
         settings.room = editor.room
         conditions.refresh()
         renderer.invalidate_room()
@@ -142,15 +147,17 @@ def main():
     editor.on_units_changed = sync_units
     editor.on_room_changed = sync_room
 
-    # -- run -----------------------------------------------------------------
+    # -- Final setup ---------------------------------------------------------
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("primary", True)
+
+    # Default to Simulation tab
     dpg.set_value("main_tabs", "tab_sim")
 
-    logger.info("AC Sim ready")
-    logger.info("UI: Tabbed layout initialized, default tab=Simulation")
+    logger.info("AC Sim ready - Tabbed layout active (default: Simulation)")
 
+    # -- Main render loop ----------------------------------------------------
     last_time = time.perf_counter()
 
     while dpg.is_dearpygui_running():
@@ -162,19 +169,17 @@ def main():
             solver.step(frame_dt)
             frame_count += 1
 
-            # Render airflow visualisation
             renderer.render(solver)
 
-            # Update HUD
             fps = 1.0 / max(dt, 1e-6)
             dpg.set_value("sim_fps", f"FPS: {fps:.0f}")
 
             if frame_count % log_interval == 0:
                 st = solver.stats()
-                dpg.set_value("sim_avg_temp", f"Avg Temp: {st['avg_temp']:.1f}C")
-                dpg.set_value("sim_max_vel", f"Max Vel: {st['max_vel']:.2f}m/s")
+                dpg.set_value("sim_avg_temp", f"Avg Temp: {st['avg_temp']:.1f} °C")
+                dpg.set_value("sim_max_vel", f"Max Vel: {st['max_vel']:.2f} m/s")
                 logger.info(
-                    "Sim: step=%d AvgTemp=%.1fC MaxVel=%.2fm/s FPS=%.0f",
+                    "Sim: step=%d AvgTemp=%.1f°C MaxVel=%.2fm/s FPS=%.0f",
                     frame_count, st["avg_temp"], st["max_vel"], fps,
                 )
 

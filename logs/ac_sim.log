@@ -16325,3 +16325,396 @@ INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
 INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
 INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
 INFO: Main: Sim: step=31800 AvgTemp=27.3C MaxVel=1.13m/s FPS=59
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=32100 AvgTemp=27.3C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=32400 AvgTemp=27.3C MaxVel=1.13m/s FPS=62
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=32700 AvgTemp=27.3C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=33000 AvgTemp=27.3C MaxVel=1.13m/s FPS=64
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=33300 AvgTemp=27.3C MaxVel=1.13m/s FPS=55
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=33600 AvgTemp=27.3C MaxVel=1.13m/s FPS=68
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=33900 AvgTemp=27.3C MaxVel=1.13m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=34200 AvgTemp=27.3C MaxVel=1.13m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=34500 AvgTemp=27.3C MaxVel=1.13m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=34800 AvgTemp=27.3C MaxVel=1.13m/s FPS=72
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim starting
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Render: Render: Visualization window set to fill remaining space with no_scrollbar=True
+INFO: Main: AC Sim ready - Tabbed layout active (default: Simulation)
+DEBUG: Models: Room init: 3.0x4.6x3.0m
+DEBUG: Models: window created: pos=(1.75, 1.5) size=(1.2, 1.0) open=0%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.75, 0.5) size=(1.2, 1.0) open=100%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 3.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 3.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 0.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(1.5, 0.25) size=(1.0, 1.2) open=0%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: door created: pos=(1.0, 3.0) size=(2.1, 0.9) open=100%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(2.1, 0.9) open=0%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: vent created: pos=(2.0, 3.0) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 3.0x4.6x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom_v2.json (9 elements)
+DEBUG: UI: Element states rebuilt: 9 elements
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Render: Render: Visualization window set to fill remaining space with no_scrollbar=True
+INFO: Main: AC Sim ready - Tabbed layout active (default: Simulation)
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: Models: Room init: 3.0x4.6x3.0m
+DEBUG: Models: window created: pos=(1.75, 1.5) size=(1.2, 1.0) open=0%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.75, 0.5) size=(1.2, 1.0) open=100%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 3.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 3.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 0.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(1.5, 0.25) size=(1.0, 1.2) open=0%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: door created: pos=(1.0, 3.0) size=(2.1, 0.9) open=100%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(2.1, 0.9) open=0%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: vent created: pos=(2.0, 3.0) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 3.0x4.6x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom_v2.json (9 elements)
+DEBUG: UI: Element states rebuilt: 9 elements
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: UI: Element states rebuilt: 9 elements
+INFO: UI: Conditions loaded, temp=75°F
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32
+INFO: Main: Simulation started
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3212, MaxVel=3.8m/s, SurfaceTempRange=23.9-36.1°C
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera orbited
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.00
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 0.86
+DEBUG: Render: Render: Camera zoomed 0.79
+DEBUG: Render: Render: Camera zoomed 0.74
+DEBUG: Render: Render: Camera zoomed 0.79
+DEBUG: Render: Render: Camera zoomed 0.86
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 1.00
+DEBUG: Render: Render: Camera zoomed 1.08
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=23.0-36.1°C
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.47
+DEBUG: Render: Render: Camera zoomed 1.59
+DEBUG: Render: Render: Camera zoomed 1.71
+DEBUG: Render: Render: Camera zoomed 1.85
+INFO: Main: Sim: step=300 AvgTemp=25.5°C MaxVel=3.55m/s FPS=65
+DEBUG: Render: Render: Camera orbited
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.7-36.1°C
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+DEBUG: Render: Render: Camera zoomed 1.71
+DEBUG: Render: Render: Camera zoomed 1.85
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32
+INFO: Render: Render: Camera reset
+INFO: Main: Simulation reset
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+DEBUG: Sim: Boundaries rebuilt
+INFO: Main: Simulation started
+INFO: Render: Render: Arrows=3212, MaxVel=1.5m/s, SurfaceTempRange=23.9-36.1°C
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 0.86
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 1.00
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.47
+DEBUG: Render: Render: Camera zoomed 1.59
+DEBUG: Render: Render: Camera zoomed 1.71
+DEBUG: Render: Render: Camera zoomed 1.85
+DEBUG: Render: Render: Camera zoomed 2.00
+INFO: Render: Render: Arrows=3212, MaxVel=3.8m/s, SurfaceTempRange=23.8-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=23.0-36.1°C
+INFO: Main: Sim: step=300 AvgTemp=25.5°C MaxVel=3.55m/s FPS=70
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.7-36.1°C
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+DEBUG: Render: Render: Camera orbited
+DEBUG: Render: Render: Camera panned
+INFO: Main: Sim: step=600 AvgTemp=25.8°C MaxVel=3.54m/s FPS=61
+DEBUG: Render: Render: Camera orbited
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=900 AvgTemp=25.9°C MaxVel=3.54m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Main: Sim: step=1200 AvgTemp=26.0°C MaxVel=3.54m/s FPS=63
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.6-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=1500 AvgTemp=26.0°C MaxVel=3.53m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=1800 AvgTemp=26.0°C MaxVel=3.53m/s FPS=59
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=2100 AvgTemp=26.1°C MaxVel=3.53m/s FPS=58
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=2400 AvgTemp=26.1°C MaxVel=3.53m/s FPS=66
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=2700 AvgTemp=26.1°C MaxVel=3.53m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3000 AvgTemp=26.1°C MaxVel=3.53m/s FPS=54
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3300 AvgTemp=26.1°C MaxVel=3.53m/s FPS=75
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3600 AvgTemp=26.1°C MaxVel=3.53m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=3900 AvgTemp=26.1°C MaxVel=3.53m/s FPS=65
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=4200 AvgTemp=26.1°C MaxVel=3.53m/s FPS=62
+INFO: Render: Render: Camera reset
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Camera reset
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.47
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+DEBUG: Render: Render: Camera zoomed 1.59
+DEBUG: Render: Render: Camera zoomed 1.71
+DEBUG: Render: Render: Camera zoomed 1.85
+DEBUG: Render: Render: Camera zoomed 2.00
+DEBUG: Render: Render: Camera zoomed 2.16
+DEBUG: Render: Render: Camera zoomed 2.33
+INFO: Main: Sim: step=4500 AvgTemp=26.2°C MaxVel=3.53m/s FPS=34
+DEBUG: Render: Render: Camera zoomed 2.52
+DEBUG: Render: Render: Camera zoomed 2.72
+DEBUG: Render: Render: Camera zoomed 2.94
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+DEBUG: Render: Render: Camera panned
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=4800 AvgTemp=26.2°C MaxVel=3.53m/s FPS=57
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Main: Sim: step=5100 AvgTemp=26.2°C MaxVel=3.53m/s FPS=69
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Render: Render: Arrows=3212, MaxVel=3.5m/s, SurfaceTempRange=22.5-36.1°C
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.61m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.22m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.22m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32
+INFO: Render: Render: Camera reset
+INFO: Main: Simulation reset
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 0.86
+DEBUG: Render: Render: Camera zoomed 0.93
+DEBUG: Render: Render: Camera zoomed 1.00
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.00
+DEBUG: Render: Render: Camera zoomed 0.93
+INFO: Render: Render: Camera reset
+INFO: Render: Render: Camera reset
+INFO: Render: Render: Camera reset
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.47
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.00
+DEBUG: Render: Render: Camera zoomed 0.93
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
+INFO: Render: Renderer UI built (700x430)
+INFO: Render: Render: Camera controls initialized with item handlers
+INFO: Render: Render: Visualization window set to fill remaining space with no_scrollbar=True
+INFO: Main: AC Sim ready - Tabbed layout active (default: Simulation)
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: Models: Room init: 3.0x4.6x3.0m
+DEBUG: Models: window created: pos=(1.75, 1.5) size=(1.2, 1.0) open=0%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.75, 0.5) size=(1.2, 1.0) open=100%
+DEBUG: Models: Added window to south wall
+DEBUG: Models: window created: pos=(1.5, 3.25) size=(1.0, 1.2) open=50%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 3.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(0.5, 0.25) size=(1.0, 1.2) open=100%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: window created: pos=(1.5, 0.25) size=(1.0, 1.2) open=0%
+DEBUG: Models: Added window to east wall
+DEBUG: Models: door created: pos=(1.0, 3.0) size=(2.1, 0.9) open=100%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: door created: pos=(1.0, 1.0) size=(2.1, 0.9) open=0%
+DEBUG: Models: Added door to west wall
+DEBUG: Models: vent created: pos=(2.0, 3.0) size=(0.3, 0.3) open=100%
+DEBUG: Models: Added vent to ceiling wall
+INFO: Models: Room loaded: 3.0x4.6x3.0m
+INFO: UI: Room loaded: /Users/hsebaugh/Documents/GitHub/AC_Sim/bedroom_v2.json (9 elements)
+DEBUG: UI: Element states rebuilt: 9 elements
+DEBUG: Render: Render: Camera panned
+DEBUG: Render: Render: Camera panned
+DEBUG: UI: Element states rebuilt: 9 elements
+INFO: UI: Conditions loaded, temp=77°F
+INFO: Sim: GPU: Metal / MPS
+DEBUG: Sim: Boundary: window south open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: window east open=50% speed=0.50m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: window east open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: door west open=100% speed=1.00m/s
+DEBUG: Sim: Boundary: vent ceiling open=100% speed=1.00m/s
+INFO: Sim: Grid init: res=32x32x16, cell=0.094m, device=mps
+INFO: Main: Solver created: res=16x32x32
+INFO: Main: Simulation started
+DEBUG: Render: Render: Camera zoomed 1.08
+DEBUG: Render: Render: Camera zoomed 1.17
+DEBUG: Render: Render: Camera zoomed 1.26
+DEBUG: Render: Render: Camera zoomed 1.36
+DEBUG: Render: Render: Camera zoomed 1.47
+DEBUG: Render: Render: Camera zoomed 1.59
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+DEBUG: Render: Render: Camera zoomed 1.71
+DEBUG: Render: Render: Camera zoomed 1.85
+DEBUG: Render: Render: Camera zoomed 2.00
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=300 AvgTemp=26.3°C MaxVel=1.00m/s FPS=67
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Main: Sim: step=600 AvgTemp=26.6°C MaxVel=1.08m/s FPS=71
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
+DEBUG: Render: Render: Camera panned
+INFO: Main: Sim: step=900 AvgTemp=26.7°C MaxVel=1.09m/s FPS=61
+INFO: Main: Simulation paused
