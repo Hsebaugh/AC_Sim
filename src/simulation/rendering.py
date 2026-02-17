@@ -48,7 +48,6 @@ _DEFAULT_YAW = math.pi / 6
 _DEFAULT_PITCH = math.radians(35)
 _DEFAULT_ZOOM = 1.0
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -61,7 +60,6 @@ def _lerp_rgb(c0, c1, t):
         int(c0[2] + (c1[2] - c0[2]) * t),
     )
 
-
 def temp_color(temp: float, t_lo: float, t_hi: float) -> tuple[int, int, int]:
     t_mid = (t_lo + t_hi) * 0.5
     if temp <= t_lo: return _COLD
@@ -69,7 +67,6 @@ def temp_color(temp: float, t_lo: float, t_hi: float) -> tuple[int, int, int]:
     if temp < t_mid:
         return _lerp_rgb(_COLD, _WARM, (temp - t_lo) / max(t_mid - t_lo, 1e-6))
     return _lerp_rgb(_WARM, _HOT, (temp - t_mid) / max(t_hi - t_mid, 1e-6))
-
 
 # ---------------------------------------------------------------------------
 # Renderer
@@ -106,7 +103,6 @@ class AirflowRenderer:
         self._surf_t_min = 0.0
         self._surf_t_max = 0.0
 
-
         logger.info("Renderer initialized (skip=%d, max_arrows=%d)", self._skip, self._max_arrows)
 
     def build(self, parent: int | str) -> None:
@@ -135,17 +131,35 @@ class AirflowRenderer:
                     color=(140, 140, 140),
                 )
 
+            # ←←← Canvas must be created BEFORE we bind handlers
             with dpg.drawlist(width=RENDER_W, height=RENDER_H) as self._canvas:
                 self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
-        # Bind the early-created global handlers to our canvas
-        dpg.bind_item_handler_registry(self._canvas, "global_mouse_handlers")
+        # Bind handler registry to this canvas (so handlers only fire here)
+        dpg.bind_item_handler_registry(self._canvas, "global_render_handlers")
 
         self._room_dirty = True
-        logger.info("Renderer UI built (%dx%d) with global mouse handlers", RENDER_W, RENDER_H)
+        logger.info("Renderer UI built (%dx%d) with global handlers", RENDER_W, RENDER_H)
+
+    # ====================== INPUT HANDLER BINDING ======================
+    def bind_input_handlers(self):
+        """Centralized, debuggable, modular input wiring.
+        Call this once after build(). Easy to extend and log."""
+        try:
+            dpg.set_item_callback("mouse_left_drag",  self._on_drag)
+            dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same method, checks button
+            dpg.set_item_callback("mouse_wheel",      self._on_scroll)
+            dpg.set_item_callback("key_r",            self._on_key_r)
+
+            logger.info("Render: Input handlers bound successfully "
+                       "(left_drag, right_drag, wheel, key_r)")
+        except Exception as e:
+            logger.error(f"Render: Failed to bind handlers - {e}", exc_info=True)
+            raise
+
     # ====================== CAMERA CALLBACKS ======================
 
     def _on_drag(self, sender, app_data):
@@ -613,15 +627,14 @@ class AirflowRenderer:
         """Mark room wireframe for redraw (call after room/camera change)."""
         self._room_dirty = True
 
-    def reset_camera(self) -> None:
-        """Reset camera to default isometric view."""
-        self._yaw_target = _DEFAULT_YAW
-        self._pitch_target = _DEFAULT_PITCH
-        self._zoom_target = _DEFAULT_ZOOM
-        self._pan_x_target = 0.0
-        self._pan_y_target = 0.0
+    def reset_camera(self):
+        self._yaw = _DEFAULT_YAW
+        self._pitch = _DEFAULT_PITCH
+        self._zoom = _DEFAULT_ZOOM
+        self._cam_x = 0.0
+        self._cam_y = 0.0
         self._room_dirty = True
-        logger.info("Render: Camera reset")
+        logger.debug("Render: Camera reset")
 
     def tick(self) -> None:
         """Interpolate camera values toward targets (call every frame).

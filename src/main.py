@@ -34,6 +34,32 @@ def main():
     # -- DPG init ------------------------------------------------------------
     dpg.create_context()
 
+    # === GLOBAL INPUT HANDLER REGISTRY (Item_handler_debug pattern) ===
+    # Explicit tags = easy, debuggable, scalable binding
+    if not dpg.does_item_exist("global_render_handlers"):
+        with dpg.handler_registry(tag="global_render_handlers"):
+            dpg.add_mouse_drag_handler(
+                button=dpg.mvMouseButton_Left,
+                threshold=0.0,
+                callback=None,
+                tag="mouse_left_drag"          # ← key fix
+            )
+            dpg.add_mouse_drag_handler(
+                button=dpg.mvMouseButton_Right,
+                threshold=0.0,
+                callback=None,
+                tag="mouse_right_drag"         # ← key fix
+            )
+            dpg.add_mouse_wheel_handler(
+                callback=None,
+                tag="mouse_wheel"              # ← key fix
+            )
+            dpg.add_key_press_handler(
+                key=dpg.mvKey_R,
+                callback=None,
+                tag="key_r"                    # ← key fix
+            )
+        logger.info("UI: Global render handlers registry created with tags")
 
     dpg.create_viewport(
         title="AC Sim",
@@ -42,7 +68,20 @@ def main():
         resizable=True,
     )
 
-    # -- Create objects ------------------------------------------------------
+    # -- Create tabbed layout ------------------------------------------------
+    with dpg.window(tag="primary", no_scrollbar=True, no_title_bar=False):
+        with dpg.tab_bar(tag="main_tabs"):
+
+            # ==================== TAB 1: Room Design & Conditions ====================
+            with dpg.tab(label="Room Design & Conditions", tag="tab_design"):
+                with dpg.group(horizontal=True, tag="design_row"):
+                    pass  # will be filled after objects are created
+
+            # ==================== TAB 2: Simulation (Default) ====================
+            with dpg.tab(label="Simulation", tag="tab_sim"):
+                pass  # will be filled after objects are created
+
+    # -- Instantiate UI and Simulation components ----------------------------
     settings = Settings(
         temp_indoor=config["temperature"]["indoor"],
         temp_outdoor=config["temperature"]["outdoor"],
@@ -53,39 +92,6 @@ def main():
     conditions = ConditionsPanel(settings=settings)
     renderer = AirflowRenderer(settings=settings, config=config)
 
-    # Now set the real callbacks on the registry
-    dpg.set_item_callback("global_mouse_handlers", callback=renderer._on_drag)   # Left drag
-    dpg.set_item_callback("global_mouse_handlers", renderer._on_drag, slot=1)   # Right drag
-    dpg.set_item_callback("global_mouse_handlers", renderer._on_scroll, slot=2) # Wheel
-    dpg.set_item_callback("global_mouse_handlers", renderer._on_key_r, slot=3)  # R key
-
-
-    # === GLOBAL HANDLER REGISTRY (early, right after dpg.create_context()) ===
-    with dpg.handler_registry(tag="global_render_handlers"):
-        dpg.add_mouse_drag_handler(
-            button=dpg.mvMouseButton_Left,
-            threshold=0.0,
-            callback=None,
-            tag="mouse_drag_left",          # ← add this
-        )
-        dpg.add_mouse_drag_handler(
-            button=dpg.mvMouseButton_Right,
-            threshold=0.0,
-            callback=None,
-            tag="mouse_drag_right",
-        )
-        dpg.add_mouse_wheel_handler(callback=None, tag="mouse_wheel")
-        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=None, tag="key_r")
-
-    # -- Create tabbed layout ------------------------------------------------
-    with dpg.window(tag="primary", no_scrollbar=True, no_title_bar=False):
-        with dpg.tab_bar(tag="main_tabs"):
-            with dpg.tab(label="Room Design & Conditions", tag="tab_design"):
-                with dpg.group(horizontal=True, tag="design_row"):
-                    pass
-
-            with dpg.tab(label="Simulation", tag="tab_sim"):
-                pass
     # -- Populate Tab 1 ------------------------------------------------------
     editor.build(parent="design_row")
     conditions.build(parent="design_row")
@@ -153,14 +159,11 @@ def main():
 
     dpg.add_separator(parent="tab_sim")
 
-    # Large rendering area that fills the rest of the tab
+    # Large rendering area
     renderer.build(parent="tab_sim")
 
-    # === Wire mouse handlers (clean, no magic strings) ===
-    dpg.set_item_callback("mouse_drag_left",  renderer._on_drag)      # Left drag → camera orbit/pan
-    dpg.set_item_callback("mouse_drag_right", renderer._on_right_drag if hasattr(renderer, "_on_right_drag") else None)
-    dpg.set_item_callback("mouse_wheel",      renderer._on_wheel)
-    dpg.set_item_callback("key_r",            renderer._on_key_r)     # Reset camera, etc.
+    # === BIND INPUT HANDLERS (after canvas exists) ===
+    renderer.bind_input_handlers()          # ← modular call
 
     # -- Cross-panel synchronization -----------------------------------------
     def sync_units(new_units: str):
