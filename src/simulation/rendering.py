@@ -224,16 +224,22 @@ class AirflowRenderer(BaseRenderer):
         # === ITEM-SPECIFIC HANDLERS (attached directly to canvas) ===
         dpg.set_item_user_data(self._canvas, self)  # optional but helpful
 
-        with dpg.item_handler_registry(tag=f"handler_{id(self)}"):
-            dpg.add_item_clicked_handler(button=dpg.mvMouseButton_Left,  callback=self._on_lclick)
-            dpg.add_item_clicked_handler(button=dpg.mvMouseButton_Right, callback=self._on_rclick)
-            dpg.add_item_deactivated_handler(button=dpg.mvMouseButton_Left,  callback=self._on_lrelease)
-            dpg.add_item_deactivated_handler(button=dpg.mvMouseButton_Right, callback=self._on_rrelease)
-            dpg.add_item_hover_handler(callback=self._on_hover)
-            dpg.add_item_mouse_move_handler(callback=self._on_mmove)
-            dpg.add_item_mouse_wheel_handler(callback=self._on_scroll)
+        # === RELIABLE MOUSE HANDLERS (works in current Dear PyGui) ===
+        # Mouse Drag Handler (best for orbit + pan)
+        with dpg.handler_registry(tag=f"drag_handler_{id(self)}"):
+            dpg.add_mouse_drag_handler(
+                button=dpg.mvMouseButton_Left,   # LMB = Pan
+                threshold=0.0,
+                callback=self._on_drag
+            )
+            dpg.add_mouse_drag_handler(
+                button=dpg.mvMouseButton_Right,  # RMB = Orbit
+                threshold=0.0,
+                callback=self._on_drag
+            )
+            dpg.add_mouse_wheel_handler(callback=self._on_scroll)
 
-        dpg.bind_item_handler_registry(self._canvas, f"handler_{id(self)}")
+        dpg.bind_item_handler_registry(self._canvas, f"drag_handler_{id(self)}")
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d)", RENDER_W, RENDER_H)
@@ -818,12 +824,30 @@ class AirflowRenderer(BaseRenderer):
 
         self._last_mouse = (mx, my)
 
-    def _on_scroll(self, sender: Any = None, app_data: Any = None) -> None:
-        if not self._is_over_canvas():
+    def _on_drag(self, sender, app_data):
+        """Called when mouse is dragged (LMB or RMB)"""
+        if not dpg.is_item_hovered(self._canvas):
             return
-        factor = 1.08 if app_data > 0 else 1.0 / 1.08
-        self._zoom_target = max(0.3, min(5.0, self._zoom_target * factor))
-        logger.debug("Render: Camera zoomed %.2f", self._zoom_target)
+
+        button = app_data[0]      # which button is being dragged
+        dx = app_data[1]          # delta x
+        dy = app_data[2]          # delta y
+
+        if button == dpg.mvMouseButton_Right:          # RMB = Orbit
+            self._yaw += dx * 0.012
+            self._pitch = max(0.1, min(1.4, self._pitch - dy * 0.012))
+        elif button == dpg.mvMouseButton_Left:         # LMB = Pan
+            self._cam_x = getattr(self, '_cam_x', 0.0) + dx * 0.7
+            self._cam_y = getattr(self, '_cam_y', 0.0) - dy * 0.7
+
+        self._room_dirty = True
+
+    def _on_scroll(self, sender, app_data):
+        """Mouse wheel zoom"""
+        if not dpg.is_item_hovered(self._canvas):
+            return
+        self._zoom = max(0.2, self._zoom + app_data * 0.08)
+        self._room_dirty = True
 
     def _on_key_r(self, sender: Any = None, app_data: Any = None) -> None:
         self.reset_camera()

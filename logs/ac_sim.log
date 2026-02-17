@@ -16745,3 +16745,12 @@ INFO: UI: ConditionsPanel created (units=standard)
 INFO: Render: Renderer: skip=2 max_arrows=5000
 INFO: UI: RoomEditor UI built
 INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
