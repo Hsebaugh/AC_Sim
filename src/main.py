@@ -203,12 +203,9 @@ def main():
         now = time.perf_counter()
         dt = now - last_time
         last_time = now
+        # safe here — UI is already visible
+        renderer._update_size()
 
-        if frame_count < 30:                  # safe here — UI is already visible
-            renderer._update_size()
-            if renderer._size_valid:
-                logger.info("Renderer: Canvas size resolved to %dx%d → full simulation view active",
-                           renderer._w, renderer._h)
 
         if sim_running and solver is not None:
             solver.step(frame_dt)
