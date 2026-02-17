@@ -16718,3 +16718,30 @@ INFO: Render: Render: Arrows=3212, MaxVel=1.0m/s, SurfaceTempRange=25.0-35.0°C
 DEBUG: Render: Render: Camera panned
 INFO: Main: Sim: step=900 AvgTemp=26.7°C MaxVel=1.09m/s FPS=61
 INFO: Main: Simulation paused
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built
+INFO: Main: AC Sim starting
+INFO: Main: Config loaded: FPS=60, Grid=32x32x16
+DEBUG: Models: Settings init: in=25.0C out=35.0C AC=OFF units=standard
+DEBUG: Models: Room init: 3.0x3.0x3.0m
+INFO: UI: RoomEditor created (units=standard)
+INFO: UI: ConditionsPanel created (units=standard)
+INFO: Render: Renderer: skip=2 max_arrows=5000
+INFO: UI: RoomEditor UI built
+INFO: UI: ConditionsPanel UI built

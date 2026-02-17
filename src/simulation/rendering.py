@@ -148,6 +148,9 @@ class AirflowRenderer(BaseRenderer):
         self._yaw = _DEFAULT_YAW
         self._pitch = _DEFAULT_PITCH
         self._zoom = _DEFAULT_ZOOM
+        self._cam_x = 0.0   # pan offset
+        self._cam_y = 0.0
+        self._panning = False
         self._pan_x = 0.0
         self._pan_y = 0.0
         self._yaw_target = _DEFAULT_YAW
@@ -218,24 +221,19 @@ class AirflowRenderer(BaseRenderer):
         # Global handler registry -- DPG does not support item-level
         # mouse_move / mouse_wheel handlers, so we use global handlers
         # with manual rect-based hit testing in _is_over_canvas().
-        with dpg.handler_registry(tag="render_handlers"):
-            dpg.add_mouse_down_handler(
-                button=dpg.mvMouseButton_Right, callback=self._on_rdown,
-            )
-            dpg.add_mouse_release_handler(
-                button=dpg.mvMouseButton_Right, callback=self._on_rup,
-            )
-            dpg.add_mouse_down_handler(
-                button=dpg.mvMouseButton_Left, callback=self._on_ldown,
-            )
-            dpg.add_mouse_release_handler(
-                button=dpg.mvMouseButton_Left, callback=self._on_lup,
-            )
-            dpg.add_mouse_move_handler(callback=self._on_mmove)
-            dpg.add_mouse_wheel_handler(callback=self._on_scroll)
-            dpg.add_key_press_handler(
-                key=dpg.mvKey_R, callback=self._on_key_r,
-            )
+        # === ITEM-SPECIFIC HANDLERS (attached directly to canvas) ===
+        dpg.set_item_user_data(self._canvas, self)  # optional but helpful
+
+        with dpg.item_handler_registry(tag=f"handler_{id(self)}"):
+            dpg.add_item_clicked_handler(button=dpg.mvMouseButton_Left,  callback=self._on_lclick)
+            dpg.add_item_clicked_handler(button=dpg.mvMouseButton_Right, callback=self._on_rclick)
+            dpg.add_item_deactivated_handler(button=dpg.mvMouseButton_Left,  callback=self._on_lrelease)
+            dpg.add_item_deactivated_handler(button=dpg.mvMouseButton_Right, callback=self._on_rrelease)
+            dpg.add_item_hover_handler(callback=self._on_hover)
+            dpg.add_item_mouse_move_handler(callback=self._on_mmove)
+            dpg.add_item_mouse_wheel_handler(callback=self._on_scroll)
+
+        dpg.bind_item_handler_registry(self._canvas, f"handler_{id(self)}")
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d)", RENDER_W, RENDER_H)
@@ -291,8 +289,8 @@ class AirflowRenderer(BaseRenderer):
 
         sc = self._cam_scale()
         return (
-            RENDER_W / 2 + rx * sc + self._pan_x,
-            RENDER_H / 2 - rz2 * sc + self._pan_y,
+            RENDER_W / 2 + rx * sc + self._cam_x,
+            RENDER_H / 2 - rz2 * sc + self._cam_y,
         )
 
     def _project_arrays(
@@ -313,8 +311,8 @@ class AirflowRenderer(BaseRenderer):
 
         sc = self._cam_scale()
         return (
-            RENDER_W / 2 + rx * sc + self._pan_x,
-            RENDER_H / 2 - rz2 * sc + self._pan_y,
+            RENDER_W / 2 + rx * sc + self._cam_x,
+            RENDER_H / 2 - rz2 * sc + self._cam_y,
         )
 
     def _project_vec_arrays(
@@ -758,6 +756,23 @@ class AirflowRenderer(BaseRenderer):
             self._room_dirty = True
 
     # -- camera callbacks ----------------------------------------------------
+    def _on_lclick(self, sender, app_data):
+        if dpg.is_item_hovered(self._canvas):
+            self._panning = True
+            self._last_mouse = dpg.get_mouse_pos()
+
+    def _on_lrelease(self, sender, app_data):
+        self._panning = False
+        self._last_mouse = None
+
+    def _on_rclick(self, sender, app_data):
+        if dpg.is_item_hovered(self._canvas):
+            self._dragging = True
+            self._last_mouse = dpg.get_mouse_pos()
+
+    def _on_rrelease(self, sender, app_data):
+        self._dragging = False
+        self._last_mouse = None
 
     def _on_rdown(self, sender: Any = None, app_data: Any = None) -> None:
         if self._is_over_canvas():
@@ -781,29 +796,27 @@ class AirflowRenderer(BaseRenderer):
             self._lmb_last = None
             logger.debug("Render: Camera panned")
 
-    def _on_mmove(self, sender: Any = None, app_data: Any = None) -> None:
-        mx, my = dpg.get_mouse_pos(local=False)
+    def _on_mmove(self, sender, app_data):
+        if not (self._dragging or self._panning):
+            return
+        mx, my = dpg.get_mouse_pos()
+        if self._last_mouse is None:
+            self._last_mouse = (mx, my)
+            return
 
-        # RMB orbit
-        if self._rmb_dragging:
-            if self._rmb_last is not None:
-                dx = mx - self._rmb_last[0]
-                dy = my - self._rmb_last[1]
-                self._yaw_target += dx * _ORBIT_SENS
-                self._pitch_target = max(
-                    0.05,
-                    min(math.pi / 2 - 0.05, self._pitch_target - dy * _ORBIT_SENS),
-                )
-            self._rmb_last = (mx, my)
+        dx = mx - self._last_mouse[0]
+        dy = my - self._last_mouse[1]
 
-        # LMB pan
-        if self._lmb_dragging:
-            if self._lmb_last is not None:
-                dx = mx - self._lmb_last[0]
-                dy = my - self._lmb_last[1]
-                self._pan_x_target += dx * _PAN_SENS
-                self._pan_y_target += dy * _PAN_SENS
-            self._lmb_last = (mx, my)
+        if self._dragging:          # RMB = Orbit
+            self._yaw += dx * 0.008
+            self._pitch = max(0.1, min(math.pi/2 - 0.1, self._pitch - dy * 0.008))
+            self._room_dirty = True
+        elif self._panning:         # LMB = Pan
+            self._cam_x = getattr(self, '_cam_x', 0) + dx * 0.8
+            self._cam_y = getattr(self, '_cam_y', 0) - dy * 0.8
+            self._room_dirty = True
+
+        self._last_mouse = (mx, my)
 
     def _on_scroll(self, sender: Any = None, app_data: Any = None) -> None:
         if not self._is_over_canvas():
