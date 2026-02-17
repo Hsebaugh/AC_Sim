@@ -135,30 +135,13 @@ class AirflowRenderer:
                     color=(140, 140, 140),
                 )
 
-            # Create the drawlist
             with dpg.drawlist(width=RENDER_W, height=RENDER_H) as self._canvas:
                 self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
-        # === GLOBAL MOUSE HANDLERS (no registry needed) ===
-        if not dpg.does_item_exist("global_mouse_handlers"):
-            with dpg.handler_registry(tag="global_mouse_handlers"):
-                dpg.add_mouse_drag_handler(
-                    button=dpg.mvMouseButton_Left,
-                    threshold=0.0,
-                    callback=self._on_drag,
-                )
-                dpg.add_mouse_drag_handler(
-                    button=dpg.mvMouseButton_Right,
-                    threshold=0.0,
-                    callback=self._on_drag,
-                )
-                dpg.add_mouse_wheel_handler(callback=self._on_scroll)
-                dpg.add_key_press_handler(key=dpg.mvKey_R, callback=self._on_key_r)
-
-        # Bind the global handlers to our canvas
+        # Bind the early-created global handlers to our canvas
         dpg.bind_item_handler_registry(self._canvas, "global_mouse_handlers")
 
         self._room_dirty = True
