@@ -39,15 +39,15 @@ def main():
         dpg.add_mouse_drag_handler(
             button=dpg.mvMouseButton_Left,
             threshold=0.0,
-            callback=None,          # dummy for now
+            callback=renderer._on_drag,      # ← real callback
         )
         dpg.add_mouse_drag_handler(
             button=dpg.mvMouseButton_Right,
             threshold=0.0,
-            callback=None,
+            callback=renderer._on_drag,
         )
-        dpg.add_mouse_wheel_handler(callback=None)
-        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=None)
+        dpg.add_mouse_wheel_handler(callback=renderer._on_scroll)
+        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=renderer._on_key_r)
 
     dpg.create_viewport(
         title="AC Sim",
