@@ -257,20 +257,6 @@ class AirflowRenderer:
                 logger.info("Renderer: *** FULL VIEW CANVAS READY *** %dx%d", w, h)
             else:
                 logger.info("Renderer: Canvas size updated to %dx%d", w, h)
-        """Diagnostic: Track when size becomes real."""
-        if dpg.does_item_exist(self._canvas):
-            w = dpg.get_item_width(self._canvas)
-            h = dpg.get_item_height(self._canvas)
-            logger.debug(f"Renderer: _update_size called → raw DPG size = {w}x{h}")
-            
-            if w != self._w or h != self._h:
-                self._w, self._h = w, h
-                if w > 900 and h > 500:
-                    self._size_valid = True
-                    self._room_dirty = True
-                    logger.info("Renderer: *** REAL LARGE CANVAS DETECTED *** %dx%d → FULL VIEW", w, h)
-                else:
-                    logger.debug("Renderer: Still small/fallback size %dx%d", w, h)
 
     def _cam_scale(self) -> float:
         """Dynamic scale based on current canvas dimensions."""
