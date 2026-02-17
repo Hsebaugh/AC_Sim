@@ -33,6 +33,20 @@ def main():
 
     # -- DPG init ------------------------------------------------------------
     dpg.create_context()
+    # === GLOBAL HANDLER REGISTRY FOR RENDERING (created once, very early) ===
+    with dpg.handler_registry(tag="global_render_handlers"):
+        dpg.add_mouse_drag_handler(
+            button=dpg.mvMouseButton_Left,
+            threshold=0.0,
+            callback=None,           # will be set later
+        )
+        dpg.add_mouse_drag_handler(
+            button=dpg.mvMouseButton_Right,
+            threshold=0.0,
+            callback=None,
+        )
+        dpg.add_mouse_wheel_handler(callback=None)
+        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=None)
     dpg.create_viewport(
         title="AC Sim",
         width=1400,

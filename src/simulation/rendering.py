@@ -106,22 +106,6 @@ class AirflowRenderer:
         self._surf_t_min = 0.0
         self._surf_t_max = 0.0
 
-        # Create global handler registry ONCE (this fixes the bind error)
-        self._handler_tag = "global_render_handlers"
-        if not dpg.does_item_exist(self._handler_tag):
-            with dpg.handler_registry(tag=self._handler_tag):
-                dpg.add_mouse_drag_handler(
-                    button=dpg.mvMouseButton_Left,
-                    threshold=0.0,
-                    callback=self._on_drag,
-                )
-                dpg.add_mouse_drag_handler(
-                    button=dpg.mvMouseButton_Right,
-                    threshold=0.0,
-                    callback=self._on_drag,
-                )
-                dpg.add_mouse_wheel_handler(callback=self._on_scroll)
-                dpg.add_key_press_handler(key=dpg.mvKey_R, callback=self._on_key_r)
 
         logger.info("Renderer initialized (skip=%d, max_arrows=%d)", self._skip, self._max_arrows)
 
@@ -151,18 +135,18 @@ class AirflowRenderer:
                     color=(140, 140, 140),
                 )
 
+            # ←←← Canvas must be created BEFORE we bind handlers
             with dpg.drawlist(width=RENDER_W, height=RENDER_H) as self._canvas:
                 self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
-        # Bind the global handler registry to our canvas
-        dpg.bind_item_handler_registry(self._canvas, self._handler_tag)
+        # Bind to canvas
+        dpg.bind_item_handler_registry(self._canvas, "global_render_handlers")
 
         self._room_dirty = True
         logger.info("Renderer UI built (%dx%d) with global handlers", RENDER_W, RENDER_H)
-
     # ====================== CAMERA CALLBACKS ======================
 
     def _on_drag(self, sender, app_data):
