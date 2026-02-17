@@ -160,17 +160,21 @@ class AirflowRenderer:
                 )
 
             # ←←← Canvas must be created BEFORE we bind handlers
-            with dpg.drawlist(width=RENDER_W, height=RENDER_H) as self._canvas:
-                self._surface_layer = dpg.add_draw_layer()
-                self._room_layer = dpg.add_draw_layer()
-                self._arrow_layer = dpg.add_draw_layer()
-                self._hud_layer = dpg.add_draw_layer()
+        with dpg.drawlist(width=RENDER_W, height=RENDER_H) as self._canvas:
+            self._surface_layer = dpg.add_draw_layer()
+            self._room_layer = dpg.add_draw_layer()
+            self._arrow_layer = dpg.add_draw_layer()
+            self._hud_layer = dpg.add_draw_layer()
 
-        # Bind handler registry to this canvas (so handlers only fire here)
-        dpg.bind_item_handler_registry(self._canvas, "global_render_handlers")
+        # === DIRECT CALLBACK BINDING (most reliable pattern) ===
+        # Replaces the fragile bind_item_handler_registry
+        dpg.set_item_callback("mouse_left_drag",  self._on_drag)
+        dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same handler, button checked inside
+        dpg.set_item_callback("mouse_wheel",      self._on_scroll)
+        dpg.set_item_callback("key_r",            self._on_key_r)
 
         self._room_dirty = True
-        logger.info("Renderer UI built (%dx%d) with global handlers", RENDER_W, RENDER_H)
+        logger.info("Renderer UI built (%dx%d) + handlers bound directly", RENDER_W, RENDER_H)
 
     # ====================== INPUT HANDLER BINDING ======================
     def bind_input_handlers(self):
