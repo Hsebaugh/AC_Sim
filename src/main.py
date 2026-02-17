@@ -106,6 +106,13 @@ def main():
     log_interval = target_fps * 5
     frame_count = 0
 
+    # -- Continuous / steady-state mode --------------------------------------
+    continuous_mode = False
+    STEADY_STATE_THRESHOLD = 0.05   # °C change threshold
+    STEADY_STATE_WINDOW = 30        # consecutive frames required
+    steady_history: list[float] = []  # recent median temps
+    steady_state_reached = False
+
     # -- Callbacks -----------------------------------------------------------
     def _init_solver() -> Solver:
         nonlocal solver
@@ -115,7 +122,7 @@ def main():
         return solver
 
     def _on_sim_toggle(sender, app_data):
-        nonlocal sim_running, solver, frame_count
+        nonlocal sim_running, solver, frame_count, steady_state_reached, steady_history
         sim_running = app_data
         if sim_running:
             if solver is None:
@@ -123,6 +130,8 @@ def main():
             else:
                 solver.rebuild_boundaries()
             frame_count = 0
+            steady_history.clear()
+            steady_state_reached = False
             dpg.set_value("sim_status", "Sim: Running")
             logger.info("Simulation started")
         else:
@@ -130,14 +139,39 @@ def main():
             logger.info("Simulation paused")
 
     def _on_sim_reset(sender=None, app_data=None):
-        nonlocal solver, sim_running, frame_count
+        nonlocal solver, sim_running, frame_count, steady_state_reached, steady_history
         sim_running = False
         dpg.set_value("sim_toggle", False)
         solver = _init_solver()
         frame_count = 0
+        steady_history.clear()
+        steady_state_reached = False
         renderer.reset_camera()
         dpg.set_value("sim_status", "Sim: Reset")
         logger.info("Simulation reset")
+
+    def _on_continuous_toggle(sender, app_data):
+        nonlocal continuous_mode, sim_running, solver, frame_count
+        nonlocal steady_state_reached, steady_history
+        continuous_mode = app_data
+        if continuous_mode:
+            # Auto-start simulation and enable AC
+            settings.ac_on = True
+            dpg.set_value("cond_ac_on", True)
+            steady_history.clear()
+            steady_state_reached = False
+            if not sim_running:
+                sim_running = True
+                dpg.set_value("sim_toggle", True)
+                if solver is None:
+                    _init_solver()
+                else:
+                    solver.rebuild_boundaries()
+                frame_count = 0
+            dpg.set_value("sim_status", "Sim: Continuous")
+            logger.info("Continuous mode ON — targeting %.1f°C", settings.ac_temp)
+        else:
+            logger.info("Continuous mode OFF")
 
     # -- Populate Tab 2 (Simulation) -----------------------------------------
     with dpg.group(horizontal=True, parent="tab_sim"):
@@ -148,12 +182,21 @@ def main():
             callback=_on_sim_toggle,
         )
         dpg.add_button(label="Reset Simulation", callback=_on_sim_reset)
+        dpg.add_spacer(width=20)
+        dpg.add_checkbox(
+            tag="sim_continuous",
+            label="Run to Steady State",
+            default_value=False,
+            callback=_on_continuous_toggle,
+        )
         dpg.add_spacer(width=30)
         dpg.add_text("Sim: Idle", tag="sim_status")
         dpg.add_spacer(width=20)
         dpg.add_text("FPS: --", tag="sim_fps")
         dpg.add_spacer(width=20)
         dpg.add_text("Avg Temp: -- °C", tag="sim_avg_temp")
+        dpg.add_spacer(width=20)
+        dpg.add_text("Median: -- °C", tag="sim_median_temp")
         dpg.add_spacer(width=20)
         dpg.add_text("Max Vel: -- m/s", tag="sim_max_vel")
 
@@ -208,6 +251,26 @@ def main():
 
 
         if sim_running and solver is not None:
+            # -- Smart AC control (continuous mode) --------------------------
+            if continuous_mode and not steady_state_reached:
+                median_t = solver.median_temp()
+                if median_t <= settings.ac_temp:
+                    if settings.ac_on:
+                        settings.ac_on = False
+                        dpg.set_value("cond_ac_on", False)
+                        logger.info(
+                            "Smart AC OFF — median %.1f°C <= target %.1f°C",
+                            median_t, settings.ac_temp,
+                        )
+                else:
+                    if not settings.ac_on:
+                        settings.ac_on = True
+                        dpg.set_value("cond_ac_on", True)
+                        logger.info(
+                            "Smart AC ON — median %.1f°C > target %.1f°C",
+                            median_t, settings.ac_temp,
+                        )
+
             solver.step(frame_dt)
             frame_count += 1
 
@@ -216,13 +279,36 @@ def main():
             fps = 1.0 / max(dt, 1e-6)
             dpg.set_value("sim_fps", f"FPS: {fps:.0f}")
 
+            # -- Steady-state detection (continuous mode) --------------------
+            if continuous_mode and not steady_state_reached:
+                median_t = solver.median_temp()
+                steady_history.append(median_t)
+                if len(steady_history) > STEADY_STATE_WINDOW:
+                    steady_history.pop(0)
+                if len(steady_history) == STEADY_STATE_WINDOW:
+                    delta = abs(steady_history[-1] - steady_history[0])
+                    if delta < STEADY_STATE_THRESHOLD:
+                        steady_state_reached = True
+                        logger.info(
+                            "Steady state reached after %d steps "
+                            "(median=%.2f°C, delta=%.4f°C)",
+                            frame_count, median_t, delta,
+                        )
+                        dpg.set_value(
+                            "sim_status",
+                            f"Sim: Steady ({median_t:.1f}°C)",
+                        )
+
             if frame_count % log_interval == 0:
                 st = solver.stats()
                 dpg.set_value("sim_avg_temp", f"Avg Temp: {st['avg_temp']:.1f} °C")
+                dpg.set_value("sim_median_temp", f"Median: {st['median_temp']:.1f} °C")
                 dpg.set_value("sim_max_vel", f"Max Vel: {st['max_vel']:.2f} m/s")
                 logger.info(
-                    "Sim: step=%d AvgTemp=%.1f°C MaxVel=%.2fm/s FPS=%.0f",
-                    frame_count, st["avg_temp"], st["max_vel"], fps,
+                    "Sim: step=%d AvgTemp=%.1f°C MedianTemp=%.1f°C "
+                    "MaxVel=%.2fm/s FPS=%.0f",
+                    frame_count, st["avg_temp"], st["median_temp"],
+                    st["max_vel"], fps,
                 )
 
         renderer.tick()

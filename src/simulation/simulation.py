@@ -440,6 +440,10 @@ class Solver(BaseSolver):
 
     # -- utilities -----------------------------------------------------------
 
+    def median_temp(self) -> float:
+        """Return median room temperature in °C."""
+        return float(self._temp.median())
+
     def stats(self) -> dict[str, float]:
         """Return summary statistics (for logging / debug overlay)."""
         v_mag = torch.sqrt(
@@ -447,6 +451,7 @@ class Solver(BaseSolver):
         )
         return {
             "avg_temp": float(self._temp.mean()),
+            "median_temp": self.median_temp(),
             "max_vel": float(v_mag.max()),
             "avg_vel": float(v_mag.mean()),
         }
