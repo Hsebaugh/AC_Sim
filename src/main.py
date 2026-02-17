@@ -33,20 +33,20 @@ def main():
 
     # -- DPG init ------------------------------------------------------------
     dpg.create_context()
-    # === GLOBAL HANDLER REGISTRY FOR RENDERING (created once, very early) ===
-    with dpg.handler_registry(tag="global_render_handlers"):
-        dpg.add_mouse_drag_handler(
-            button=dpg.mvMouseButton_Left,
-            threshold=0.0,
-            callback=None,           # will be set later
-        )
-        dpg.add_mouse_drag_handler(
-            button=dpg.mvMouseButton_Right,
-            threshold=0.0,
-            callback=None,
-        )
-        dpg.add_mouse_wheel_handler(callback=None)
-        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=None)
+
+    # -- Create ALL objects FIRST (critical order) ---------------------------
+    settings = Settings(
+        temp_indoor=config["temperature"]["indoor"],
+        temp_outdoor=config["temperature"]["outdoor"],
+        units=units,
+    )
+
+    editor = RoomEditor(units=units)
+    conditions = ConditionsPanel(settings=settings)
+    renderer = AirflowRenderer(settings=settings, config=config)
+
+
+
     dpg.create_viewport(
         title="AC Sim",
         width=1400,
@@ -66,17 +66,6 @@ def main():
             # ==================== TAB 2: Simulation (Default) ====================
             with dpg.tab(label="Simulation", tag="tab_sim"):
                 pass  # will be filled after objects are created
-
-    # -- Instantiate UI and Simulation components ----------------------------
-    settings = Settings(
-        temp_indoor=config["temperature"]["indoor"],
-        temp_outdoor=config["temperature"]["outdoor"],
-        units=units,
-    )
-
-    editor = RoomEditor(units=units)
-    conditions = ConditionsPanel(settings=settings)
-    renderer = AirflowRenderer(settings=settings, config=config)
 
     # -- Populate Tab 1 ------------------------------------------------------
     editor.build(parent="design_row")
