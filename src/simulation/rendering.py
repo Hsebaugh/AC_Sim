@@ -391,6 +391,11 @@ class AirflowRenderer:
                 u, v = elem.pos
                 su, sv = elem.size
 
+                # === FIX: Swap u/v for west & east walls to match RoomEditor orientation ===
+                if face in ("west", "east"):
+                    u, v = v, u          # swap coordinates
+                    su, sv = sv, su      # swap sizes
+
                 quad = []
                 for cu, cv in [
                     (u, v), (u + su, v), (u + su, v + sv), (u, v + sv),
@@ -515,49 +520,22 @@ class AirflowRenderer:
         # === CRITICAL: Refresh real pixel size every frame ===
         self._update_size()
 
-        # === DIAGNOSTIC LOGS ===
-        logger.debug("Render: render() called - frame=%d, dirty=%s, size=%dx%d",
-                    self._frame, self._room_dirty, self._w, self._h)
-        # Clear layers
+        self._frame += 1
+
+        # Force dirty for first 30 frames (DPG layout settling)
+        if self._frame < 30:
+            self._room_dirty = True
+
+        # Nothing changed — keep previous frame on screen (no flicker)
+        if not self._room_dirty:
+            return
+
+        # --- From here we ARE redrawing. Clear layers, then fill them. ---
         for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
             if layer and dpg.does_item_exist(layer):
                 dpg.delete_item(layer, children_only=True)
 
-        # === NEON GREEN BACKGROUND FOR TESTING ===
-        # Remove or set to False once we confirm the canvas is drawing
-        if False:   # ← change to False when done testing
-            dpg.draw_rectangle(
-                (0, 0),
-                (self._w, self._h),
-                color=(0, 0, 0, 0),           # no outline
-                fill=(57, 255, 20, 255),      # bright neon green
-                parent=self._surface_layer,   # or self._room_layer
-            )
-            logger.debug("Render: Neon green background drawn (test)")
-
-        if self._w < 900 or self._h < 500:
-            logger.warning("Render: Using small fallback size %dx%d - drawing will be off-screen!", 
-                          self._w, self._h)
-        
-       
-
-        if self._frame < 30:
-            self._room_dirty = True
-
-        if not self._room_dirty:
-            return
-        
-        self._frame += 1
-
-        # Throttle rendering but always respond to camera changes
-        if self._frame % self._render_every != 0 and not self._room_dirty:
-            return
-
-        if self._room_dirty:
-            self._draw_room()
-
-        dpg.delete_item(self._arrow_layer, children_only=True)
-        dpg.delete_item(self._hud_layer, children_only=True)
+        self._draw_room()
 
         room = self._settings.room
         if room is None or solver is None:
