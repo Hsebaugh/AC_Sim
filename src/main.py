@@ -34,7 +34,29 @@ def main():
     # -- DPG init ------------------------------------------------------------
     dpg.create_context()
 
-    # -- Create ALL objects FIRST (critical order) ---------------------------
+    # === CREATE HANDLER REGISTRY VERY EARLY (critical) ===
+    with dpg.handler_registry(tag="global_mouse_handlers"):
+        dpg.add_mouse_drag_handler(
+            button=dpg.mvMouseButton_Left,
+            threshold=0.0,
+            callback=None,          # dummy for now
+        )
+        dpg.add_mouse_drag_handler(
+            button=dpg.mvMouseButton_Right,
+            threshold=0.0,
+            callback=None,
+        )
+        dpg.add_mouse_wheel_handler(callback=None)
+        dpg.add_key_press_handler(key=dpg.mvKey_R, callback=None)
+
+    dpg.create_viewport(
+        title="AC Sim",
+        width=1400,
+        height=1100,
+        resizable=True,
+    )
+
+    # -- Create objects ------------------------------------------------------
     settings = Settings(
         temp_indoor=config["temperature"]["indoor"],
         temp_outdoor=config["temperature"]["outdoor"],
@@ -45,28 +67,21 @@ def main():
     conditions = ConditionsPanel(settings=settings)
     renderer = AirflowRenderer(settings=settings, config=config)
 
-
-
-    dpg.create_viewport(
-        title="AC Sim",
-        width=1400,
-        height=1100,
-        resizable=True,
-    )
+    # Now set the real callbacks on the registry
+    dpg.set_item_callback("global_mouse_handlers", renderer._on_drag, slot=0)   # Left drag
+    dpg.set_item_callback("global_mouse_handlers", renderer._on_drag, slot=1)   # Right drag
+    dpg.set_item_callback("global_mouse_handlers", renderer._on_scroll, slot=2) # Wheel
+    dpg.set_item_callback("global_mouse_handlers", renderer._on_key_r, slot=3)  # R key
 
     # -- Create tabbed layout ------------------------------------------------
     with dpg.window(tag="primary", no_scrollbar=True, no_title_bar=False):
         with dpg.tab_bar(tag="main_tabs"):
-
-            # ==================== TAB 1: Room Design & Conditions ====================
             with dpg.tab(label="Room Design & Conditions", tag="tab_design"):
                 with dpg.group(horizontal=True, tag="design_row"):
-                    pass  # will be filled after objects are created
+                    pass
 
-            # ==================== TAB 2: Simulation (Default) ====================
             with dpg.tab(label="Simulation", tag="tab_sim"):
-                pass  # will be filled after objects are created
-
+                pass
     # -- Populate Tab 1 ------------------------------------------------------
     editor.build(parent="design_row")
     conditions.build(parent="design_row")
