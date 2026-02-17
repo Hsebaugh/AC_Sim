@@ -174,17 +174,25 @@ def main():
         settings.room = editor.room
         conditions.refresh()
         renderer.invalidate_room()
-
+    logger.info('Start: Sync Units')
     editor.on_units_changed = sync_units
+    logger.info('Start Sync_room')
     editor.on_room_changed = sync_room
 
+    logger.info('Start Final Setup')
     # -- Final setup ---------------------------------------------------------
+    logger.info('Start setup_derapygui()')
     dpg.setup_dearpygui()
+    logger.info('Start show_viewport()')
     dpg.show_viewport()
+    logger.info('Start set_primary_window')
     dpg.set_primary_window("primary", True)
 
     # Default to Simulation tab
     dpg.set_value("main_tabs", "tab_sim")
+    # This resolves the canvas size so drawing appears in the full view area
+    logger.info('Start Force Initial Layout')
+    renderer.force_initial_layout()
 
     logger.info("AC Sim ready - Tabbed layout active (default: Simulation)")
 
@@ -195,6 +203,12 @@ def main():
         now = time.perf_counter()
         dt = now - last_time
         last_time = now
+
+        if frame_count < 30:                  # safe here — UI is already visible
+            renderer._update_size()
+            if renderer._size_valid:
+                logger.info("Renderer: Canvas size resolved to %dx%d → full simulation view active",
+                           renderer._w, renderer._h)
 
         if sim_running and solver is not None:
             solver.step(frame_dt)

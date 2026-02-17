@@ -118,6 +118,7 @@ class AirflowRenderer:
         self._cam_y_target = 0.0
         self._w = 700
         self._h = 380
+        self._size_valid = False  # New: Ttracks -when -1 autosize is resolved
 
         # DPG items
         self._vis_window = None
@@ -141,6 +142,7 @@ class AirflowRenderer:
             parent=parent,
             autosize_x=True,
             height=-1,
+            width=-1, 
             no_scrollbar=True,
             border=True,
         ) as self._vis_window:
@@ -162,7 +164,11 @@ class AirflowRenderer:
                 )
 
                 # ←←← Canvas must be created BEFORE we bind handlers
-            with dpg.drawlist(width=-1, height=-1, parent=self._vis_window) as self._canvas:
+            with dpg.drawlist(
+                width=-1, 
+                height=-1, 
+                parent=self._vis_window
+            ) as self._canvas:
                 self._surface_layer = dpg.add_draw_layer()
                 self._room_layer = dpg.add_draw_layer()
                 self._arrow_layer = dpg.add_draw_layer()
@@ -170,18 +176,20 @@ class AirflowRenderer:
 
             # === DIRECT CALLBACK BINDING (most reliable pattern) ===
             # Replaces the fragile bind_item_handler_registry
-            # dpg.set_item_callback("mouse_left_drag",  self._on_drag)
-            # dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same handler, button checked inside
-            # dpg.set_item_callback("mouse_wheel",      self._on_scroll)
-            # dpg.set_item_callback("key_r",            self._on_key_r)
+        dpg.set_item_callback("mouse_left_drag",  self._on_drag)
+        dpg.set_item_callback("mouse_right_drag", self._on_drag)   # same handler, button checked inside
+        dpg.set_item_callback("mouse_wheel",      self._on_scroll)
+        dpg.set_item_callback("key_r",            self._on_key_r)
 
-        self._room_dirty = True
-        logger.info("Renderer UI built (%dx%d) + handlers bound directly", RENDER_W, RENDER_H)
+        # === FORCE LAYOUT PASS (critical for -1 autosize in tabs) ===
 
-        # Cache initial size + log (debug-friendly)
-        self._update_size()
+        self._update_size()        # now captures the actual large canvas size
+
+
+        self._room_dirty = True    # ensure first frame draws
+
         logger.info("Renderer UI built (dynamic %dx%d - fills view window)", 
-                    self._w, self._h)
+                   self._w, self._h)
 
     # ====================== INPUT HANDLER BINDING ======================
     def bind_input_handlers(self):
@@ -234,12 +242,15 @@ class AirflowRenderer:
     # ====================== CAMERA & DRAWING ======================
 
     def _update_size(self) -> None:
-        """Cache current canvas size (cheap + handles resize)."""
+        """Safe size capture for width=-1 / height=-1 autosize.
+        Only updates when DPG has finalized the layout."""
         if dpg.does_item_exist(self._canvas):
-            self._w = dpg.get_item_width(self._canvas)
-            self._h = dpg.get_item_height(self._canvas)
-        else:
-            self._w, self._h = 700, 380
+            w = dpg.get_item_width(self._canvas)
+            h = dpg.get_item_height(self._canvas)
+            if w > 800 and h > 400:                     # valid size
+                self._w, self._h = w, h
+                self._size_valid = True
+                logger.debug(f"Renderer: Canvas size finalized {w}x{h}")
 
     def _cam_scale(self) -> float:
         """Dynamic scale based on current canvas dimensions."""
@@ -504,6 +515,23 @@ class AirflowRenderer:
 
     def render(self, solver: Any) -> None:
         """Sample solver fields and draw velocity arrows + surface temps."""
+        # === CRITICAL: Refresh real pixel size every frame ===
+        # === Resolve real canvas size (safe, called every frame until valid) ===
+        if not self._size_valid:
+            self._update_size()
+            if self._size_valid:
+                self._room_dirty = True
+                logger.info("Renderer: Real canvas size resolved (%dx%d) - drawing now visible", 
+                           self._w, self._h)
+        
+        # === Clear all draw layers (prevents accumulation / blanking) ===
+        for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
+            if layer and dpg.does_item_exist(layer):
+                dpg.delete_item(layer, children_only=True)
+
+        if not self._room_dirty:
+            return
+        
         self._frame += 1
 
         # Throttle rendering but always respond to camera changes
@@ -659,14 +687,14 @@ class AirflowRenderer:
             parent=self._hud_layer,
         )
         dpg.draw_text(
-            (8, RENDER_H - 18),
+            (8, self._h - 18),
             "LMB: pan | RMB: orbit | Scroll: zoom | R: reset view",
             color=(120, 120, 130, 160), size=10,
             parent=self._hud_layer,
         )
 
     def _draw_colorbar(self, t_lo: float, t_hi: float) -> None:
-        x0, y0, bh, bw = RENDER_W - 30, 30, 100, 12
+        x0, y0, bh, bw = self._w - 30, 30, 100, 12
         steps = 16
         step_h = bh / steps + 1
 
@@ -808,6 +836,15 @@ class AirflowRenderer:
 
     def _on_key_r(self, sender: Any = None, app_data: Any = None) -> None:
         self.reset_camera()
+
+    def force_initial_layout(self) -> None:
+        """Force DPG to finalize -1 autosize layout after viewport is shown.
+        Call once from main.py after show_viewport()."""
+        # dpg.split_frame()                     # safe here (UI is visible)
+        self._update_size()
+        self._room_dirty = True
+        logger.info("Renderer: Forced layout pass - canvas size now %dx%d", 
+                   self._w, self._h)
 
     def _on_arrow_scale(
         self, sender: Any = None, app_data: Any = None,
