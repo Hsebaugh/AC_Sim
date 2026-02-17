@@ -47,6 +47,27 @@ ELEM_COLORS = {
 _DEFAULT_YAW = math.pi / 6
 _DEFAULT_PITCH = math.radians(35)
 _DEFAULT_ZOOM = 1.0
+# Wall element placement: (origin_coeff, u_basis, v_basis)
+# Matches the 2D → 3D transform used in _draw_wall_elements and surface faces
+_FACE_XFORMS = {
+    "south": ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)),
+    "north": ((0.0, 1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)),
+    "west":  ((0.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)),
+    "east":  ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)),
+}
+
+# Inward-pointing unit normals (for back-face culling in _draw_surface_temps)
+_INNER_NORMALS = {
+    "floor":   ( 0.0,  0.0,  1.0),
+    "ceiling": ( 0.0,  0.0, -1.0),
+    "south":   ( 0.0,  1.0,  0.0),
+    "north":   ( 0.0, -1.0,  0.0),
+    "west":    ( 1.0,  0.0,  0.0),
+    "east":    (-1.0,  0.0,  0.0),
+}
+
+# Camera smoothing (used in tick() / render loop for buttery-smooth drag & reset)
+_SMOOTH_FACTOR = 0.22   # 0.15–0.30 range is ideal for 3D sim UIs (feels responsive but polished)
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -88,6 +109,13 @@ class AirflowRenderer:
         self._zoom = _DEFAULT_ZOOM
         self._cam_x = 0.0
         self._cam_y = 0.0
+
+        # Smooth camera targets (for buttery lerp)
+        self._yaw_target = _DEFAULT_YAW
+        self._pitch_target = _DEFAULT_PITCH
+        self._zoom_target = _DEFAULT_ZOOM
+        self._cam_x_target = 0.0
+        self._cam_y_target = 0.0
 
         # DPG items
         self._vis_window = None
@@ -171,15 +199,14 @@ class AirflowRenderer:
         dx = app_data[1]
         dy = app_data[2]
 
-        if button == dpg.mvMouseButton_Right:   # RMB = Orbit
-            self._yaw += dx * 0.015
-            self._pitch = max(0.1, min(1.45, self._pitch - dy * 0.015))
-        elif button == dpg.mvMouseButton_Left:  # LMB = Pan
-            self._cam_x += dx * 0.65
-            self._cam_y -= dy * 0.65
+        if button == dpg.mvMouseButton_Right:   # Orbit
+            self._yaw_target += dx * 0.015
+            self._pitch_target = max(0.1, min(1.45, self._pitch_target - dy * 0.015))
+        elif button == dpg.mvMouseButton_Left:  # Pan
+            self._cam_x_target += dx * 0.65
+            self._cam_y_target -= dy * 0.65
 
         self._room_dirty = True
-
     def _on_scroll(self, sender, app_data):
         """Scroll = Zoom"""
         if not dpg.is_item_hovered(self._canvas):
@@ -253,6 +280,13 @@ class AirflowRenderer:
 
         cp, sp = math.cos(self._pitch), math.sin(self._pitch)
         return ry * cp - dz * sp
+    
+    def _view_direction(self) -> tuple[float, float, float]:
+        """World-space view direction vector for back-face culling."""
+        cy, sy = math.cos(self._yaw), math.sin(self._yaw)
+        cp, sp = math.cos(self._pitch), math.sin(self._pitch)
+        # Consistent with your projection math
+        return (-sy * cp, -cy * cp, -sp)
     # -- room wireframe ------------------------------------------------------
 
     def _draw_room(self) -> None:
@@ -636,25 +670,18 @@ class AirflowRenderer:
         self._room_dirty = True
         logger.debug("Render: Camera reset")
 
-    def tick(self) -> None:
-        """Interpolate camera values toward targets (call every frame).
+    def tick(self):
+        """Apply smooth camera interpolation every frame."""
+        sf = _SMOOTH_FACTOR
+        self._yaw   = self._yaw   * (1 - sf) + self._yaw_target   * sf
+        self._pitch = self._pitch * (1 - sf) + self._pitch_target * sf
+        self._zoom  = self._zoom  * (1 - sf) + self._zoom_target  * sf
+        self._cam_x = self._cam_x * (1 - sf) + self._cam_x_target * sf
+        self._cam_y = self._cam_y * (1 - sf) + self._cam_y_target * sf
 
-        Provides light damping / momentum feel on both trackpad and mouse.
-        """
-        moved = False
-        for attr in ("_yaw", "_pitch", "_zoom", "_pan_x", "_pan_y"):
-            cur = getattr(self, attr)
-            tgt = getattr(self, attr + "_target")
-            diff = tgt - cur
-            if abs(diff) > 1e-4:
-                setattr(self, attr, cur + diff * _SMOOTH_FACTOR)
-                moved = True
-            elif diff != 0.0:
-                setattr(self, attr, tgt)
-                moved = True
-        if moved:
+        # Mark dirty only when actually moving (optimization)
+        if abs(self._yaw - self._yaw_target) > 1e-5 or abs(self._cam_x - self._cam_x_target) > 1e-4:
             self._room_dirty = True
-
     # -- camera callbacks ----------------------------------------------------
     def _on_lclick(self, sender, app_data):
         if dpg.is_item_hovered(self._canvas):
