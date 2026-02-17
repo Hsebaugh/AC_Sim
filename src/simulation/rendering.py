@@ -174,6 +174,8 @@ class AirflowRenderer:
                 self._arrow_layer = dpg.add_draw_layer()
                 self._hud_layer = dpg.add_draw_layer()
 
+                self._update_size()
+
         # Initial size attempt
         self._update_size()
         self._room_dirty = True
@@ -233,30 +235,15 @@ class AirflowRenderer:
     # ====================== CAMERA & DRAWING ======================
 
     def _update_size(self) -> None:
-        """Get real pixel size from DPG.
-        Handles the common case where autosize=-1 returns -1 until drawn."""
-        if not dpg.does_item_exist(self._canvas):
-            return
-
-        w = dpg.get_item_width(self._canvas)
-        h = dpg.get_item_height(self._canvas)
-
-        # DPG returns -1 for width=-1 / height=-1 until the item has been rendered at least once
-        if w <= 0 or h <= 0:
-            # Safe fallback based on current viewport (very reliable in practice)
-            w = max(800, dpg.get_viewport_client_width() - 60)
-            h = max(500, dpg.get_viewport_client_height() - 240)  # subtract tabs + controls
-            logger.debug("Renderer: DPG returned -1 → using viewport fallback %dx%d", w, h)
-
-        # Update only if changed
-        if w != self._w or h != self._h:
-            self._w, self._h = w, h
-            self._room_dirty = True
-            
-            if w > 900 and h > 500:
-                logger.info("Renderer: *** FULL VIEW CANVAS READY *** %dx%d", w, h)
-            else:
-                logger.info("Renderer: Canvas size updated to %dx%d", w, h)
+        """Always get real pixel size. DPG often returns -1 until the frame is drawn."""
+        if dpg.does_item_exist(self._canvas):
+            w = dpg.get_item_width(self._canvas)
+            h = dpg.get_item_height(self._canvas)
+            if w > 0 and h > 0:
+                if w != self._w or h != self._h:
+                    self._w, self._h = w, h
+                    self._room_dirty = True
+                    logger.info("Renderer: Canvas size updated to %dx%d", w, h)
 
     def _cam_scale(self) -> float:
         """Dynamic scale based on current canvas dimensions."""
@@ -526,22 +513,34 @@ class AirflowRenderer:
         """Sample solver fields and draw velocity arrows + surface temps."""
         # === CRITICAL: Refresh real pixel size every frame ===
         self._update_size()
+
+        # === NEON GREEN BACKGROUND FOR TESTING ===
+        # Remove or set to False once we confirm the canvas is drawing
+        if True:   # ← change to False when done testing
+            dpg.draw_rectangle(
+                (0, 0),
+                (self._w, self._h),
+                color=(0, 0, 0, 0),           # no outline
+                fill=(57, 255, 20, 255),      # bright neon green
+                parent=self._surface_layer,   # or self._room_layer
+            )
+            logger.debug("Render: Neon green background drawn (test)")
         # === DIAGNOSTIC LOGS ===
         logger.debug("Render: render() called - frame=%d, dirty=%s, size=%dx%d", 
                     self._frame, self._room_dirty, self._w, self._h)
         # Force size resolution every frame until it succeeds (minimal overhead)
-
+        # Clear layers
+        for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
+            if layer and dpg.does_item_exist(layer):
+                dpg.delete_item(layer, children_only=True)
 
         if self._w < 900 or self._h < 500:
             logger.warning("Render: Using small fallback size %dx%d - drawing will be off-screen!", 
                           self._w, self._h)
         
-        # === Clear all draw layers (prevents accumulation / blanking) ===
-        for layer in (self._surface_layer, self._room_layer, self._arrow_layer, self._hud_layer):
-            if layer and dpg.does_item_exist(layer):
-                dpg.delete_item(layer, children_only=True)
+       
 
-        if self._frame < 15:
+        if self._frame < 30:
             self._room_dirty = True
 
         if not self._room_dirty:
